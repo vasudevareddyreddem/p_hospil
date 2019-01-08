@@ -1,0 +1,38 @@
+.container-main{
+	margin: 30px;
+	padding:10px 30px;
+}
+.navbar.scrolling-navbar .navbar-nav>li {
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    padding: 0px 10px;
+}
+.read-m{
+	font-size:14px;
+	font-style: italic;
+}
+.bacimgl{
+	 /* IE10+ */ 
+background-image: -ms-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #3F51B5 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #3F51B5 100%);
+
+/* Opera */ 
+background-image: -o-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #3F51B5 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(radial, center center, 0, center center, 286, color-stop(0, #FFFFFF), color-stop(100, #3F51B5));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #3F51B5 100%);
+
+/* W3C Markup */ 
+background-image: radial-gradient(ellipse farthest-corner at center, #FFFFFF 0%, #3F51B5 100%);
+}
+@media only screen and (max-width: 767px) {
+	.container-main{
+	margin: 5px;
+	padding:10px ;
+}
+}
