@@ -15,6 +15,8 @@
     <script src="<?php echo base_url(); ?>assets/vendor/plugins/datatables/jquery.dataTables.min.js" ></script>
  	<script src="<?php echo base_url(); ?>assets/vendor/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js" ></script>
     <script src="<?php echo base_url(); ?>assets/vendor/plugins/table_data.js" ></script>
+				<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+				<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
     <!-- Common js-->
     <script src="<?php echo base_url(); ?>assets/vendor/plugins/counterup/jquery.waypoints.min.js" ></script>
     <script src="<?php echo base_url(); ?>assets/vendor/plugins/counterup/jquery.counterup.min.js" ></script>

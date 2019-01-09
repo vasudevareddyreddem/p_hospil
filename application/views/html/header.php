@@ -24,7 +24,8 @@
     <!-- Include SmartWizard CSS -->
     <link href="<?php echo base_url(); ?>assets/vendor/plugins/wizard/css/smart_wizard.css" rel="stylesheet" type="text/css" />
     <!-- Material Design Lite CSS -->
-	 <link href="<?php echo base_url(); ?>assets/vendor/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+	<link href="<?php echo base_url(); ?>assets/vendor/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+	 
 	 <link href="<?php echo base_url(); ?>assets/vendor/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	<link rel="<?php echo base_url(); ?>assets/vendor/stylesheet" href="plugins/material/material.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/material_style.css">
