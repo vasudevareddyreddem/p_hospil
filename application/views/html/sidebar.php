@@ -256,7 +256,7 @@
 	                            </a>
 	                        </li>
 							<li class="nav-item">
-								  <a  href="" class="nav-link "> <i class="material-icons">announcement</i>
+								  <a  href="<?php echo base_url('hospital/reports'); ?>" class="nav-link "> <i class="material-icons">announcement</i>
 	                                <span class="title">Report</span> 
 	                            </a>
 							</li>
