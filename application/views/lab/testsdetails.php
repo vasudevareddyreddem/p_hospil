@@ -61,11 +61,7 @@
                             </form>
                             <form action="<?php echo base_url('lab/addtest'); ?>" method="post" id="addtreatment" name="addtreatment" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <label> Test Type</label>
-                                        <input class="form-control" id="test_type" name="test_type" value="" type="text" placeholder="Test Type">
-                                    </div>
-                                    <div class="col-md-6">
+								<div class="col-md-6">
                                         <label>Type</label>
                                         <select class="form-control" onchange="get_labtype(this.value);" name="type" id="type">
                                             <option value="">Select</option>
@@ -73,6 +69,11 @@
                                             <option value="Radiology">Radiology</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label> Test Type</label>
+                                        <input class="form-control" id="test_type" name="test_type" value="" type="text" placeholder="Test Type">
+                                    </div>
+                                    
                                     <div class="col-md-6">
                                         <label>Test Name</label>
                                         <input class="form-control" id="test_name" name="test_name" value="" type="text" placeholder="Test Name">

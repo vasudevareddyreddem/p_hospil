@@ -21,7 +21,7 @@
                                     <div class="tab-content">
                                        
 					
-                                            <div class="card card-topline-red">
+                                            <div class="">
 	
 	<div class="card-body table-responsive">
 	<?php if(isset($outsources_labtests) && count($outsources_labtests)>0){ ?>

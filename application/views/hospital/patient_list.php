@@ -27,7 +27,6 @@
                                         <thead>
                                             <tr>
 												<th>Patient Id</th>
-												<th>Patient Card Number</th>
 												<th>Name</th>
                                                 <th>Registration Type</th>
                                                 <th>Date & Time</th>
@@ -38,7 +37,6 @@
 										<?php foreach($patient_list as $list){ ?>
                                             <tr>
                                                 <td><?php echo htmlentities($list['pid']); ?></td>
-                                                <td><?php echo htmlentities($list['card_number']); ?></td>
                                                 <td><?php echo htmlentities($list['name']); ?></td>
                                                 <td><?php echo htmlentities($list['registrationtype']); ?></td>
                                                 <td><?php echo date('M j Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>

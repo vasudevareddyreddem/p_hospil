@@ -256,7 +256,7 @@
 	                            </a>
 	                        </li>
 							<li class="nav-item">
-								  <a  href="" class="nav-link "> <i class="material-icons">announcement</i>
+								  <a  href="<?php echo base_url('hospital/reports'); ?>" class="nav-link "> <i class="material-icons">announcement</i>
 	                                <span class="title">Report</span> 
 	                            </a>
 							</li>
@@ -491,14 +491,14 @@
                                 	<span class="arrow "></span>
 	                            </a>
 	                        </li>
-							<li class="nav-item start <?php if($this->uri->segment(2)=='worksheet'){ echo "active";} ?>">
+							<!--<li class="nav-item start <?php if($this->uri->segment(2)=='worksheet'){ echo "active";} ?>">
 	                            <a href="<?php echo base_url('resources/worksheet');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">assignment</i>
 	                                <span class="title">Appointments</span>
 	                                <span class="selected"></span>
                                 	<span class="arrow "></span>
 	                            </a>
-	                        </li>
+	                        </li>-->
 							<li class="nav-item start <?php if($this->uri->segment(2)=='referrals'){ echo "active";} ?>">
 	                            <a href="<?php echo base_url('resources/referrals');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">border_all</i>

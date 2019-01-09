@@ -21,7 +21,7 @@
                                     <div class="tab-content">
                                        
 					
-                                            <div class="card card-topline-red">
+                                            <div class="">
 	
 	<div class="card-body ">
 	<?php if(isset($report_list) && count($report_list)>0){ ?>
@@ -51,7 +51,7 @@
 					<td><?php echo date('M-j-Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>
 					<td>
 					<?php if($list['image'] !=''){ ?>
-						<a href="<?php echo base_url('assets/patient_reports/'.$list['image']); ?>" download>Download </a>
+						<a class="btn btn-primary btn-sm" href="<?php echo base_url('assets/patient_reports/'.$list['image']); ?>" download>Download </a>
 					<?php }else{  ?>
 					
 					<?php } ?>

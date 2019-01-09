@@ -416,9 +416,7 @@
 </div>
 </div>
 								 		<div class="row">
-									   <div id="education_fields">
-          
-										</div>
+									
 										
 										<div class="col-sm-3 nopadding">
 										 <label> Select Medicine</label>
@@ -490,7 +488,7 @@
 										
 										</div>
 										<div class="row">
-										 <div id="education_fields">
+										   <div id="education_fields">
           
 										</div>
 										</div>
@@ -578,7 +576,87 @@
                         </form>
                      </div>
                      <div class="tab-pane" id="about">
-					 <form id="addinvestigation" name="addinvestigation" onsubmit="return check_lab_test();" action="<?php echo base_url('resources/investigation'); ?>" method="post">
+					 <div class="container">
+					
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<table class="table table-bordered table-hover" id="tab_logic">
+				<thead>
+					<tr>
+						
+						<th class="text-center">
+							Type
+						</th>
+						<th class="text-center">
+							Test Type
+						</th>
+						<th class="text-center">
+							TestName
+						</th>
+						<th class="text-center">
+							Frequency
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id='addr0'>
+						
+						<td>
+							<select class="form-control " name="frequency" id="frequency">
+								   <option value="" >Select</option>
+								   <option>Lab</option>
+								   <option>Radiology</option>
+								</select>
+							
+						</td>
+						<td>
+						   <select  style="width:100%" class="form-control select2" name="frequency" id="frequency">
+							   <option value="" >Select</option>
+							   <option value="Once in morning">Once in morning</option>
+							   <option value="Once in afternoon">Once in afternoon</option>
+							   <option value="Once in night">Once in night</option>
+							   <option value="Twice in a day">Twice in a day</option>
+							   <option value="Thrice in a day">Thrice in a day</option>
+							   
+							</select>
+							
+						</td>
+						<td>
+							<select class="form-control select2" style="width:100%">
+							   <option value="" >Select</option>
+							   <option value="Once in morning">Once in morning</option>
+							   <option value="Once in afternoon">Once in afternoon</option>
+							   <option value="Once in night">Once in night</option>
+							   <option value="Twice in a day">Twice in a day</option>
+							   <option value="Thrice in a day">Thrice in a day</option>
+							   
+							</select>
+						</td>
+						<td>
+						<select class="form-control " name="frequency" id="frequency">
+								   <option value="" >Select</option>
+								   <option>6 Hours</option>
+								   <option>12 Hours</option>
+								   <option>24 Hours</option>
+								   <option>48 Hours</option>
+								</select>
+						</td>
+					</tr>
+                    <tr id='addr1'></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row' class="pull-right btn btn-default">Delete Row</button>
+	<div class=" clearfix">&nbsp;</div>
+	<div class=" clearfix">&nbsp;</div>
+	<div class="row clearfix pull-right">
+		<button class="btn btn-default">Back</button>
+		<button class="btn btn-primary">Submit</button>
+	</div>
+	
+</div>
+					 <!--<form id="addinvestigation" name="addinvestigation" onsubmit="return check_lab_test();" action="<?php echo base_url('resources/investigation'); ?>" method="post">
                          <input type="hidden" name="pid" id="pid" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
 							<input type="hidden" name="bid" id="bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
 
@@ -620,7 +698,7 @@
                                  <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#investigationmodel"  type="button">View Investigation</a>
                                  <?php } ?>
                         </div>
-						</form>
+						</form>-->
                      </div>
                   </div>
                </div>
@@ -1129,6 +1207,23 @@
 
 <!-- patient_lab_test_list_model-->
     <script type="text/javascript">
+	$(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){b=i-1;
+      $('#addr'+i).html($('#addr'+b).html()).find('td:first-child');
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+
+});
+    </script>
+    <script type="text/javascript">
 	function form_submittion(){
 	 
 	 if($('#medicinename').val()!=''){
@@ -1145,7 +1240,7 @@ function education_fields() {
 	var rdiv = 'removeclass'+room;
     divtest.innerHTML = '<div class="row" style="margin:0px"><div class="col-sm-3 nopadding"><div class="form-group"><select style="width:100%;height:40px;" class="form-control" id="medicinename" onchange="get_medicin_amount_list(this.value,'+room+')" name="addmedicn['+room+'][medicine]"><option value="">Select</option><?php foreach($medicine_list as $list){ ?> <option value="<?php echo $list['id']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option><?php } ?></select></div></div>	<div class="col-sm-1 nopadding"><div class="form-group"><input type="text" class="form-control" id="qty"  name="addmedicn['+room+'][qty]" value="" placeholder="Qty"></div></div>	<div class="col-sm-3 nopadding"><div class="row"><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Mrng </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Afnoon </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Night </label> </div> </div></div>	<div class="col-sm-2 nopadding"><select class="form-control" name="food" id="food"> <option value="" >Select</option> <option value="Before">Before</option> <option value="After">After</option> </select></div>	<div class="col-sm-2 nopadding"><div class="form-group"><input type="text" class="form-control" id="amount'+room+'"  name="addmedicn['+room+'][amount]"  value="" placeholder="No of days"></div></div><div class="col-sm-1 nopadding"><div class="input-group-btn"><button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button>  </div></div></div>';
     
-    objTo.appendChild(divtest)
+    objTo.append(divtest);
 }
    function remove_education_fields(rid) {
 	   $('.removeclass'+rid).remove();
