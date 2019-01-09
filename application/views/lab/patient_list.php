@@ -21,14 +21,14 @@
                                     <div class="tab-content">
                                        
 					
-                                            <div class="card card-topline-red">
+                                            <div class="">
 	
 	<div class="card-body table-responsive ">
 	<?php if(isset($labtest_list) && count($labtest_list)>0){ ?>
 		<table class="table table-striped table-bordered table-hover" id="example4">
 			<thead>
 				<tr>
-					<th> Patient Card Number </th>
+				
 					<th> Patient Id </th>
 					<th> Billing Id </th>
 					<th> Name </th>
@@ -44,7 +44,7 @@
 			<?php foreach($labtest_list as $list){ ?>
 				<tr class="odd gradeX">
 					
-					<td> <?php echo $list['card_number']; ?> </td>
+
 					<td> <?php echo $list['pid']; ?> </td>
 					<td> <?php echo $list['b_id']; ?> </td>
 					<td><?php echo $list['name']; ?></td>

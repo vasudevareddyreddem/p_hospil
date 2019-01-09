@@ -21,7 +21,7 @@
                                     <div class="tab-content">
                                        
 					
-                                            <div class="card card-topline-red">
+                                            <div class="">
 	
 	<div class="card-body table-responsive">
 	<?php if(isset($bidding_test_list) && count($bidding_test_list)>0){ ?>
@@ -50,9 +50,9 @@
 
 					<td>
 					<?php if($list['status']!=4){ ?>
-					<button type="submit">Accept | </button>
+					<button class="btn btn-success btn-sm" type="submit">Accept</button>
 					</form>
-					<a href="<?php echo base_url('lab/bidding_decline/'.base64_encode($list['id'])); ?>">Decline 
+					<a class="btn btn-danger btn-sm" href="<?php echo base_url('lab/bidding_decline/'.base64_encode($list['id'])); ?>">Decline 
 					<?php } ?>
 					</td>
 					

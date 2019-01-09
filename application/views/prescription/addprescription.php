@@ -121,7 +121,7 @@
                                         <thead>
                                             <tr>
 												<th>Patient Id</th>
-												<th>Patient Card Number </th>
+												
 												<th>Name</th>
 												<th>Mobile</th>
                                                 <th>Action</th>
@@ -131,10 +131,9 @@
 										<?php foreach($prescriptions_list as $list){ ?>
                                             <tr>
                                                 <td><?php echo htmlentities($list['pid']); ?></td>
-                                                <td><?php echo htmlentities($list['card_number']); ?></td>
                                                 <td><?php echo htmlentities($list['name']); ?></td>
                                                 <td><?php echo htmlentities($list['mobile_number']); ?></td>
-                                                <td><a href="<?php echo base_url('users/view_manualprescription/'.base64_encode($list['id']).'/'.base64_encode($list['b_id'])); ?>">View</a>
+                                                <td class="text-center"><a class="btn btn-primary btn-sm text-center" href="<?php echo base_url('users/view_manualprescription/'.base64_encode($list['id']).'/'.base64_encode($list['b_id'])); ?>">View</a>
                                                  </td>
 												
                                             </tr>
