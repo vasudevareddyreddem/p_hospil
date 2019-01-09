@@ -15,7 +15,14 @@
    min-height:300px;
    margin-top:50px;
    }
-  
+  .sw-toolbar-top .sw-btn-group-extra{
+	  display:none;
+  }
+  .sw-toolbar-top .sw-btn-prev{
+	  display:none;
+  }.sw-toolbar-top .sw-btn-next{
+	  display:none;
+  }
 </style>
 
 
@@ -93,7 +100,7 @@
       <ul>
          <li><a href="#step-1" >Diagnosis<br /><small>This is step description</small></a></li>
          <li><a href="#step-2">Medication/Investigation<br /><small>This is step description</small></a></li>
-         <li><a href="#step-3">Assign<br /><small>This is step description</small></a></li>
+         <!--<li><a href="#step-3">Assign<br /><small>This is step description</small></a></li>-->
       </ul>
       <div>
          <div id="step-1" class="">
@@ -175,7 +182,7 @@
                <div class="container">
 			    <form id="vitalscomment" name="vitalscomment" role="form" action="<?php echo base_url('resources/vitalscomment'); ?>" method="post" autocomplete="off">
                   <div class="form-group" id="fields">
-                     <label class="control-label" for="field1"><strong>Comments</strong></label>
+                     <label class="control-label" for="field1"><strong>Cases</strong></label>
                      <div class="controls">
                         <form id="vitalscomment" name="vitalscomment" role="form" action="<?php echo base_url('resources/vitalscomment'); ?>" method="post" autocomplete="off">
                            <input type="hidden" name="bid" id="bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
@@ -222,7 +229,275 @@
                            <div class="row">
                               <div class="col-md-12 ">
                                  <div class="container">
-                                    <div class="row">
+								 <div class="row">
+<div class="col-sm-3 nopadding">
+ <label> Select Medicine</label>
+  <div class="form-group">
+  
+ <select class="form-control  select2" id="medicine_name"  name="medicine_name">
+	 <option value="">Select</option>
+	 <?php foreach($medicine_list as $list){ ?>
+	 <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
+	 <?php } ?>
+  </select>
+  </div>
+</div>
+
+
+<div class="col-sm-1 nopadding">
+ <label> Qty</label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="qty"  name="addmedicn[0][qty]" value="" placeholder="Qty">
+  </div>
+</div>
+
+<div class="col-sm-3 nopadding">
+ <label> Frequency</label>
+<div class="row">
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+			   Mrng
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Afnoon
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Night
+			</label>
+		</div>
+		</div>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Food </label>
+		<select class="form-control" name="food" id="food">
+		   <option value="" >Select</option>
+		   <option value="Before">Before</option>
+		   <option value="After">After</option>
+		</select>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Days </label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="amount0"  name="addmedicn[0][amount]"  value="" placeholder="No of Days">
+  </div>
+</div>
+</div>
+								 <div class="row">
+<div class="col-sm-3 nopadding">
+ <label> Select Medicine</label>
+  <div class="form-group">
+  
+ <select class="form-control  select2" id="medicine_name"  name="medicine_name">
+	 <option value="">Select</option>
+	 <?php foreach($medicine_list as $list){ ?>
+	 <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
+	 <?php } ?>
+  </select>
+  </div>
+</div>
+
+
+<div class="col-sm-1 nopadding">
+ <label> Qty</label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="qty"  name="addmedicn[0][qty]" value="" placeholder="Qty">
+  </div>
+</div>
+
+<div class="col-sm-3 nopadding">
+ <label> Frequency</label>
+<div class="row">
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+			   Mrng
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Afnoon
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Night
+			</label>
+		</div>
+		</div>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Food </label>
+		<select class="form-control" name="food" id="food">
+		   <option value="" >Select</option>
+		   <option value="Before">Before</option>
+		   <option value="After">After</option>
+		</select>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Days </label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="amount0"  name="addmedicn[0][amount]"  value="" placeholder="No of Days">
+  </div>
+</div>
+</div>
+								 <div class="row">
+<div class="col-sm-3 nopadding">
+ <label> Select Medicine</label>
+  <div class="form-group">
+  
+ <select class="form-control  select2" id="medicine_name"  name="medicine_name">
+	 <option value="">Select</option>
+	 <?php foreach($medicine_list as $list){ ?>
+	 <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
+	 <?php } ?>
+  </select>
+  </div>
+</div>
+
+
+<div class="col-sm-1 nopadding">
+ <label> Qty</label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="qty"  name="addmedicn[0][qty]" value="" placeholder="Qty">
+  </div>
+</div>
+
+<div class="col-sm-3 nopadding">
+ <label> Frequency</label>
+<div class="row">
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+			   Mrng
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Afnoon
+			</label>
+		</div>
+		<div class="checkbox checkbox-black col-md-4">
+			<input id="checkboxbg1" type="checkbox" checked="checked">
+			<label for="checkboxbg1">
+				Night
+			</label>
+		</div>
+		</div>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Food </label>
+		<select class="form-control" name="food" id="food">
+		   <option value="" >Select</option>
+		   <option value="Before">Before</option>
+		   <option value="After">After</option>
+		</select>
+</div>
+
+<div class="col-sm-2 nopadding">
+ <label> Days </label>
+  <div class="form-group">
+	<input type="text" class="form-control" id="amount0"  name="addmedicn[0][amount]"  value="" placeholder="No of Days">
+  </div>
+</div>
+</div>
+								 		<div class="row">
+									   <div id="education_fields">
+          
+										</div>
+										
+										<div class="col-sm-3 nopadding">
+										 <label> Select Medicine</label>
+										  <div class="form-group">
+										  
+										 <select class="form-control  select2" id="medicine_name"  name="medicine_name">
+                                             <option value="">Select</option>
+                                             <?php foreach($medicine_list as $list){ ?>
+                                             <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
+                                             <?php } ?>
+                                          </select>
+										  </div>
+										</div>
+										
+										
+										<div class="col-sm-1 nopadding">
+										 <label> Qty</label>
+										  <div class="form-group">
+											<input type="text" class="form-control" id="qty"  name="addmedicn[0][qty]" value="" placeholder="Qty">
+										  </div>
+										</div>
+										
+										<div class="col-sm-3 nopadding">
+										 <label> Frequency</label>
+										<div class="row">
+												<div class="checkbox checkbox-black col-md-4">
+                                                    <input id="checkboxbg1" type="checkbox" checked="checked">
+                                                    <label for="checkboxbg1">
+                                                       Mrng
+                                                    </label>
+                                                </div>
+												<div class="checkbox checkbox-black col-md-4">
+                                                    <input id="checkboxbg1" type="checkbox" checked="checked">
+                                                    <label for="checkboxbg1">
+                                                        Afnoon
+                                                    </label>
+                                                </div>
+												<div class="checkbox checkbox-black col-md-4">
+                                                    <input id="checkboxbg1" type="checkbox" checked="checked">
+                                                    <label for="checkboxbg1">
+                                                        Night
+                                                    </label>
+                                                </div>
+                                                </div>
+										</div>
+										
+										<div class="col-sm-2 nopadding">
+										 <label> Food </label>
+                                                <select class="form-control" name="food" id="food">
+                                                   <option value="" >Select</option>
+                                                   <option value="Before">Before</option>
+                                                   <option value="After">After</option>
+                                                </select>
+										</div>
+										
+										<div class="col-sm-2 nopadding">
+										 <label> Days </label>
+										  <div class="form-group">
+											<input type="text" class="form-control" id="amount0"  name="addmedicn[0][amount]"  value="" placeholder="No of Days">
+										  </div>
+										</div>
+										
+										<div class="col-sm-1 nopadding">
+										 <label> &nbsp; </label>
+										  <div class="input-group-btn">
+											<button class="btn btn-success" type="button"  onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true">+</span> </button>
+										  </div>
+										</div>
+										
+										</div>
+										<div class="row">
+										 <div id="education_fields">
+          
+										</div>
+										</div>
+										
+										
+										
+                                   <!-- <div class="row">
                                       <?php //echo '<pre>';print_r($medicine_list);exit; ?>
                                        <div class="col-md-6">
                                           <label>Search for Medicine</label>
@@ -276,6 +551,16 @@
                                             </div>
 
                                        <div class="col-md-6">
+                                          <label> Directions</label>
+                                          <textarea type="textarea" name="directions" id="directions" class="form-control"  placeholder="Enter Directions" ></textarea>
+                                       </div>
+                                       
+                                    </div> -->
+									<div class="row"> 
+
+										
+
+                                       <div class="col-md-12">
                                           <label> Directions</label>
                                           <textarea type="textarea" name="directions" id="directions" class="form-control"  placeholder="Enter Directions" ></textarea>
                                        </div>
@@ -844,6 +1129,27 @@
 
 <!-- patient_lab_test_list_model-->
     <script type="text/javascript">
+	function form_submittion(){
+	 
+	 if($('#medicinename').val()!=''){
+	  document.getElementById("addpostprescription").submit(); 
+	 }
+ }
+var room = 1;
+function education_fields() {
+ 
+    room++;
+    var objTo = document.getElementById('education_fields')
+    var divtest = document.createElement("div");
+	divtest.setAttribute("class", "form-group removeclass"+room);
+	var rdiv = 'removeclass'+room;
+    divtest.innerHTML = '<div class="row" style="margin:0px"><div class="col-sm-3 nopadding"><div class="form-group"><select style="width:100%;height:40px;" class="form-control" id="medicinename" onchange="get_medicin_amount_list(this.value,'+room+')" name="addmedicn['+room+'][medicine]"><option value="">Select</option><?php foreach($medicine_list as $list){ ?> <option value="<?php echo $list['id']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option><?php } ?></select></div></div>	<div class="col-sm-1 nopadding"><div class="form-group"><input type="text" class="form-control" id="qty"  name="addmedicn['+room+'][qty]" value="" placeholder="Qty"></div></div>	<div class="col-sm-3 nopadding"><div class="row"><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Mrng </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Afnoon </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" checked="checked"> <label for="checkboxbg1"> Night </label> </div> </div></div>	<div class="col-sm-2 nopadding"><select class="form-control" name="food" id="food"> <option value="" >Select</option> <option value="Before">Before</option> <option value="After">After</option> </select></div>	<div class="col-sm-2 nopadding"><div class="form-group"><input type="text" class="form-control" id="amount'+room+'"  name="addmedicn['+room+'][amount]"  value="" placeholder="No of days"></div></div><div class="col-sm-1 nopadding"><div class="input-group-btn"><button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button>  </div></div></div>';
+    
+    objTo.appendChild(divtest)
+}
+   function remove_education_fields(rid) {
+	   $('.removeclass'+rid).remove();
+   }
       $(document).ready(function() {
                $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
 				   if(stepNumber==1 && stepDirection=='forward'){

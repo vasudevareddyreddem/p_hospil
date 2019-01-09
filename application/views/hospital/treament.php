@@ -42,9 +42,7 @@
 									   <?php } ?>
 									   <?php } ?>
 									   </select>&nbsp;
-										<select id="specialist_doc" name="specialist_doctor_id" class="form-control" >
-                                                  <option value="">Select Speciality</option>
-                                         </select>
+										
 										<select  class="form-control" id="assign_doctor" name="assign_doctor" required>
 									   <?php if(count($doctors_list)>0){ ?>
 									   <option value="">Select</option>

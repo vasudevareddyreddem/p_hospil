@@ -102,10 +102,8 @@
                         <div class="form-group col-md-6">
                            <label for="email">Hospital Representative Contact Number</label>
                            <div class="row">
-                              <div class="col-md-4">
-                                 <input type="text" id="hos_rep_contact" name="hos_rep_contact" value="<?php echo isset($hospital_details['hos_rep_contact'])?$hospital_details['hos_rep_contact']:''; ?>" class="form-control"  placeholder="Enter Landline no" >
-                              </div>
-                              <div class="col-md-8 row">
+                             
+                              <div class="col-md-12 row">
                                  <div class="col-md-4">
                                     <select id="mob_country_code" name="mob_country_code" value="<?php echo isset($hospital_details['mob_country_code'])?$hospital_details['mob_country_code']:''; ?>" class="form-control">
                                        <option value="+91">+91</option>
@@ -129,12 +127,9 @@
                            <label for="email">Address1</label>
                            <textarea type="textarea" id="hos_rep_add1" name="hos_rep_add1"  class="form-control"  placeholder="Enter Address" ><?php echo isset($hospital_details['hos_rep_add1'])?$hospital_details['hos_rep_add1']:''; ?></textarea>
                         </div>
+                       
                         <div class="form-group col-md-6">
-                           <label for="email">Address2</label>
-                           <textarea type="textarea" id="hos_rep_add2" name="hos_rep_add2"  class="form-control"  placeholder="Enter Address" ><?php echo isset($hospital_details['hos_rep_add2'])?$hospital_details['hos_rep_add2']:''; ?></textarea>
-                        </div>
-                        <div class="form-group col-md-6">
-                           <label for="email">Pin code</label>
+                           <label for="email">Nationality</label>
                            <div class="row">
                               <div class="col-md-6">
                                  <input type="text" id="hos_rep_zipcode" name="hos_rep_zipcode" value="<?php echo isset($hospital_details['hos_rep_zipcode'])?$hospital_details['hos_rep_zipcode']:''; ?>" class="form-control"  placeholder="Enter pin Code" >
@@ -145,7 +140,7 @@
                            </div>
                         </div>
                         <div class="form-group col-md-6">
-                           <label for="email">Nationality</label>
+                           <label for="email">&nbsp;</label>
                            <div class="row">
                               <div class="col-md-6">
 								<?php $states = array ('Andhra Pradesh' => 'Andhra Pradesh', 'Arunachal Pradesh' => 'Arunachal Pradesh', 'Assam' => 'Assam', 'Bihar' => 'Bihar', 'Chhattisgarh' => 'Chhattisgarh', 'Goa' => 'Goa', 'Gujarat' => 'Gujarat', 'Haryana' => 'Haryana', 'Himachal Pradesh' => 'Himachal Pradesh', 'Jammu & Kashmir' => 'Jammu & Kashmir', 'Jharkhand' => 'Jharkhand', 'Karnataka' => 'Karnataka', 'Kerala' => 'Kerala', 'Madhya Pradesh' => 'Madhya Pradesh', 'Maharashtra' => 'Maharashtra', 'Manipur' => 'Manipur', 'Meghalaya' => 'Meghalaya', 'Mizoram' => 'Mizoram', 'Nagaland' => 'Nagaland', 'Odisha' => 'Odisha', 'Punjab' => 'Punjab', 'Rajasthan' => 'Rajasthan', 'Sikkim' => 'Sikkim', 'Tamil Nadu' => 'Tamil Nadu', 'Telangana' => 'Telangana', 'Tripura' => 'Tripura', 'Uttarakhand' => 'Uttarakhand','Uttar Pradesh' => 'Uttar Pradesh', 'West Bengal' => 'West Bengal', 'Andaman & Nicobar' => 'Andaman & Nicobar', 'Chandigarh' => 'Chandigarh', 'Dadra and Nagar Haveli' => 'Dadra and Nagar Haveli', 'Daman & Diu' => 'Daman & Diu', 'Delhi' => 'Delhi', 'Lakshadweep' => 'Lakshadweep', 'Puducherry' => 'Puducherry'); ?>
@@ -170,9 +165,9 @@
                      </div>
                      <div class="form-actions">
                         <div class="row">
-                           <div class="offset-md-10 col-md-2">
-                              <a href="<?php echo base_url('hospital/add/'.base64_encode(1).'/'.$hospital_id); ?>" class="btn btn-info">Back</a>
-                              <button type="submit" class="btn btn-default">Next</button>
+                           <div class="col-md-12">
+                              <a href="<?php echo base_url('hospital/add/'.base64_encode(1).'/'.$hospital_id); ?>" class="btn btn-default">Back</a>
+                              <button type="submit" class="btn btn-info pull-right">Next</button>
                            </div>
                         </div>
                      </div>
@@ -220,12 +215,9 @@
                            <label for="email">Address1</label>
                            <textarea type="textarea" id="hos_bas_add1" name="hos_bas_add1"   class="form-control"  placeholder="Enter Address" ><?php echo isset($hospital_details['hos_bas_add1'])?$hospital_details['hos_bas_add1']:''; ?></textarea>
                         </div>
+                      
                         <div class="form-group col-md-6">
-                           <label for="email">Address2</label>
-                           <textarea type="textarea" id="hos_bas_add2" name="hos_bas_add2"  class="form-control"  placeholder="Enter Address" ><?php echo isset($hospital_details['hos_bas_add2'])?$hospital_details['hos_bas_add2']:''; ?></textarea>
-                        </div>
-                        <div class="form-group col-md-6">
-                           <label for="email">Pin code</label>
+                           <label for="email">Nationality</label>
                            <div class="row">
                               <div class="col-md-6">
                                  <input type="text" id="hos_bas_zipcode" name="hos_bas_zipcode" value="<?php echo isset($hospital_details['hos_bas_zipcode'])?$hospital_details['hos_bas_zipcode']:''; ?>" class="form-control"  placeholder="Enter pin Code" >
@@ -236,7 +228,7 @@
                            </div>
                         </div>
                         <div class="form-group col-md-6">
-                           <label for="email">Nationality</label>
+                           <label for="email">&nbsp;</label>
                            <div class="row">
                               <div class="col-md-6">
 									<?php $states = array ('Andhra Pradesh' => 'Andhra Pradesh', 'Arunachal Pradesh' => 'Arunachal Pradesh', 'Assam' => 'Assam', 'Bihar' => 'Bihar', 'Chhattisgarh' => 'Chhattisgarh', 'Goa' => 'Goa', 'Gujarat' => 'Gujarat', 'Haryana' => 'Haryana', 'Himachal Pradesh' => 'Himachal Pradesh', 'Jammu & Kashmir' => 'Jammu & Kashmir', 'Jharkhand' => 'Jharkhand', 'Karnataka' => 'Karnataka', 'Kerala' => 'Kerala', 'Madhya Pradesh' => 'Madhya Pradesh', 'Maharashtra' => 'Maharashtra', 'Manipur' => 'Manipur', 'Meghalaya' => 'Meghalaya', 'Mizoram' => 'Mizoram', 'Nagaland' => 'Nagaland', 'Odisha' => 'Odisha', 'Punjab' => 'Punjab', 'Rajasthan' => 'Rajasthan', 'Sikkim' => 'Sikkim', 'Tamil Nadu' => 'Tamil Nadu', 'Telangana' => 'Telangana', 'Tripura' => 'Tripura', 'Uttarakhand' => 'Uttarakhand','Uttar Pradesh' => 'Uttar Pradesh', 'West Bengal' => 'West Bengal', 'Andaman & Nicobar' => 'Andaman & Nicobar', 'Chandigarh' => 'Chandigarh', 'Dadra and Nagar Haveli' => 'Dadra and Nagar Haveli', 'Daman & Diu' => 'Daman & Diu', 'Delhi' => 'Delhi', 'Lakshadweep' => 'Lakshadweep', 'Puducherry' => 'Puducherry'); ?>
@@ -294,9 +286,9 @@
                      </div>
                      <div class="form-actions">
                         <div class="row">
-                           <div class="offset-md-10 col-md-2">
-                              <a href="<?php echo base_url('hospital/add/'.base64_encode(2).'/'.$hospital_id); ?>" class="btn btn-info">Back</a>
-                              <button type="submit" class="btn btn-default">Next</button>
+                           <div class="col-md-12">
+                              <a href="<?php echo base_url('hospital/add/'.base64_encode(2).'/'.$hospital_id); ?>" class="btn btn-default">Back</a>
+                              <button type="submit" class="btn btn-info pull-right">Next</button>
                            </div>
                         </div>
                      </div>
@@ -347,9 +339,9 @@
                      </div>
                      <div class="form-actions">
                         <div class="row">
-                            <div class="offset-md-10 col-md-2">
-                              <a href="<?php echo base_url('hospital/add/'.base64_encode(3).'/'.$hospital_id); ?>" class="btn btn-info">Back</a>
-                              <button type="submit" class="btn btn-default">Next</button>
+                            <div class="col-md-12">
+                              <a href="<?php echo base_url('hospital/add/'.base64_encode(3).'/'.$hospital_id); ?>" class="btn btn-default">Back</a>
+                              <button type="submit" class="btn btn-info pull-right">Next</button>
                            </div>
                         </div>
                      </div>
@@ -415,8 +407,8 @@
                      <div class="form-actions">
                         <div class="row">
                            <div class="offset-md-9 col-md-3">
-                              <a href="<?php echo base_url('hospital/add/'.base64_encode(4).'/'.$hospital_id); ?>" class="btn btn-info">Back</a>
-                              <button type="submit" class="btn btn-default">Submit</button>
+                              <a href="<?php echo base_url('hospital/add/'.base64_encode(4).'/'.$hospital_id); ?>" class="btn btn-default">Back</a>
+                              <button type="submit" class="btn btn-success">Submit</button>
                            </div>
                         </div>
                      </div>

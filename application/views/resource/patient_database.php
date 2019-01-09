@@ -21,7 +21,7 @@
                                     <div class="tab-content">
                                        
 					
-                                            <div class="card card-topline-red">
+                                            <div class="">
 	
 	<div class="card-body table-responsive">
 	<?php if(isset($patients_list) && count($patients_list)>0){ ?>
@@ -29,14 +29,14 @@
 			<thead>
 				<tr>
 					<th> Patient Id </th>
-					<th> Patient Card Number</th>
+					
 					<th> Name </th>
 					<th> Type </th>
-					<th> Category </th>
+					
 					<th> Age </th>
 					<th> Mobile </th>
 					<th> Created on </th>
-					<th> Action </th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -44,36 +44,17 @@
 				<tr class="odd gradeX">
 					
 					<td> <?php echo $list['pid']; ?> </td>
-					<td> <?php echo $list['card_number']; ?> </td>
+					
 					<td>
 						<?php echo $list['name']; ?>
 					</td>
 					<td>
 						<?php echo $list['registrationtype']; ?>
 					</td>
-					<td><?php echo $list['patient_category']; ?> </td>
 					<td><?php echo $list['age']; ?> </td>
 					<td><?php echo $list['mobile']; ?> </td>
 					<td><?php echo date('M j h:i A',strtotime(htmlentities($list['create_at'])));?></td>
-					<td class="valigntop">
-						<div class="btn-group">
-							<button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
-								<i class="fa fa-angle-down"></i>
-							</button>
-							<ul class="dropdown-menu pull-left" role="menu">
-								<li>
-									<a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(1)); ?>">
-										<i class="icon-docs"></i> Edit </a>
-								</li>
-								<li>
-									<a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(8)); ?>">
-										<i class="icon-docs"></i> Billing </a>
-								</li>
-								
-								
-							</ul>
-						</div>
-					</td>
+					
 				</tr>
 				
 			<?php } ?>

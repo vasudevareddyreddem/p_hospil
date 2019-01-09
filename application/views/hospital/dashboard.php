@@ -333,21 +333,7 @@ $dat = explode("-", $cri['create_at']);
 						          </div>
 						          <!-- /.info-box -->
 						        </div>
-								<div class="col-xl-4 col-md-6 col-12">
-						          <div class="info-box bg-warning">
-						            <span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
-						            <div class="info-box-content">
-						              <span class="info-box-text">Total Modified prescriptions</span>
-						              <span class="info-box-number"><?php if($prescriptions_list>0){ echo $prescriptions_list; }else{ echo "0"; }  ?></span>
-						              <div class="progress">
-						                <div class="progress-bar" style="width: <?php if($prescriptions_list>0){ echo $prescriptions_list; }else{ echo "0"; }  ?>%"></div>
-						              </div>
-						              <span class="progress-description">&nbsp;</span>
-						            </div>
-						            <!-- /.info-box-content -->
-						          </div>
-						          <!-- /.info-box -->
-						        </div>
+								
 			                </div>
 						</div>
 					

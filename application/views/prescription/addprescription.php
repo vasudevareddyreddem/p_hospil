@@ -49,7 +49,7 @@
                                                    <input type="text" class="form-control" id="mobile"  name="mobile"  value="">
                                                 </div>
                                                 </div>
-												<div class="row">
+									<div class="row">
 									   <div id="education_fields">
           
 										</div>

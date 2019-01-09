@@ -23,8 +23,8 @@
 					 <li style="border-right:2px solid #fff" class="nav-item "><a href="#aboutop" data-toggle="tab" class="<?php if(isset($tab) && $tab==11 || $tab==12 || $tab==13 || $tab==0){ echo "active";}?>">OP Registration</a>
                      </li>
 					 
-                     <li style="border-right:2px solid #fff" class="nav-item"><a href="#home" data-toggle="tab" class="<?php if(isset($tab) && $tab!=11 && $tab!=12 && $tab!=13  && $tab!=0){ echo "active";}?>">IP New-Registration</a>
-                     </li>
+                    <!-- <li style="border-right:2px solid #fff" class="nav-item"><a href="#home" data-toggle="tab" class="<?php if(isset($tab) && $tab!=11 && $tab!=12 && $tab!=13  && $tab!=0){ echo "active";}?>">IP New-Registration</a>
+                     </li>-->
                      <li class="nav-item"><a href="#about" data-toggle="tab">Reschedule/Repeated -Registration</a>
                      </li>
                    
@@ -513,10 +513,10 @@
                                  <thead>
                                     <tr>
                                        <th> Patient Id </th>
-                                       <th> Patient card Number</th>
+                                      
                                        <th> Name </th>
                                        <th> Type </th>
-                                       <th> Category </th>
+                                      
                                        <th> Age </th>
                                        <th> Mobile </th>
                                        <th> Action </th>
@@ -526,14 +526,12 @@
                                     <?php foreach($patients_list as $list){ ?>
                                     <tr class="odd gradeX">
                                        <td> <?php echo $list['pid']; ?> </td>
-                                       <td> <?php echo $list['card_number']; ?> </td>
                                        <td>
                                           <?php echo $list['name']; ?>
                                        </td>
                                        <td>
                                           <?php echo $list['registrationtype']; ?>
                                        </td>
-                                       <td><?php echo $list['patient_category']; ?> </td>
                                        <td><?php echo $list['age']; ?> </td>
                                        <td><?php echo $list['mobile']; ?> </td>
                                        <td class="valigntop">
@@ -556,10 +554,10 @@
                                                    <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(0).'/'.base64_encode('reschedule')); ?>">
                                                    <i class="icon-docs"></i> Repeated </a>
                                                 </li>
-												<li>
+												<!--<li>
                                                    <a href="<?php echo base_url('resources/transforto_ip/'.base64_encode($list['pid'])); ?>">
                                                    <i class="icon-docs"></i> Transfer to ip </a>
-                                                </li>
+                                                </li>-->
                                              </ul>
                                           </div>
                                        </td>
@@ -582,7 +580,7 @@
                            <div class="card-body ">
                            <div class="card-body " id="bar-parent" style="margin-top:30px">
                               <div class="row">
-                                 <div class="col-md-3 col-sm-3 col-xs-3">
+                                 <!--<div class="col-md-3 col-sm-3 col-xs-3">
                                     <ul class="nav nav-tabs tabs-left">
                                        <li class="nav-item">
                                           <a href="#tab_6_11" data-toggle="tab" class="<?php if(isset($tab) && $tab !=11 && $tab!=12 && $tab!=13){ echo "active";}?>"> Basic Details </a>
@@ -597,10 +595,11 @@
 									  
                                       
                                     </ul>
-                                 </div>
-                                 <div class="col-md-9 col-sm-9 col-xs-9">
+                                 </div>-->
+                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="tab-content">
-                                       <div class="tab-pane <?php if(isset($tab) && $tab !=11 && $tab !=12){ echo "active";}?>" id="tab_6_11">
+                                       <div >
+									   <h3>Basic Details</h3>
                                           <form class=" pad30 form-horizontal" action="<?php echo base_url('resources/basic_details'); ?> " method="post"  id="basic_details1" name="basic_details1">
                                              <input type="hidden" id="pid" name="pid" value="<?php echo isset($pid)?$pid:''; ?>">
 											  <input type="hidden" id=" verifying" name="verifying" value="<?php echo isset($bill_id)?$bill_id:''; ?>">
@@ -609,36 +608,15 @@
                                              <input type="hidden" id="appointment_id" name="appointment_id" value="<?php echo isset($appointment_id)?$appointment_id:'';?>">
                                              <div class="row">
 												<div class="form-group col-md-6">
-                                                   <label for="email">Patient Card Number</label>
-                                                   <input type="hidden" class="form-control" id="patient_old_card_number"  name="patient_old_card_number"  value="<?php echo isset($patient_detailes['card_number'])?$patient_detailes['card_number']:''; ?>">
-												   <input type="text" class="form-control" onchange="checkpatient_number(this.value);get_patient_auto(this.value);" id="patient_card_number1"  name="patient_card_number" placeholder="Enter Card Number" value="<?php echo isset($patient_detailes['card_number'])?$patient_detailes['card_number']:''; ?>">
-
-												</div>
+                                                   <label for="Name">Name</label>
+                                                   <input type="text" class="form-control" id="name2"  name="name" placeholder="Enter Name" value="<?php echo isset($patient_detailes['name'])?$patient_detailes['name']:''; ?>">
+                                                </div>
 												  <div class="form-group col-md-6">
                                                    <label for="mobile">Referred by?</label>
                                                    <input type="text" class="form-control" id="referred"  name="referred"  value="<?php echo isset($patient_detailes['referred'])?$patient_detailes['referred']:''; ?>">
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                   <label for="email">Registration Type </label>
-                                                   <select id="registrationtype" name="registrationtype" class="form-control" >
-                                                      <option value="">Select</option>
-                                                      <option value="New" <?php if(isset($patient_detailes['registrationtype']) && $patient_detailes['registrationtype']=='New'){ echo "Selected"; } ?>>New</option>
-                                                      <option value="Emergency" <?php if(isset($patient_detailes['registrationtype']) &&  $patient_detailes['registrationtype']=='Emergency'){ echo "Selected"; } ?>>Emergency</option>
-                                                   </select>
-                                                </div>
-												<div class="form-group col-md-6">
-                                                   <label for="email">Patient Category</label>
-                                                   <select id="patient_category" name="patient_category" class="form-control" >
-                                                      <option value="">Select</option>
-                                                      <option value="Pay Patient" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Pay Patient'){ echo "Selected"; } ?>>pay patient</option>
-                                                      <option value="Staff" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Staff'){ echo "Selected"; } ?>>Staff</option>
-                                                      <option value="Staff dependent" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Staff dependent'){ echo "Selected"; } ?>>Staff dependent</option>
-                                                      <option value="Insurance" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Insurance'){ echo "Selected"; } ?>>Insurance</option>
-                                                      <option value="Corporate" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Corporate'){ echo "Selected"; } ?>>Corporate</option>
-                                                      <option value="Sponsor" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='Sponsor'){ echo "Selected"; } ?>>Sponsor</option>
-                                                      <option value="International cash" <?php if(isset($patient_detailes['patient_category']) &&  $patient_detailes['patient_category']=='International cash'){ echo "Selected"; } ?>>International cash</option>
-                                                   </select>
-                                                </div>
+                                                
+												
 												 <div class="form-group col-md-6">
                                                    <label for="Name">Gender</label>
 													<select id="gender" name="gender" class="form-control" >
@@ -648,10 +626,7 @@
                                                       <option value="Other" <?php if(isset($patient_detailes['gender']) &&  $patient_detailes['gender']=='Other'){ echo "Selected"; } ?>>Other</option>
                                                    </select> 
 												   </div>
-												<div class="form-group col-md-6">
-                                                   <label for="Name">Name</label>
-                                                   <input type="text" class="form-control" id="name2"  name="name" placeholder="Enter Name" value="<?php echo isset($patient_detailes['name'])?$patient_detailes['name']:''; ?>">
-                                                </div>
+												
                                                 <div class="form-group col-md-6">
                                                    <label for="mobile">Mobile Number</label>
                                                    <input type="text" class="form-control" id="mobile2"  name="mobile" placeholder="Enter Mobile Number" value="<?php echo isset($patient_detailes['mobile'])?$patient_detailes['mobile']:''; ?>">
@@ -660,13 +635,7 @@
                                                    <label for="mobile">Email</label>
                                                    <input type="text" class="form-control" id="email2"  name="email" placeholder="Enter Email" value="<?php echo isset($patient_detailes['email'])?$patient_detailes['email']:''; ?>">
                                                 </div>
-                                                <div class="form-group col-md-6">
-                                                   <label class="">Date of Birth</label>
-                                                   <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd  " data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                                      <input class="form-control" size="16" type="text" id="dob" name="dob" value="<?php echo isset($patient_detailes['dob'])?$patient_detailes['dob']:''; ?>">
-                                                      <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                   </div>
-                                                </div>
+                                                
 												<div class="form-group col-md-6">
                                                    <label for="mobile">Age</label>
                                                    <input type="text" class="form-control" id="age"  name="age" placeholder="Enter Age" value="<?php echo isset($patient_detailes['age'])?$patient_detailes['age']:''; ?>">
@@ -687,61 +656,47 @@
 																		<?php endforeach; ?>
 																	  </select>
                                                 </div>
+                                                
                                                 <div class="form-group col-md-6">
-                                                   <label for="mobile">Marital Status</label>
-                                                   <select id="martial_status" name="martial_status" class="form-control" >
-                                                      <option value="">Select</option>
-                                                      <option value="Single" <?php if(isset($patient_detailes['martial_status']) &&  $patient_detailes['martial_status']=='Single'){ echo "Selected"; } ?>>Single</option>
-                                                      <option value="Married" <?php if(isset($patient_detailes['martial_status']) &&  $patient_detailes['martial_status']=='Married'){ echo "Selected"; } ?>>Married</option>
-                                                      <option value="Other"<?php if(isset($patient_detailes['martial_status']) &&  $patient_detailes['martial_status']=='Other'){ echo "Selected"; } ?>>Other</option>
-                                                   </select>
-                                                </div>
-												 <div class="form-group col-md-6">
-                                                   <label for="text">National ID</label>
-                                                   <input type="text" name="nationali_id" id="nationali_id" class="form-control"  placeholder="Aadhaar Id" value="<?php echo isset($patient_detailes['nationali_id'])?$patient_detailes['nationali_id']:''; ?>" >
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                   <label for="email"> Permanent address</label>
+                                                   <label for="email"> Address</label>
                                                    <textarea type="textarea" id="perment_address" name="perment_address" class="form-control"  placeholder="Enter Address" ><?php echo isset($patient_detailes['perment_address'])?$patient_detailes['perment_address']:''; ?></textarea>
                                                 </div>
-                                                <div class="form-group col-md-12">
-                                                   <label for="email">Nationality</label>
-                                                   <div class="row">
-                                                      <div class="col-md-6">
-                                                         <input type="text" id="p_c_name" name="p_c_name" class="form-control"  placeholder="City" value="<?php echo isset($patient_detailes['p_c_name'])?$patient_detailes['p_c_name']:''; ?>">
-                                                      </div>
-                                                      <div class="col-md-6">
-                                                      <select class="form-control" required="required" name="p_s_name" id="p_s_name">
-														  <option value = "">Select State</option>
-															<?php foreach($states as $key=>$state):
-																	if($patient_detailes['p_s_name'] == $state):
-																	$selected ='selected=selected';
-																	else : 
-																	$selected = '';
-																	endif;
-																 ?>
-																<option value = "<?php echo $state?>" <?php echo $selected;?> ><?php echo $state?></option>
-															<?php endforeach; ?>
-														  </select> 
-													  </div>
-													  </div>
-													  </br>
-													  <div class="row">
-                                                      <div class="col-md-6">
-                                                         <input type="text" id="p_zipcode" name="p_zipcode"  class="form-control"  placeholder="Pin code" value="<?php echo isset($patient_detailes['p_zipcode'])?$patient_detailes['p_zipcode']:''; ?>">
-                                                      </div>
-                                                      <div class="col-md-6">
-                                                         <input type="text" id="p_country_name" name="p_country_name" class="form-control"  placeholder="Country" value="<?php echo isset($patient_detailes['p_country_name'])?$patient_detailes['p_country_name']:''; ?>" >
-                                                      </div>
-                                                   </div>
-                                                </div>
-												 
-												    <button class="btn btn-success " id="firstform1" type="submit">Next</button>
+                                                
+												
                                           </div>
 										</form>
                                        </div>
-									  
-                                       <div class="tab-pane <?php if(isset($tab) && $tab==12){ echo "active";}?>" id="tab_6_22">
+									   <br>
+									   <div>
+									    <h3>Assign</h3>
+                                          <form class=" pad30 form-horizontal" action="<?php echo base_url('resources/assign'); ?> " method="post"  id="assign" name="assign" enctype="multipart/form-data">
+                                             <input type="hidden" id="pid" name="pid" value="<?php echo isset($pid)?$pid:''; ?>">
+                                             <input type="hidden" id="b_id" name="b_id" value="<?php echo isset($bill_id)?$bill_id:''; ?>">
+                                             <input type="hidden" id="op" name="op" value="1">
+                                             <div class="row">
+                                                <div class="form-group col-md-6">
+                                                   <label for="email">Consultant  Department</label>
+                                                   <select id="department_name1" name="department_name" onchange="get_department_list(this.value);" class="form-control" >
+                                                      <option value="">Select</option>
+                                                      <?php foreach($departments_list as $lis){ ?>
+                                                      <option value="<?php echo $lis['t_id']; ?>"><?php echo $lis['t_name']; ?></option>
+                                                      <?php } ?>
+                                                   </select>
+                                                </div>
+												
+                                                <div class="form-group col-md-6">
+                                                   <label for="email">Consultant Name</label>
+                                                   <select id="department_doctors1" name="department_doctors" class="form-control" >
+                                                      <option value="">Select Consultant</option>
+                                                   </select>
+                                                </div>
+                                             </div>
+                                             
+                                          </form>
+                                       </div>
+									   <br>
+                                       <div>
+									    <h3>Billing Information</h3>
                                           <form class=" pad30 form-horizontal" action="<?php echo base_url('resources/billcompleted'); ?> " method="post"  id="opbills" name="opbills" enctype="multipart/form-data">
                                              <input type="hidden" id="pid" name="pid" value="<?php echo isset($pid)?$pid:''; ?>">
                                              <input type="hidden" id="b_id" name="b_id" value="<?php echo isset($bill_id)?$bill_id:''; ?>">
@@ -772,31 +727,13 @@
 																		<?php endforeach; ?>
 																	  </select>
                                                                </div>
-                                                               <div class="form-group col-md-6">
-                                                                  <label for="mobile">Payable Amount</label>
-                                                                  <input type="text" class="form-control" id="bill_amount1"  name="bill_amount" placeholder="Enter Payable Amount" value="<?php echo isset($billing_detailes['bill_amount'])?$billing_detailes['bill_amount']:''; ?>">
-                                                               </div>
+                                                              
                                                                <div class="form-group col-md-6">
                                                                   <label for="mobile">Received from</label>
                                                                   <input type="text" class="form-control" id="received_form"  name="received_form" placeholder="Enter Received from" value="<?php echo isset($billing_detailes['received_form'])?$billing_detailes['received_form']:''; ?>">
                                                                </div>
 															  
-															   <div class="form-group col-md-12">
-                                                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#demo1">  Have a Coupon Code ?</a>
-																 </div>
-																 <div id="demo1" class="">
-																	<div class="form-group col-md-12">
-																		<label for="mobile">Coupon Code</label>
-																		<input type="text" class="form-control" id="coupon_code1" onkeyup="removeErrormsg(this.value);" autocomplete="off"  name="coupon_code1" placeholder="Enter Coupon Code" value="<?php echo isset($billing_detailes['coupon_code'])?$billing_detailes['coupon_code']:''; ?>">
-																	</div>
-																	<span id="successmsg1" style="color:green;"></span>
-																	<span id="errormsg1" style="color:red;"></span>
-																	  <?php if(isset($billing_detailes['completed']) && $billing_detailes['completed']==0){ ?>
-																	<div class="form-group col-md-12">
-																	<button type="button" onclick="apply_couponcode1();" id="">Apply</button>
-																	</div>
-																	<?php } ?>
-																	</div>
+															
 																
 																	
 															   
@@ -811,38 +748,7 @@
 										  </form>
                                        </div> 
 									   
-									   <div class="tab-pane <?php if(isset($tab) && $tab==11){ echo "active";}?>" id="tab_6_223">
-                                          <form class=" pad30 form-horizontal" action="<?php echo base_url('resources/assign'); ?> " method="post"  id="assign" name="assign" enctype="multipart/form-data">
-                                             <input type="hidden" id="pid" name="pid" value="<?php echo isset($pid)?$pid:''; ?>">
-                                             <input type="hidden" id="b_id" name="b_id" value="<?php echo isset($bill_id)?$bill_id:''; ?>">
-                                             <input type="hidden" id="op" name="op" value="1">
-                                             <div class="row">
-                                                <div class="form-group col-md-6">
-                                                   <label for="email">Consultant  Department</label>
-                                                   <select id="department_name1" name="department_name" onchange="get_department_list(this.value);" class="form-control" >
-                                                      <option value="">Select</option>
-                                                      <?php foreach($departments_list as $lis){ ?>
-                                                      <option value="<?php echo $lis['t_id']; ?>"><?php echo $lis['t_name']; ?></option>
-                                                      <?php } ?>
-                                                   </select>
-                                                </div>
-												<div class="form-group col-md-6">
-                                                   <label for="email">Consultant  Speciality</label>
-                                                   
-												<select id="specialist_doc" name="specialist_doctor_id" onchange="get_doctor_list(this.value);" class="form-control" >
-                                                  <option value="">Select Speciality</option>
-												</select>
-												</div>
-                                                <div class="form-group col-md-6">
-                                                   <label for="email">Consultant Name</label>
-                                                   <select id="department_doctors1" name="department_doctors" class="form-control" >
-                                                      <option value="">Select Consultant</option>
-                                                   </select>
-                                                </div>
-                                             </div>
-                                             <button class="btn btn-success  " type="submit">Next</button>
-                                          </form>
-                                       </div>
+									  
                                        <input type="hidden" name="hospital_id" id="hospital_id" value="<?php echo isset($patient_detailes['hos_id'])?$patient_detailes['hos_id']:''; ?>">
                                     
                                       

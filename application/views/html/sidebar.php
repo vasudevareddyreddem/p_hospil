@@ -67,7 +67,7 @@
 	                                
 	                            </ul>
 	                        </li> 
-							<li class="nav-item start <?php if($this->uri->segment(2)=='logos'){ echo "active";} ?>">
+							<!--<li class="nav-item start <?php if($this->uri->segment(2)=='logos'){ echo "active";} ?>">
 	                            <a href="<?php echo base_url('admin/logos');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">list</i>
 	                                <span class="title">Add Logos</span>
@@ -83,7 +83,7 @@
 	                                <span class="selected"></span>
                                 	<span class="arrow "></span>
 	                            </a>
-	                        </li> 
+	                        </li> -->
 							
 							
 							<li class="nav-item start <?php if($this->uri->segment(2)=='oursource'){ echo "active";} ?>">
@@ -121,7 +121,9 @@
 	                                <span class="title">Release Announcement</span> <span class="arrow"></span>
 	                            </a>
 	                        </li>
-							<li class="nav-item <?php if($this->uri->segment(2)=='cardnumbers'){ echo "active";} ?> ">
+							
+							
+							<!--<li class="nav-item <?php if($this->uri->segment(2)=='cardnumbers'){ echo "active";} ?> ">
 	                            <a  href="<?php echo base_url('admin/cardnumbers'); ?>" class="nav-link "> <i class="material-icons">announcement</i>
 	                                <span class="title">Card Numbers</span> <span class="arrow"></span>
 	                            </a>
@@ -140,7 +142,7 @@
 	                            <a  href="<?php echo base_url('admin/rejected_patient_list'); ?>" class="nav-link "> <i class="material-icons">assignment</i>
 	                                <span class="title">Rejected Patient list</span> <span class="arrow"></span>
 	                            </a>
-	                        </li>
+	                        </li>-->
 						
 						
 						<?php }else if($userdetails['role_id']==2){ ?>
@@ -183,10 +185,7 @@
 	                                    <a href="<?php echo base_url('hospital/addtreatment'); ?>" class="nav-link "> <span class="title">Add Department</span>
 	                                    </a>
 	                                </li>
-									<li class="nav-item ">
-	                                    <a href="<?php echo base_url('hospital/addspecialist'); ?>" class="nav-link "> <span class="title">Add Speciality</span>
-	                                    </a>
-	                                </li>
+								
 	                                
 									<li class="nav-item ">
 	                                    <a href="<?php echo base_url('hospital/treatment'); ?>" class="nav-link "> <span class="title">Assign Department to Consultant </span>
@@ -199,7 +198,7 @@
 	                                
 	                            </ul>
 	                        </li> 
-							<li class="nav-item  start  <?php if($this->uri->segment(2)=='wardname' || $this->uri->segment(2)=='wardtype' || $this->uri->segment(2)=='roomtype' || $this->uri->segment(2)=='floornumber' || $this->uri->segment(2)=='roomnumber'){ echo "active";} ?>">
+							<!--<li class="nav-item  start  <?php if($this->uri->segment(2)=='wardname' || $this->uri->segment(2)=='wardtype' || $this->uri->segment(2)=='roomtype' || $this->uri->segment(2)=='floornumber' || $this->uri->segment(2)=='roomnumber'){ echo "active";} ?>">
 	                            <a  class="nav-link nav-toggle"> <i class="material-icons">local_hospital</i>
 	                                <span class="title">Ward Details</span>  <span class="selected"></span>
                                 	<span class="arrow "></span>
@@ -227,7 +226,7 @@
 	                                </li>
 							
 	                            </ul>
-	                        </li> 
+	                        </li> -->
 							
 							
 							
@@ -256,11 +255,11 @@
 	                                <span class="title">Release Announcement</span> <span class="arrow"></span>
 	                            </a>
 	                        </li>
-							<li class="nav-item  <?php if($this->uri->segment(2)=='modified_prescription'){ echo "active";} ?> ">
-	                            <a  href="<?php echo base_url('hospital/modified_prescription'); ?>" class="nav-link "> <i class="material-icons">assignment</i>
-	                                <span class="title">Modified Prescription List</span> <span class="arrow"></span>
+							<li class="nav-item">
+								  <a  href="" class="nav-link "> <i class="material-icons">announcement</i>
+	                                <span class="title">Report</span> 
 	                            </a>
-	                        </li>
+							</li>
 							
 						<?php } else if($userdetails['role_id']==3){ ?>
 						 
@@ -300,7 +299,7 @@
 	                            </a>
 	                           
 	                        </li> 
-                            <li class="nav-item start <?php if($this->uri->segment(1)=='billing'){ echo "active";} ?> ">
+                           <!-- <li class="nav-item start <?php if($this->uri->segment(1)=='billing'){ echo "active";} ?> ">
 	                            <a href="<?php echo base_url('billing/index');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">sd_storage</i>
 	                                <span class="title">Billing </span>
@@ -308,7 +307,7 @@
                                 	<span class="arrow "></span>
 	                            </a>
 	                           
-	                        </li> 
+	                        </li> -->
 							<li class="nav-item start <?php if($this->uri->segment(1)=='chat'){ echo "active";} ?> ">
 	                            <a href="<?php echo base_url('chat');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">email</i>
