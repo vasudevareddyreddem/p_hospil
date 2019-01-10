@@ -33,9 +33,26 @@
                             <div class="card card-topline-aqua">
 							
                                 <div class="card-head">
-                                     <header>Reports</header>
-                                   
+                                <div class="row sm-hide">
+                                     <header class="col-md-6 pull-left" >Reports</header>
+									
+                                    <div class="col-md-6 " style="position:absolute;right:30px;top:10px;">
+									<form>
+								   <div class="row">
+								   <div class="col-md-5">
+                                        <input class="form-control"   type="text" placeholder="To Date">
+                                    </div> 
+									<div class="col-md-5">
+                                        <input class="form-control"  type="text" placeholder="From Date">
+                                    </div>
+									<div class="col-md-2">
+                                        <button class="btn btn-primary btn-sm">Filter</div>
+                                    </div>
+									</form>
+                                    </div>
+									 </div>
                                 </div>
+                                
                                 <div class="card-body table-responsive">
 	<table id="example" class="display" style="width:100%">
         <thead>
