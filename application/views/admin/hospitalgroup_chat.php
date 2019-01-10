@@ -41,7 +41,7 @@
                     </div>
                     <div class="card-body ">
                         <div class="row">
-                            <div class="form-group col-md-3 card">
+                            <div class="form-group col-md-3 card chat-modify">
 
                                 <h3>Selected Hospitals</h3>
                                 <textarea readonly="true" id="example-console" type="textarea" class="form-control" placeholder="Selected Hospitals"></textarea>
