@@ -46,298 +46,24 @@
                 <td>Doctor </td>
                 <td>Vist Type</td>
                 <td>Date of visit</td>
-                <td>Fee</td>
+                <td>Total Fee</td>
+                <td>Paid Fee</td>
             </tr>
         </thead>
         <tbody>
+		<?php foreach($patients_list as $list){ ?>
             <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
+                <td><?php echo isset($list['pid'])?$list['pid']:''; ?></td>
+                <td><?php echo isset($list['name'])?$list['name']:''; ?></td>
+                <td><?php echo isset($list['age'])?$list['age']:''; ?></td>
+                <td><?php echo isset($list['resource_name'])?$list['resource_name']:''; ?></td>
+                <td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
+                <td><?php echo isset($list['create_at'])?$list['create_at']:''; ?></td>
+                <td><?php echo isset($list['total_amt'])?$list['total_amt']:''; ?></td>
+                <td><?php echo isset($list['bill_amount'])?$list['bill_amount']:''; ?></td>
             </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
-			 <tr>
-                <td>167</td>
-                <td>Patient 1</td>
-                <td>60</td>
-                <td>Raghu</td>
-                <td>OP</td>
-                <td>2011/04/25</td>
-                <td>₹500</td>
-            </tr>
+		<?php } ?>
+			 
 			
             
         </tbody>
@@ -349,7 +75,8 @@
                 <td>Doctor </td>
                 <td>Vist Type</td>
                 <td>Date of visit</td>
-                <td>Fee</td>
+                 <td>Total Fee</td>
+                <td>Paid Fee</td>
             </tr>
 			
         </tfoot>
@@ -364,8 +91,13 @@
                     
                 </div>
             </div>
-			<script>
-			$(document).ready(function() {
+<script>
+// $(document).ready(function() {
+	// $('#example').DataTable( {
+		// "order": [[ 5, "desc" ]]
+	// } );
+// } );
+$(document).ready(function() {
     $('#example').DataTable( {
         dom: 'Bfrtip',
         buttons: [
@@ -386,7 +118,7 @@
         ]
     } );
 } );
-			</script>
+</script>
 
 				
 				

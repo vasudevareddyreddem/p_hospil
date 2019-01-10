@@ -20,6 +20,12 @@ class Admin_model extends CI_Model
 		$sql = "SELECT admin.a_id FROM admin WHERE a_email_id ='".$email."'";
 		return $this->db->query($sql)->row_array();	
 	}
+	public  function get_hospital_details_list($a_id){
+		$this->db->select('hospital.hos_id,hospital.a_id')->from('hospital');
+		$this->db->where('hospital.a_id', $a_id);
+		//$this->db->where('a_status', 1);
+		return $this->db->get()->row_array();
+	}
 	public function get_adminpassword_details($admin_id){
 		$this->db->select('admin.a_id,admin.a_password')->from('admin');
 		$this->db->where('a_id', $admin_id);

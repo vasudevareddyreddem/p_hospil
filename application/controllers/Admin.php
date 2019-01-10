@@ -16,6 +16,7 @@ class Admin extends CI_Controller {
 		$this->load->library('zend');
 		$this->load->model('Admin_model');
 		$this->load->model('Hospital_model');
+		$this->load->model('Resources_model');
 		$this->load->library('zend');
 		if($this->session->userdata('userdetails'))
 			{
@@ -845,8 +846,10 @@ class Admin extends CI_Controller {
 		if($this->session->userdata('userdetails'))
 		{
 			if($admindetails['role_id']=1){
+				$admindetails=$this->session->userdata('userdetails');
+				
 					$post=$this->input->post();
-					//echo '<pre>';print_r($post);exit;
+					//echo '<pre>';print_r($userdetails);exit;
 					if(md5($post['lab_password'])==md5($post['lab_cinformpaswword'])){
 								$emailcheck= $this->Admin_model->check_email_exits($post['lab_email']);
 								if(count($emailcheck)>0){
@@ -860,7 +863,6 @@ class Admin extends CI_Controller {
 									}else{
 									$photo='';
 									}
-									$admindetails=$this->session->userdata('userdetails');
 									//echo '<pre>';print_r($statusdata);exit;
 									$details=array(
 									'role_id'=>5,
@@ -875,10 +877,11 @@ class Admin extends CI_Controller {
 									'create_by'=>$admindetails['a_id']
 									);
 									$addresourcedmin = $this->Admin_model->save_admin($details);
+									$hos_details=$this->Admin_model->get_hospital_details_list($admindetails['a_id']);
 									$resourcedata=array(
 									'a_id'=>$addresourcedmin,
 									'role_id'=>'5',
-									'hos_id'=>'',
+									'hos_id'=>$hos_details['hos_id'],
 									'out_source_lab'=>1,
 									'resource_name'=>$post['lab_name'],
 									'resource_mobile'=>$post['lab_mobile'],
@@ -895,7 +898,7 @@ class Admin extends CI_Controller {
 									'r_create_by'=>$admindetails['a_id'],
 									'r_created_at'=>date('Y-m-d H:i:s')
 									);
-									//echo '<pre>';print_r($onedata);exit;
+									//echo '<pre>';print_r($resourcedata);exit;
 									$saveresource =$this->Admin_model->save_out_source_lab($resourcedata);
 									if(count($saveresource)>0){
 										$this->session->set_flashdata('success',"Out Source Lab successfully created");

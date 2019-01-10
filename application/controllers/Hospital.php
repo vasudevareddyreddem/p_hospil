@@ -2018,8 +2018,7 @@ class Hospital extends In_frontend {
 				if($admindetails['role_id']=2){
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
-
-					$data['reports']=$this->Hospital_model->get_patient_list($userdetails['hos_id']);
+					$data['patients_list']=$this->Hospital_model->get_hospital_wise_patient_list($userdetails['hos_id']);
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('hospital/reports',$data);
 					$this->load->view('html/footer');
