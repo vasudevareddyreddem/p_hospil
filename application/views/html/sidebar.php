@@ -84,16 +84,7 @@
                                 	<span class="arrow "></span>
 	                            </a>
 	                        </li> -->
-							
-							
-							<li class="nav-item start <?php if($this->uri->segment(2)=='oursource'){ echo "active";} ?>">
-	                            <a href="<?php echo base_url('lab/oursource');?>" class="nav-link nav-toggle">
-	                                <i class="material-icons">track_changes</i>
-	                                <span class="title">Out Source </span>
-	                                <span class="selected"></span>
-                                	<span class="arrow "></span>
-	                            </a>
-	                        </li> 
+							 
 							<li class="nav-item  <?php if($this->uri->segment(2)=='gropchat' || $this->uri->segment(2)=='outsourcelabgropchat' || $this->uri->segment(2)=='admin_softwareteam'){ echo "active";}else{'deactive';}?> ">
 	                            <a  class="nav-link nav-toggle"> <i class="material-icons">email</i>
 	                                <span class="title">Chat</span>  <span class="selected"></span>
@@ -198,6 +189,16 @@
 	                                
 	                            </ul>
 	                        </li> 
+							
+							
+							<li class="nav-item start <?php if($this->uri->segment(2)=='oursource'){ echo "active";} ?>">
+	                            <a href="<?php echo base_url('lab/oursource');?>" class="nav-link nav-toggle">
+	                                <i class="material-icons">track_changes</i>
+	                                <span class="title">Out Source </span>
+	                                <span class="selected"></span>
+                                	<span class="arrow "></span>
+	                            </a>
+	                        </li>
 							<!--<li class="nav-item  start  <?php if($this->uri->segment(2)=='wardname' || $this->uri->segment(2)=='wardtype' || $this->uri->segment(2)=='roomtype' || $this->uri->segment(2)=='floornumber' || $this->uri->segment(2)=='roomnumber'){ echo "active";} ?>">
 	                            <a  class="nav-link nav-toggle"> <i class="material-icons">local_hospital</i>
 	                                <span class="title">Ward Details</span>  <span class="selected"></span>
