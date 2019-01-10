@@ -910,3 +910,72 @@ tr.group:hover {
 input[type="file"]{
     height:auto;
 }
+
+.chat-modify{
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.chat-modify h3{
+    font-size: 17px !important;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.chat-modify .dataTables_wrapper {
+    margin-top: 0px;
+}
+
+.chat-modify .dataTable th{
+    padding: 8px 8px;
+}
+
+.chat-modify .dataTable td {
+    font-size: 13px;
+    padding: 6px 8px;
+}
+
+.chat-modify .dataTable th:before, .chat-modify .dataTable th:after{
+    bottom: 0.7em !important;
+}
+
+.chat-modify .row:first-child .col-md-6{
+    max-width: 75%;
+    flex: 0 0 75%;
+    padding-bottom: 5px;
+}
+
+.chat-modify .row:last-child .col-md-5{
+    display: none;
+}
+
+.chat-modify .row:last-child .col-md-7{
+    display: flex;
+    max-width: 100%;
+    flex: auto;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+
+.chat-modify .dataTables_paginate .pagination .paginate_button a{
+    padding: 6px 10px;
+}
+
+.chat-modify .row:last-child .col-md-7::-webkit-scrollbar {
+    height: 5px;
+}
+
+/* Track */
+.chat-modify .row:last-child .col-md-7::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+.chat-modify .row:last-child .col-md-7::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+.chat-modify .row:last-child .col-md-7::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
