@@ -373,6 +373,19 @@ class Hospital_model extends CI_Model
     	return $this->db->update("admin",$data);
 	}
 	
+	/* hospital patients list purposr */
+	public  function get_hospital_wise_patient_list($hos_id){
+		$this->db->select('patients_list_1.pid,patients_list_1.registrationtype,patients_list_1.name,patients_list_1.mobile,patients_list_1.age,patients_list_1.email,patient_billing.patient_type,patient_billing.type,patient_billing.patient_payer_deposit_amount as total_amt,patient_billing.bill_amount,resource_list.resource_name,specialist.specialist_name,treament.t_name,patient_billing.create_at')->from('patient_billing');
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+		$this->db->join('resource_list', 'resource_list.a_id = patient_billing.doct_id', 'left');
+		$this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
+		$this->db->join('specialist', 'specialist.s_id = patient_billing.specialist_id', 'left');
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->result_array();	
+	}
+	
+	
 	
 
 }
