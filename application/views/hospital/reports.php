@@ -1,6 +1,9 @@
 <head>
 <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<title>Patient List</title>
+
 </head>
 <style>
 .dataTables_wrapper .dt-buttons {
@@ -13,6 +16,7 @@
 	width:100px;
 }
 </style>
+
 <div class="page-content-wrapper">
                 <div class="page-content">
                     <div class="page-bar">
@@ -37,16 +41,16 @@
                                      <header class="col-md-6 pull-left" >Reports</header>
 									
                                     <div class="col-md-6 " style="position:absolute;right:30px;top:10px;">
-									<form>
+									<form id="fm_filters" action="<?php echo base_url('hospital/reports'); ?>" method="post">
 								   <div class="row">
-								   <div class="col-md-5">
-                                        <input class="form-control"   type="text" placeholder="To Date">
+								   <div class="col-md-5 form-group">
+                                        <input class="form-control" name="to_date" id="to_date"   type="text" placeholder="To Date : 1992-07-14" value="<?php echo isset($search_list['to_date'])?$search_list['to_date']:''; ?>">
                                     </div> 
-									<div class="col-md-5">
-                                        <input class="form-control"  type="text" placeholder="From Date">
+									<div class="col-md-5 form-group">
+                                        <input class="form-control" name="from_date" id="from_date"  type="text" placeholder="From Date : 1993-07-14" value="<?php echo isset($search_list['from_date'])?$search_list['from_date']:''; ?>">
                                     </div>
 									<div class="col-md-2">
-                                        <button class="btn btn-primary btn-sm">Filter</div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Filter</div>
                                     </div>
 									</form>
                                     </div>
@@ -135,6 +139,37 @@ $(document).ready(function() {
         ]
     } );
 } );
+$(document).ready(function() {
+    $('#fm_filters').bootstrapValidator({
+        
+        fields: {
+            
+            to_date: {
+                 validators: {
+					notEmpty: {
+						message: 'To date is required'
+					},
+					date: {
+                        format: 'YYYY-MM-DD',
+                        message: 'The value is not a valid date'
+                    }
+				}
+            },
+			 from_date: {
+                  validators: {
+					  notEmpty: {
+						message: 'From Date is required'
+					},
+                   date: {
+                        format: 'YYYY-MM-DD',
+                        message: 'The value is not a valid date'
+                    }
+                }
+            }
+            }
+        })
+     
+});
 </script>
 
 				

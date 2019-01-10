@@ -2016,9 +2016,18 @@ class Hospital extends In_frontend {
 		if($this->session->userdata('userdetails'))
 		{
 				if($admindetails['role_id']=2){
+					$post=$this->input->post();
+					//echo '<pre>';print_r($post);exit;
+
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
-					$data['patients_list']=$this->Hospital_model->get_hospital_wise_patient_list($userdetails['hos_id']);
+					if(isset($post['to_date']) && $post['to_date']!==''){
+						$data['patients_list']=$this->Hospital_model->get_hospital_patient_list_date_wise($userdetails['hos_id'],$post['to_date'],$post['from_date']);
+					}else{
+					    $data['patients_list']=$this->Hospital_model->get_hospital_wise_patient_list($userdetails['hos_id']);
+					}
+					$data['search_list']=$post;
+					//echo $this->db->last_query();
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('hospital/reports',$data);
 					$this->load->view('html/footer');
