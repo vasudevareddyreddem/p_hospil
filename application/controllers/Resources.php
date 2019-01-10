@@ -1465,6 +1465,155 @@ class Resources extends In_frontend {
 		}
 	}
 	
+	/* new op */
+	public function opregistration()
+	{	
+		
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=3){
+					$post=$this->input->post();
+					$admindetails=$this->session->userdata('userdetails');
+					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
+					//echo '<pre>';print_r($post);exit;
+					$tab1=array(
+					'hos_id'=>isset($userdetails['hos_id'])?$userdetails['hos_id']:'',
+					'card_number'=>isset($post['patient_card_number'])?$post['patient_card_number']:'',
+					'registrationtype'=>isset($post['registrationtype'])?$post['registrationtype']:'',
+					'patient_category'=>isset($post['patient_category'])?$post['patient_category']:'',
+					'problem'=>isset($post['problem'])?$post['problem']:'',
+					'referred'=>isset($post['referred'])?$post['referred']:'',
+					'name'=>isset($post['name'])?strtoupper($post['name']):'',
+					'mobile'=>isset($post['mobile'])?$post['mobile']:'',
+					'email'=>isset($post['email'])?$post['email']:'',
+					'gender'=>isset($post['gender'])?$post['gender']:'',
+					'dob'=>isset($post['dob'])?$post['dob']:'',
+					'age'=>isset($post['age'])?$post['age']:'',
+					'bloodgroup'=>isset($post['bloodgroup'])?$post['bloodgroup']:'',
+					'martial_status'=>isset($post['martial_status'])?$post['martial_status']:'',
+					'nationali_id'=>isset($post['nationali_id'])?$post['nationali_id']:'',
+					'perment_address'=>isset($post['perment_address'])?$post['perment_address']:'',
+					'p_c_name'=>isset($post['p_c_name'])?ucfirst($post['p_c_name']):'',
+					'p_s_name'=>isset($post['p_s_name'])?$post['p_s_name']:'',
+					'p_zipcode'=>isset($post['p_zipcode'])?$post['p_zipcode']:'',
+					'p_country_name'=>isset($post['p_country_name'])?ucfirst($post['p_country_name']):'',
+					'temp_address'=>isset($post['temp_address'])?$post['temp_address']:'',
+					't_c_name'=>isset($post['t_c_name'])?ucfirst($post['t_c_name']):'',
+					't_s_name'=>isset($post['t_s_name'])?$post['t_s_name']:'',
+					't_zipcode'=>isset($post['t_zipcode'])?$post['t_zipcode']:'',
+					't_country_name'=>isset($post['t_country_name'])?ucfirst($post['t_country_name']):'',
+					'create_at'=>date('Y-m-d H:i:s'),
+					'create_by'=>$userdetails['a_id']
+					);
+					//echo '<pre>';print_r($tab1);exit;
+					
+					
+					//exit;
+					if(isset($post['pid']) && $post['pid']!=''){
+						
+						$update=$this->Resources_model->update_all_patient_details($post['pid'],$tab1);
+						if(count($update)>0){
+							$this->session->set_flashdata('success',"Basic Details successfully updated.");
+							if(isset($post['op']) && $post['op']==1){
+								
+									if(isset($post['verifying']) && $post['verifying']=='verify'){
+										$type='Reschedule';
+									}else{
+										$type='Repeated';
+									}
+									$billing=array(
+									'p_id'=>isset($post['pid'])?$post['pid']:'',
+									'patient_type'=>0,
+									'treatment_id'=>$post['department_name'],
+									'doct_id'=>$post['department_doctors'],
+									'specialist_id'=>$post['specialist_doctor_id'],	
+									'patient_payer_deposit_amount'=>isset($post['patient_payer_deposit_amount'])?$post['patient_payer_deposit_amount']:'',
+									'payment_mode'=>isset($post['payment_mode'])?$post['payment_mode']:'',
+									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'',
+									'received_form'=>isset($post['received_form'])?$post['received_form']:'',
+									'create_at'=>date('Y-m-d H:i:s'),
+									'type'=>$type
+									);
+									//echo '<pre>';print_r($billing);exit;
+									$update=$this->Resources_model->update_all_patient_billing_details($billing);
+									//echo $this->db->last_query();exit;
+									if(isset($post['verifying']) && $post['verifying']=='verify'){
+										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11).'/'.base64_encode($update));
+									}else{
+										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11).'/'.base64_encode($update));
+
+									}
+							}else{
+							redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(2));	
+							}
+							
+						}else{
+							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+							if(isset($post['op']) && $post['op']==1){
+								redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11));
+							}else{
+								redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1));
+							
+							}
+						}
+					}else{
+							$addtab=$this->Resources_model->save_basic_details($tab1);
+							if(count($addtab)>0){
+									/* appointment*/
+									if(isset($post['appointment_id']) && $post['appointment_id']!=''){
+									$this->Resources_model->update_appointment($post['appointment_id'],$addtab);
+									}
+									/*appointment*/
+								$dta=array(
+								'pid'=>$addtab,
+								'patient_type'=>0,
+								'create_at'=>date('Y-m-d H:i:s')
+								);
+								$this->zend->load('Zend/Barcode');
+								$file = Zend_Barcode::draw('code128', 'image', array('text' => $addtab), array());
+								$code = time().$addtab.'.png';
+								$store_image1 = imagepng($file, $this->config->item('documentroot')."assets/patient_barcode/{$code}");
+
+								$this->Resources_model->update_patient_details($addtab,$code);
+								$this->session->set_flashdata('success',"Basic Details successfully added.");
+								if(isset($post['op']) && $post['op']==1){
+									$billing=array(
+									'p_id'=>isset($addtab)?$addtab:'',
+									'patient_type'=>0,
+									'treatment_id'=>$post['department_name'],
+									'doct_id'=>$post['department_doctors'],
+									'specialist_id'=>$post['specialist_doctor_id'],	
+									'patient_payer_deposit_amount'=>isset($post['patient_payer_deposit_amount'])?$post['patient_payer_deposit_amount']:'',
+									'payment_mode'=>isset($post['payment_mode'])?$post['payment_mode']:'',
+									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'',
+									'received_form'=>isset($post['received_form'])?$post['received_form']:'',
+									'completed'=>1,									
+									'create_at'=>date('Y-m-d H:i:s'),
+									'type'=>'new'
+									);
+									//echo '<pre>';print_r($billing);exit;
+									$update=$this->Resources_model->update_all_patient_billing_details($billing);
+									redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(11).'/'.base64_encode($update));
+								}else{
+								redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(2));	
+								}
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('resources/desk');
+							}
+					}
+					
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+			
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
+	
 
 	
 	
