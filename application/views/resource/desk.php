@@ -48,7 +48,6 @@
                                        <th> Patient Id </th>
                                       
                                        <th> Name </th>
-                                       <th> Type </th>
                                       
                                        <th> Age </th>
                                        <th> Mobile </th>
@@ -62,9 +61,7 @@
                                        <td>
                                           <?php echo $list['name']; ?>
                                        </td>
-                                       <td>
-                                          <?php echo $list['registrationtype']; ?>
-                                       </td>
+                                      
                                        <td><?php echo $list['age']; ?> </td>
                                        <td><?php echo $list['mobile']; ?> </td>
                                        <td class="valigntop">
@@ -234,7 +231,7 @@
 												<div>
 									   
 													 <?php if(isset($billing_detailes['completed']) && $billing_detailes['completed']==1){ ?>
-													 <a target="_blank" href="<?php echo base_url('resources/print_patient_details/'.base64_encode($pid).'/'.base64_encode($bill_id)); ?>" class="btn btn-success  " type="bitton">Print</a>
+													 <a target="_blank" href="<?php echo base_url('resources/print_op_patient_details/'.base64_encode($pid).'/'.base64_encode($bill_id)); ?>" class="btn btn-success  " type="bitton">Print</a>
 													 <a href="<?php echo base_url('resources/desk'); ?>" class="btn btn-success  " type="bitton">Submit</a>
 													 <?php }else{ ?>
 														 <button class="btn btn-success"  name="form_submit" type="submit">Next</button>

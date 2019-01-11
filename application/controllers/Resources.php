@@ -709,6 +709,44 @@ class Resources extends In_frontend {
 			redirect('admin');
 		}
 	}
+	public function print_op_patient_details()
+	{	
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=3){
+					$post=$this->input->post();
+					$pid=base64_decode($this->uri->segment(3));
+					$bid=base64_decode($this->uri->segment(4));
+					$admindetails=$this->session->userdata('userdetails');
+					$data['details']=$this->Resources_model->get_billing_details($pid,$bid);
+					$data['vital_details']=$this->Resources_model->get_billing_vital_details($pid,$bid);
+					//echo '<pre>';print_r($data);exit;
+					$path = rtrim(FCPATH,"/");
+					$file_name = $data['details']['p_id'].'_'.$data['details']['b_id'].'.pdf';                
+					$data['page_title'] = $data['details']['name'].'invoice'; // pass data to the view
+					$pdfFilePath = $path."/assets/patient_information/".$file_name;
+					ini_set('memory_limit','320M'); // boost the memory limit if it's low <img src="https://s.w.org/images/core/emoji/72x72/1f609.png" alt="??" draggable="false" class="emoji">
+					$html = $this->load->view('resource/print_op_patient_details', $data, true); // render the view into HTML
+					//echo '<pre>';print_r($html);exit;
+					$this->load->library('pdf');
+					$pdf = $this->pdf->load();
+					$pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date('M-d-Y')); // Add a footer for good measure <img src="https://s.w.org/images/core/emoji/72x72/1f609.png" alt="??" draggable="false" class="emoji">
+					$pdf->SetDisplayMode('fullpage');
+					$pdf->list_indent_first_level = 0;	// 1 or 0 - whether to indent the first level of a list
+					$pdf->WriteHTML($html); // write the HTML into the PDF
+					$pdf->Output($pdfFilePath, 'F');
+					redirect("assets/patient_information/".$file_name);
+					//redirect('resources/desk/'.base64_encode($pid).'/'.base64_encode(8).'/'.base64_encode($bid).'/'.base64_encode(4));
+
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
 	public function op_print_patient_details()
 	{	
 		if($this->session->userdata('userdetails'))
