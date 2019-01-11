@@ -107,12 +107,54 @@
          <div id="step-1" class="">
             <div class="row">
                <div class="col-md-2"> 
-                  <strong>Patient History</strong>
+                  <strong>Whitefield</strong>
                </div>
-               <div class="col-md-1"> 
+               <!--<div class="col-md-1"> 
                   <span class="btn btn-xs btn-info" data-toggle="modal" data-target="#squarespaceModal">View All</span>
-               </div>
+               </div>-->
             </div>
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="example1" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Date</th>
+                                    <th colspan="5" class="text-center">Actuals</th>
+                                    <th colspan="5" class="text-center">Range</th>
+                                </tr>
+                                <tr>
+                                    <th>BP</th>
+                                    <th>Pulse</th>
+                                    <th>FBS/RBS</th>
+                                    <th>Temp</th>
+                                    <th>Weight</th>
+                                    <th>BP</th>
+                                    <th>Pulse</th>
+                                    <th>FBS/RBS</th>
+                                    <th>Temp</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12/4/2019</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                    <td>523</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                 </div>
+             </div>
             <div class="row clearfix">
 			<?php if(isset($encounters_list) && count($encounters_list)>0){ ?>
                <?php $cnt=0;foreach($encounters_list as $list){
@@ -180,7 +222,7 @@
                <?php $cnt++;} ?>
                <?php } ?>-->
                <div class="clearfix">&nbsp;</div>
-               <div class="container">
+               <!--<div class="container">
 			    <form id="vitalscomment" name="vitalscomment" role="form" action="<?php echo base_url('resources/vitalscomment'); ?>" method="post" autocomplete="off">
                   <div class="form-group" id="fields">
                      <label class="control-label" for="field1"><strong>Cases</strong></label>
@@ -205,7 +247,7 @@
 				  <div class="clearfix">&nbsp;</div>
 				      <button class="btn btn-primary " type="submit" >Send</button>
                         </form>
-               </div>
+               </div>-->
             </div>
          </div>
          <div id="step-2" class="">
