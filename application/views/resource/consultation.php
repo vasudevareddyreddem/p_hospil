@@ -99,7 +99,8 @@
    <div id="smartwizard" class="col-md-12">
       <ul>
          <li><a href="#step-1" >Diagnosis<br /><small>This is step description</small></a></li>
-         <li><a href="#step-2">Medication/Investigation<br /><small>This is step description</small></a></li>
+         <li><a href="#step-2">Medication<br /><small>This is step description</small></a></li>
+         <li><a href="#step-3">Investigation<br /><small>This is step description</small></a></li>
          <!--<li><a href="#step-3">Assign<br /><small>This is step description</small></a></li>-->
       </ul>
       <div>
@@ -208,21 +209,7 @@
             </div>
          </div>
          <div id="step-2" class="">
-            <div class="panel tab-border card-topline-green">
-               <header class="panel-heading panel-heading-gray custom-tab ">
-                  <ul class="nav nav-tabs">
-                     <li class="nav-item"><a href="#home" data-toggle="tab" class="active">Medication</a>
-                     </li>
-                     <li class="nav-item"><a href="#about" data-toggle="tab">Investigation</a>
-                     </li>
-					
-                   
-                  </ul>
-				  <a href="<?php echo base_url('resources/skip_prescription/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" >Alternate way</a>
-               </header>
-               <div class="panel-body">
-                  <div class="tab-content">
-                     <div class="tab-pane active" id="home">
+           <a href="<?php echo base_url('resources/skip_prescription/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" >Alternate way</a>
                         <form id="add_medicines" name="add_medicines" onsubmit="return check_qty()"  action="<?php echo base_url('resources/medicine'); ?>" method="post" >
                            <input type="hidden" name="pid" id="pid" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
                            <input type="hidden" name="bid" id="bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
@@ -566,7 +553,7 @@
                                     </div>
                                  </div>
                                  <div class="clearfix">&nbsp;</div>
-                                 <button class="btn btn-sm btn-success" type="submit">Add Prescription</button>
+                                 <button class="btn btn-sm btn-success" type="submit">Submit</button>
                                  <?php if(isset($patient_medicine_list) && count($patient_medicine_list)>0){?>
                                  <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#prescriptionmodel"  type="button">View Prescription</a>
                                  <?php } ?>
@@ -574,9 +561,9 @@
                               </div>
                            </div>
                         </form>
-                     </div>
-                     <div class="tab-pane" id="about">
-					 <div class="container">
+         </div>
+		<div id="step-3" class="">
+           <div class="container">
 					
     <div class="row clearfix">
 		<div class="col-md-12 column">
@@ -650,62 +637,15 @@
 	<button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row' class="pull-right btn btn-default">Delete Row</button>
 	<div class=" clearfix">&nbsp;</div>
 	<div class=" clearfix">&nbsp;</div>
-	<div class="row clearfix pull-right">
-		<button class="btn btn-default">Back</button>
-		<button class="btn btn-primary">Submit</button>
+	<div class="row  pull-right ">
+		
+		<button class="btn btn-primary ">Submit</button>
 	</div>
-	
+	<div class=" clearfix">&nbsp;</div>
+	<div class=" clearfix">&nbsp;</div>
 </div>
-					 <!--<form id="addinvestigation" name="addinvestigation" onsubmit="return check_lab_test();" action="<?php echo base_url('resources/investigation'); ?>" method="post">
-                         <input type="hidden" name="pid" id="pid" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
-							<input type="hidden" name="bid" id="bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
-
-							<div class="container">
-                           <div class="row">
-                              <div class="form-group col-md-6">
-                                 <label for="email">Select Tests</label><br>
-                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#searchmodal" class="btn btn-sm btn-warning">Search</a>
-								<span id="countdisplaying" style="display:none">Patient test count : <span id="testcount" ></span></span>
-							  </div>
-							  
-							  <input type="hidden" name="test_list_count" id="test_list_count" value="">
-                              
-                              <div class="col-md-6">
-                                 <label>Frequency</label>	
-										<select class="form-control" name="frequency" id="frequency">
-                                                   <option value="" >Select</option>
-                                                   <option value="4 hours">4 hours</option>
-                                                   <option value="6 hours">6 hours</option>
-                                                   <option value="12 hours">12 hours</option>
-                                                   <option value="24 hours">24 hours</option>
-                                                   
-                                                </select>								 
-                              </div>
-                              <div class="col-md-6">
-                                 <label>Priority</label>									
-                                 <select class="form-control" id="priority" name="priority">
-                                    <option value="">Select Priority </option>
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium </option>
-                                    <option value="High">High</option>
-                                 </select>
-                              </div>
-                              
-                           </div>
-                           <br/>
-                           <button class="btn btn-sm btn-success" type="submit">Add Investigation</button>
-								<?php if(isset($patient_investigation_list) && count($patient_investigation_list)>0){?>
-                                 <a class="btn btn-sm btn-info" data-toggle="modal" data-target="#investigationmodel"  type="button">View Investigation</a>
-                                 <?php } ?>
-                        </div>
-						</form>-->
-                     </div>
-                  </div>
-               </div>
-               <div class="clearfix">&nbsp;</div>
-            </div>
-         </div>
-         <div id="step-3" class="">
+		</div>
+         <!--<div id="step-3" class="">
             <div class=" text-center min-h-300">
 				
 				<div class="row">
@@ -755,7 +695,7 @@
 				</div>
             </div>
      
-      </div>
+      </div>-->
    </div>
 </div>
 <!-- view all modal -->
