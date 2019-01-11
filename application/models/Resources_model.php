@@ -361,6 +361,11 @@ class Resources_model extends CI_Model
 		$this->db->where('medicine_list.medicine_name',$name);
         return $this->db->get()->row_array();	
 	}
+	public function get_medicine_list_details_with_id($id){
+		$this->db->select('medicine_list.id,medicine_list.total_amount,medicine_list.batchno,medicine_list.expiry_date,medicine_list.qty,medicine_list.medicine_type,medicine_list.cgst,medicine_list.amount,medicine_list.dosage')->from('medicine_list');		
+		$this->db->where('medicine_list.id',$id);
+        return $this->db->get()->row_array();	
+	}
 	public function get_medicine_details_list_details($name,$hos_id){
 		$this->db->select('medicine_list.id,medicine_list.total_amount,medicine_list.batchno,medicine_list.expiry_date,medicine_list.qty,medicine_list.medicine_type,medicine_list.cgst,medicine_list.amount,medicine_list.dosage')->from('medicine_list');		
 		$this->db->where('medicine_list.medicine_name',$name);

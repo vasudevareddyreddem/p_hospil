@@ -1060,7 +1060,82 @@ class Resources extends In_frontend {
 					$post=$this->input->post();
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
-					//echo '<pre>';print_r($admindetails);exit;
+					$post=$this->input->post();
+					//echo '<pre>';print_r($post);
+					$cnt=0;foreach($post['medicine_name'] as $list){
+							if($list!=''){
+										$m_name=explode("_",$post['medicine_name'][$cnt]);
+										$qtys=$this->Resources_model->get_medicine_details_list_details($m_name[0],$userdetails['hos_id']);
+											//echo '<pre>';print_r($list);exit;
+											$freq=array();
+											if(isset($post['Frequency'][$cnt]) && count($post['Frequency'][$cnt])>0){
+											foreach($post['Frequency'][$cnt] as $li){
+												$freq[]=$li;
+												
+											}
+											$fr=implode(" ,", $freq);
+											}
+										$add=array(
+											'p_id'=>isset($post['pid'])?$post['pid']:'',
+											'b_id'=>isset($post['bid'])?$post['bid']:'',
+											'medicine_id'=>isset($qtys['id'])?$qtys['id']:'',
+											'medicine_type'=>isset($qtys['medicine_type'])?$qtys['medicine_type']:'',
+											'batchno'=>isset($qtys['batchno'])?$qtys['batchno']:'',
+											'dosage'=>isset($qtys['dosage'])?$qtys['dosage']:'',
+											'expiry_date'=>isset($qtys['expiry_date'])?$qtys['expiry_date']:'',
+											'org_amount'=>(($qtys['total_amount'])*($post['qty'][$cnt])),
+											'amount'=>$qtys['total_amount'],
+											'medicine_name'=>$post['medicine_name'][$cnt],
+											'frequency'=>isset($fr)?$fr:'',
+											'qty'=>$post['qty'][$cnt],
+											'food'=>$post['food'][$cnt],
+											'directions'=>$post['directions'],
+											'no_of_days'=>$post['days'][$cnt],
+											'create_at'=>date('Y-m-d H:i:s'),
+											'date'=>date('Y-m-d'),
+											'create_by'=>$admindetails['a_id']
+										);
+										//echo '<pre>';print_r($add);
+										$medicine=$this->Resources_model->saving_patient_medicine($add);
+										if(isset($medicine) && count($medicine)>0){
+												$qty=(($qtys['qty'])-($post['qty'][$cnt]));
+												$data=array('qty'=>$qty);
+												$this->Resources_model->update_medicine_details($qtys['id'],$data);
+										}
+							}
+							
+					$cnt++;}
+					
+					//exit;
+					
+						if(count($medicine)>0){
+							$this->session->set_flashdata('success',"Medicines successfully added.");
+							redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-2');
+						}else{
+							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+							redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-2');
+						}
+					
+						
+					
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
+	public function medicine_back(){
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=4){
+					$post=$this->input->post();
+					$admindetails=$this->session->userdata('userdetails');
+					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
+					$post=$this->input->post();
+					//echo '<pre>';print_r($post);exit;
 					$m_name=explode("_",$post['medicine_name']);
 					$qtys=$this->Resources_model->get_medicine_details_list_details($m_name[0],$userdetails['hos_id']);
 					//echo '<pre>';print_r($qtys);
@@ -1173,7 +1248,9 @@ class Resources extends In_frontend {
 					if(count($removedattch) > 0)
 					{
 						
-					$qtys=$this->Resources_model->get_medicine_list_details($post['medicine_name']);
+					$qtys=$this->Resources_model->get_medicine_list_details_with_id($post['medicine_id']);
+					//echo $this->db->last_query();
+					//exit;
 					$qty=(($qtys['qty'])+($post['medicine_qty']));
 					$data=array('qty'=>$qty);
 					$this->Resources_model->update_medicine_details($qtys['id'],$data);
