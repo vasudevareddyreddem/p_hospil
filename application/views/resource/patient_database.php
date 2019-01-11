@@ -31,7 +31,6 @@
 					<th> Patient Id </th>
 					
 					<th> Name </th>
-					<th> Type </th>
 					
 					<th> Age </th>
 					<th> Mobile </th>
@@ -48,9 +47,7 @@
 					<td>
 						<?php echo $list['name']; ?>
 					</td>
-					<td>
-						<?php echo $list['registrationtype']; ?>
-					</td>
+					
 					<td><?php echo $list['age']; ?> </td>
 					<td><?php echo $list['mobile']; ?> </td>
 					<td><?php echo date('M j h:i A',strtotime(htmlentities($list['create_at'])));?></td>
