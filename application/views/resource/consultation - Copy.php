@@ -401,13 +401,6 @@
       </div>
       <div id="step-3" class="">
          <div class="container">
-		 
-			<form  action="<?php echo base_url('resources/save_op_patient_lab_test_names'); ?>" method="post">
-			 <input type="hidden" name="pid" id="patient_id_test_list" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
-            <input type="hidden" name="bid" id="patient_bid_test_list" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
-			<input type="hidden" name="test_patient_id" id="test_patient_id" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
-            <input type="hidden" name="test_patient_bid" id="test_patient_bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
-
             <div class="row clearfix">
                <div class="col-md-12 column">
                   <table class="table table-bordered table-hover" id="tab_logic">
@@ -430,48 +423,43 @@
                      <tbody>
                         <tr id='addr0'>
                            <td>
-                              <select class="form-control" onchange="investdation_serach_one(this.value);" name="investdation_serach[]" id="investdation_serach">
+                              <select class="form-control" onchange="investdation_serach(this.value);" name="investdation_serach" id="investdation_serach">
 									<option value="">Select </option>
 									<option value="Lab">Lab </option>
 									<option value="Radiology">Radiology</option>
                               </select>
                            </td>
                            <td>
-                               <select onchange="test_list_purpose(this.value)" id="internal_code" name="internal_code[]" class="form-control  select2" style="width:100%">
+                               <select onchange="test_list_purpose(this.value)" id="internal_code" name="internal_code" class="form-control  select2" style="width:100%">
                                  <option value="" >Select</option>
                               </select>
                            </td>
                            <td>
-                              <select id="lab_test_name" name="lab_test_name[]" class="form-control select2" style="width:100%">
+                              <select id="lab_test_name" name="lab_test_name" class="form-control select2" style="width:100%">
                                  <option value="" >Select</option>
                               </select>
                            </td>
                            <td>
-                              <select class="form-control " name="frequency[]" id="frequency">
+                              <select class="form-control " name="frequency" id="frequency">
                                  <option value="" >Select</option>
-                                 <option value="6 Hours">6 Hours</option>
-                                 <option value="12 Hours">12 Hours</option>
-                                 <option value="24 Hours">24 Hours</option>
-                                 <option value="48 Hours">48 Hours</option>
+                                 <option>6 Hours</option>
+                                 <option>12 Hours</option>
+                                 <option>24 Hours</option>
+                                 <option>48 Hours</option>
                               </select>
                            </td>
                         </tr>
                         <tr id='addr1'></tr>
                      </tbody>
                   </table>
-				  
                </div>
-			
             </div>
-            <a id="add_row" class="btn btn-default pull-left">Add Row</a> <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
-			<div class="row  pull-right ">
-               <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-			</form>
-			 <a href="javascript:void(0)" onclick="get_patient_list()" data-toggle="modal" data-target="#test_list_searchmodal" class="btn btn-sm btn-warning">View</a>
+            <button id="add_row" class="btn btn-default pull-left">Add Row</button><button id='delete_row' class="pull-right btn btn-default">Delete Row</button>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
-          
+            <div class="row  pull-right ">
+               <button class="btn btn-primary ">Submit</button>
+            </div>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
          </div>
@@ -479,55 +467,7 @@
     
    </div>
 </div>
-<!-- test vierw  purpose-->
-<div class="modal fade" id="test_list_searchmodal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-         <div class="modal-header bg-indigo">
-            <h5 class="modal-title" id="lineModalLabel">Lab Test List</h5>
-            <button type="button" id="popupclose" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-         </div>
-         <div class="modal-body" style="height:400px;overflow:hidden; overflow-y: scroll;">
-            <div class="">
-               <div class="">
-                  <div class=" card card-topline-red">
-                     <div class="card-head">
-                        <header>List</header>
-                     </div>
-                     <div class="card-body ">
-                        <div class="row">
-                           
-						   <div class="col-md-12 ">
 
-                              <div class="table-scrollable">
-                                 <table class="table table-bordered">
-                                    <thead>
-                                       <tr>
-                                          <th> Test Name</th>
-                                          <th> Amount</th>
-                                          <th> Duration</th>
-                                          <th>Action</th>
-                                       </tr>
-                                    </thead>
-                                    <tbody id="lab_test_type_list">
-                                      
-                                    </tbody>
-                                 </table>
-                              </div>
-                              <div class="clearfix">&nbsp;</div>
-								 <button type="button" class="btn btn-default" data-dismiss="modal" role="button">Close</button>
-								</div>
-							  
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-      </div>
-   </div>
-   </div>
 <!--view preciption modal-->
 <div class="modal fade" id="prescriptionmodel" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
@@ -578,170 +518,27 @@
       </div>
    </div>
 </div>
-<!--medicine_list_hmodal_modal-->
-<div class="modal fade" id="medicine_list_hmodal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-            <h5 class="modal-title" id="lineModalLabel">Previous Medicine List </h5>
-         <div class="modal-header bg-indigo">
-            <button type="button" id="popupclose" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-         </div>
-         <div class="modal-body" style="height:400px;overflow:hidden; overflow-y: scroll;">
-            <div class="">
-               <div class="">
-                  <div class=" card card-topline-red">
-                     <div class="card-head">
-                        <header>Previous Medicine List</header>
-                     </div>
-                     <div class="card-body ">
-                        <div class="row">
-                           	<table class="table table-striped table-bordered table-hover table-checkable order-column" id="example4">
-								<thead>
-									<tr>
-										<th> Medicine Name </th>
-										<th> Batch No </th>
-										<th> Expiry Date </th>
-										<th> Qty  </th>
-										<th> Frequency </th>
-										
-									</tr>
-								</thead>
-								<tbody>
-								<?php foreach($patient_privious_medicine_list as $list){ ?>
-									<tr class="odd gradeX">
-										<td><?php echo isset($list['medicine_name'])?$list['medicine_name']." - dosage ".$list['dosage']." - type ".$list['medicine_type']:''; ?></td>
-										<td><?php echo $list['batchno']; ?></td>
-										<td><?php echo date('M-j-Y',strtotime(htmlentities($list['expiry_date'])));?></td>
-										<td><?php echo $list['qty']; ?></td>
-										<td><?php echo $list['frequency']; ?> </td>
-										
-									</tr>
-									
-								<?php } ?>
-									
-								</tbody>
-							</table>
-							  
-                        </div>
-						
-						<div>
-						<h3>
-						Prescription File
-						</h3><hr>
-						<?php if(isset($patient_privious_alternate_medicine_list) && count($patient_privious_alternate_medicine_list)>0){ ?>
-						<?php foreach($patient_privious_alternate_medicine_list as $list){  ?>
-						<a href="<?php echo base_url('assets/sheet_prescriptions/'. $list['sheet_prescription_file']); ?>">Download</a><br>
-						
-						<?php } ?>
-						
-						<?php } ?>
-						
-						</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-      </div>
-   </div>
-</div>
+
 <!-- patient_lab_test_list_model-->
 <script type="text/javascript">
-   var i=1;
-     $("#add_row").click(function(){
-      $('#addr'+i).html("<td><div class='form-group'><div class=''><select class='form-control'name='investdation_serach[]' id='investdation_serach"+i+"' onchange='investdation_serach_row(this.value,"+i+")'><option value=''>select</option><option value='Lab'>Lab</option><option value='Radiology'>Radiology</option></select></div></div></td><td><div class='form-group'><div class=''><select class='form-control' onchange='test_list_purpose_row(this.value,"+i+")' name='internal_code[]' id='internal_code_row"+i+"'><option value=''>select</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='lab_test_name[]' id='lab_test_name_row"+i+"' style='width:100%;'><option value =''>Select</option><option value ='yellow'>YELLOW</option><option value = 'Red'>RED</option><option value ='Blue'>BLUE</option><option value ='White (ppc)'>WHITE (PPC)</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='frequency[]' id='frequency' style='width:100%;'><option value =''>Select</option><option value ='6 Hours'>6 Hours</option><option value ='12 Hours'>12 Hours</option><option value ='24 Hours'>24 Hours</option><option value ='48 Hours'>48 Hours</option></select></div></div></td>");
-
-      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
-      i++; 
-  });
-     $("#delete_row").click(function(){
-         if(i>1){
-         $("#addr"+(i-1)).html('');
-         i--;
-         }
-     });
+   $(document).ready(function(){
+        var i=1;
+       $("#add_row").click(function(){b=i-1;
+        $('#addr'+i).html($('#addr'+b).html()).find('td:first-child');
+        $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+        i++; 
+    });
+       $("#delete_row").click(function(){
+      	 if(i>1){
+   	 $("#addr"+(i-1)).html('');
+   	 i--;
+   	 }
+    });
+   
+   });
+      
 </script>
 <script type="text/javascript">
-function investdation_serach_one(val){
-	if(val!=''){
-   			$('#internal_code').empty();
-   			jQuery.ajax({
-   					url: "<?php echo base_url('resources/investigationsearch');?>",
-   					data: {
-   						searchdata: val,
-   					},
-   					dataType: 'json',
-   					type: 'POST',
-   					success: function (data) {
-					//var parsedData = JSON.parse(data);
-						console.log(data);
-						console.log(Object.values(data))
-   						if(data.msg==1){
-   						   $('#internal_code').empty();
-   						   $('#internal_code').append("<option value=''>select </option>");                      
-   
-								for(i=0; i<data.text.length; i++) {
-									 $('#internal_code').append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>");                      
-								}
-   						}
-   				 }
-   			});
-   		}
-	
-}
-function investdation_serach_row(val,id){
-	if(val!=''){
-   			$('#internal_code_row'+id).empty();
-   			jQuery.ajax({
-   					url: "<?php echo base_url('resources/investigationsearch');?>",
-   					data: {
-   						searchdata: val,
-   					},
-   					dataType: 'json',
-   					type: 'POST',
-   					success: function (data) {
-					//var parsedData = JSON.parse(data);
-						console.log(data);
-						console.log(Object.values(data))
-   						if(data.msg==1){
-   						   $('#internal_code_row'+id).empty();
-   						   $('#internal_code_row'+id).append("<option value=''>select </option>");                      
-   
-								for(i=0; i<data.text.length; i++) {
-									console.log(data.text[i].t_name);
-									 $('#internal_code_row'+id).append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>");                      
-								}
-   						}
-   				 }
-   			});
-   		}
-	
-}
-function test_list_purpose_row(val,id){
-		if(val!=''){
-   			$('#lab_test_name_row'+id).empty();
-   			jQuery.ajax({
-   					url: "<?php echo base_url('resources/test_name_testsearch');?>",
-   					data: {
-   						type: $('#investdation_serach'+id).val(),
-   						test_type_id: val,
-   					},
-   					dataType: 'json',
-   					type: 'POST',
-   					success: function (data) {
-						//alert(data);return false;
-					    if(data.msg==1){
-   						   $('#lab_test_name_row'+id).empty();
-   						   $('#lab_test_name_row'+id).append("<option value=''>select </option>");                      
-								for(i=0; i<data.text.length; i++) {
-									 $('#lab_test_name_row'+id).append("<option value='"+data.text[i].t_id+"'>"+data.text[i].t_name+"</option>");                      
-								}
-   						}
-   				 }
-   			});
-   		}
-}
    function form_submittion(){
     
     if($('#medicinename').val()!=''){
@@ -781,51 +578,6 @@ function test_list_purpose_row(val,id){
       
 </script>
 <script>
-function get_patient_list(){
-			$('#lab_test_type_list').empty();
-			jQuery.ajax({
-					url: "<?php echo base_url('resources/get_patinent_list');?>",
-					data: {
-						patinet_id: $('#patient_id_test_list').val(),
-						patinet_bid: $('#patient_bid_test_list').val(),
-					},
-					dataType: 'json',
-					type: 'POST',
-					success: function (data) {
-						console.log(data);
-						if(data.msg==1){
-						$('#lab_test_type_list').empty();
-						for(i=0; i<data.text.length; i++) {
-						//$('#testlist').append("<option value="+data.text[i].l_assistent_id+">"+data.text[i].l_code+"</option>");                      
-						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
-
-						}
-						}
-				 }
-			});
-	}
-	function remove_patient_lab_test(t_id){
-		jQuery.ajax({
-					url: "<?php echo base_url('resources/remove_patient_treatment_id');?>",
-					data: {
-						t_id: t_id,
-						patinet_id: $('#test_patient_id').val(),
-					},
-					dataType: 'json',
-					type: 'POST',
-					success: function (data) {
-						if(data.msg==1){
-							 $('#countdisplaying').show();
-							 $('#testcount').empty();
-							 $('#test_list_count').empty();
-							 $('#testcount').append(data.count);
-							 $('#test_list_count').append(data.count);
-   						jQuery('#td_id'+t_id).hide();
-   					}
-				 }
-			});
-		
-	}
    function check_lab_test(){
    	var count=$('#test_list_count').val();
    	if(count==''){
@@ -892,7 +644,6 @@ function get_patient_list(){
           //+ favorite.join("/");
    	}
    	function investdation_serach(id){
-		alert();
    		if(id!=''){
    			$('#internal_code').empty();
    			jQuery.ajax({
@@ -985,7 +736,7 @@ function get_patient_list(){
    						$('#lab_test_type_list').empty();
    						for(i=0; i<data.text.length; i++) {
    						//$('#testlist').append("<option value="+data.text[i].l_assistent_id+">"+data.text[i].l_code+"</option>");                      
-   						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
+   						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].type_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td>"+data.text[i].t_short_form+"</td><td>"+data.text[i].t_description+"</td><td>"+data.text[i].t_department+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
    
    						}
    						}
@@ -1188,7 +939,29 @@ function get_patient_list(){
 </script>
 <!--script for add row comment-->
 <script>
+   $(function()
+   {
+    $(document).on('click', '.btn-add', function(e)
+    {
+        e.preventDefault();
    
+        var controlForm = $('.controls form:first'),
+            currentEntry = $(this).parents('.entry:first'),
+            newEntry = $(currentEntry.clone()).appendTo(controlForm);
+   
+        newEntry.find('input').val('');
+        controlForm.find('.entry:not(:last) .btn-add')
+            .removeClass('btn-add').addClass('btn-remove')
+            .removeClass('btn-success').addClass('btn-danger')
+            .html('<span class="glyphicon glyphicon-minus">-</span>');
+    }).on('click', '.btn-remove', function(e)
+    {
+   $(this).parents('.entry:first').remove();
+   
+   e.preventDefault();
+   return false;
+   });
+   });
    
 </script>
 <script>

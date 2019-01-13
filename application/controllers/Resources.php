@@ -1085,7 +1085,7 @@ class Resources extends In_frontend {
 											'expiry_date'=>isset($qtys['expiry_date'])?$qtys['expiry_date']:'',
 											'org_amount'=>(($qtys['total_amount'])*($post['qty'][$cnt])),
 											'amount'=>$qtys['total_amount'],
-											'medicine_name'=>$post['medicine_name'][$cnt],
+											'medicine_name'=>$m_name[0],
 											'frequency'=>isset($fr)?$fr:'',
 											'qty'=>$post['qty'][$cnt],
 											'food'=>$post['food'][$cnt],
@@ -1109,6 +1109,8 @@ class Resources extends In_frontend {
 					//exit;
 					
 						if(count($medicine)>0){
+							$update=array('completed_type'=>1,'doctor_status'=>1);
+							$this->Resources_model->update_patient_medicine_details($post['pid'],$post['bid'],$update);
 							$this->session->set_flashdata('success',"Medicines successfully added.");
 							redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-2');
 						}else{
@@ -1298,10 +1300,37 @@ class Resources extends In_frontend {
 					//echo '<pre>';print_r($post);exit;
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
-					$details=$this->Resources_model->get_investigation_basedon_testtypes_list($userdetails['hos_id'],$post['searchdata']);
+					$details=$this->Resources_model->get_investigation_basedon_testtypes_list_with_groupby($userdetails['hos_id'],$post['searchdata']);
 					//echo $this->db->last_query();
 					//echo '<pre>';print_r($details);exit;
 
+					if(count($details) > 0)
+					{
+					$data['msg']=1;
+					$data['text']=$details;
+					echo json_encode($data);exit;	
+					}
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
+	public function test_name_testsearch(){
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=6){
+					$post=$this->input->post();
+					//echo '<pre>';print_r($post);
+					$admindetails=$this->session->userdata('userdetails');
+					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
+					//$name=$this->Resources_model->get_test_name_details($post['test_type_id']);
+					$details=$this->Resources_model->get_test_list_hospital_wise_with_name($post['type'],$post['test_type_id'],$userdetails['hos_id']);
+					//echo $this->db->last_query();
+					//echo '<pre>';print_r($details);exit;
 					if(count($details) > 0)
 					{
 					$data['msg']=1;
@@ -1326,7 +1355,7 @@ class Resources extends In_frontend {
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
 					$name=$this->Resources_model->get_test_name_details($post['test_type_id']);
-					$details=$this->Resources_model->get_test_list_hospital_wise($name['type'],$post['test_type_id'],$userdetails['hos_id']);
+					$details=$this->Resources_model->get_test_list_hospital_wise_with_name($name['type'],$post['test_type_id'],$userdetails['hos_id']);
 					//echo $this->db->last_query();
 					//echo '<pre>';print_r($details);exit;
 					if(count($details) > 0)
@@ -1726,6 +1755,53 @@ class Resources extends In_frontend {
 		}else{
 			$this->session->set_flashdata('error','Please login to continue');
 			redirect('admin');
+		}
+	}
+	
+	public  function save_op_patient_lab_test_names(){
+		if($this->session->userdata('userdetails'))
+		{
+				$admindetails=$this->session->userdata('userdetails');
+				$post=$this->input->post();
+				$cnt=0;foreach($post['investdation_serach'] as $list){
+					if($list!=''){
+						$test_details=$this->Resources_model->get_test_details($post['lab_test_name'][$cnt]);
+						$add=array(
+						'p_id'=>isset($post['pid'])?$post['pid']:'',
+						'b_id'=>isset($post['bid'])?$post['bid']:'',
+						'test_id'=>$post['lab_test_name'][$cnt],
+						'create_at'=>date('Y-m-d H:i:s'),
+						'date'=>date('Y-m-d'),
+						'create_by'=>$admindetails['a_id'],
+						'out_source'=>$test_details['out_source'],
+						'status'=>1
+						);
+						$check=$this->Resources_model->check_test_already_exist($post['lab_test_name'][$cnt],$post['pid'],$post['bid'],date('Y-m-d'));
+						if(count($check)>0){
+							$addtest=array(1);
+						}else{
+							$addtest=$this->Resources_model->add_addpatient_test($add);
+						}
+						//echo '<pre>';print_r($add);
+						
+					}
+					
+				$cnt++;}
+				if(count($addtest)>0){
+						$update=array('completed_type'=>2,'doctor_status'=>1);
+						$this->Resources_model->update_patient_medicine_details($post['pid'],$post['bid'],$update);
+					$this->session->set_flashdata('success',"Tests successfully added.");
+					redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-3');
+					
+				}else{
+					$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+					redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-3');
+					
+				}
+				echo '<pre>';print_r($post);exit;
+		}else{
+				$this->session->set_flashdata('error','Please login to continue');
+			    redirect('admin');
 		}
 	}
 	

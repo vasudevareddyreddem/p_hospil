@@ -27,7 +27,6 @@
                                         <thead>
                                             <tr>
 												<th>Patient Id</th>
-												<th>Patient Card Number</th>
 												<th>Slot</th>
 												<th>Patient Name </th>
                                                 <th>Age</th>
@@ -39,7 +38,6 @@
 										<?php foreach($worksheet as $list){ ?>
                                             <tr>
                                                 <td><?php echo htmlentities($list['pid']); ?></td>
-                                                <td><?php echo htmlentities($list['card_number']); ?></td>
                                                 <td><button class="btn btn-xs bg-success no-margin" type="button"><?php echo htmlentities($list['type']); ?></button></td>
 												<td><?php echo htmlentities($list['name']); ?></td>
                                                 <td> <?php echo htmlentities($list['age']); ?></td>
