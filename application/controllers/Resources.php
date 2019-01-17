@@ -1300,7 +1300,7 @@ class Resources extends In_frontend {
 					//echo '<pre>';print_r($post);exit;
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
-					$details=$this->Resources_model->get_investigation_basedon_testtypes_list_with_groupby($userdetails['hos_id'],$post['searchdata']);
+					$details=$this->Resources_model->get_investigation_basedon_testtypes_list_with_groupby_testtypes($userdetails['hos_id'],$post['searchdata']);
 					//echo $this->db->last_query();
 					//echo '<pre>';print_r($details);exit;
 

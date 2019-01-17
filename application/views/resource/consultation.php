@@ -683,7 +683,7 @@ function investdation_serach_one(val){
    						   $('#internal_code').append("<option value=''>select </option>");                      
    
 								for(i=0; i<data.text.length; i++) {
-									 $('#internal_code').append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>");                      
+									 $('#internal_code').append("<option value='"+data.text[i].test_type+"'>"+data.text[i].test_type+"</option>");                      
 								}
    						}
    				 }
@@ -711,7 +711,7 @@ function investdation_serach_row(val,id){
    
 								for(i=0; i<data.text.length; i++) {
 									console.log(data.text[i].t_name);
-									 $('#internal_code_row'+id).append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>").trigger("chosen:updated"); ;                      
+									 $('#internal_code_row'+id).append("<option value='"+data.text[i].test_type+"'>"+data.text[i].test_type+"</option>").trigger("chosen:updated"); ;                      
 								}
    						}
    				 }

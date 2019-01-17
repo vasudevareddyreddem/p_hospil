@@ -404,6 +404,15 @@ class Hospital_model extends CI_Model
         return $this->db->get()->row_array();
 	}
 	
+	public  function op_treatment_exist($t_id,$d_id){
+		$this->db->select('*')->from('treatmentwise_doctors');		
+		$this->db->where('t_d_doc_id',$t_id);
+		$this->db->where('t_d_name',$d_id);
+		//$this->db->where('s_id',$s_id);
+		$this->db->where('treatmentwise_doctors.t_d_status !=',2);
+		return $this->db->get()->row_array();
+	}
+	
 	
 	
 

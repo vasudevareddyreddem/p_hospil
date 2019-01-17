@@ -73,7 +73,7 @@
                                         <thead>
                                             <tr>
 												<th>Department Name</th>
-												<th>Speciality Name</th>
+												<!--<th>Speciality Name</th>-->
 												<th>Consultant Name</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -83,7 +83,7 @@
 										<?php foreach($hospital_treatment_list as $list){ ?>
                                             <tr>
                                                 <td><?php echo htmlentities($list['t_name']); ?></td>
-                                                <td><?php echo htmlentities($list['specialist_name']); ?></td>
+                                                <!--<td><?php echo htmlentities($list['specialist_name']); ?></td>-->
                                                 <td><?php echo htmlentities($list['resource_name']); ?></td>
 												<td><?php if($list['t_d_status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                                 

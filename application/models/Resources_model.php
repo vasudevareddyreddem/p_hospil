@@ -294,6 +294,14 @@ class Resources_model extends CI_Model
 		$this->db->where('lab_test_list.status',1);
         return $this->db->get()->result_array();
 	}
+	public function get_test_list_hospital_wise_with_name_test($type,$test_type_id,$hos_id){
+		$this->db->select('lab_test_list.t_id,lab_test_list.t_name,lab_test_list.modality,lab_test_list.type,lab_test_list.t_department,lab_test_list.t_description,lab_test_list.t_short_form,lab_test_list.out_source')->from('lab_test_list');
+		$this->db->where('lab_test_list.type',$type);
+		$this->db->where('lab_test_list.hos_id',$hos_id);
+		$this->db->where('lab_test_list.t_name',$test_type_id);
+		$this->db->where('lab_test_list.status',1);
+        return $this->db->get()->result_array();
+	}
 	public function get_patient_test_count($pid,$date){
 		$this->db->select('*')->from('patient_lab_test_list');
 		$this->db->where('p_id',$pid);
@@ -442,5 +450,16 @@ class Resources_model extends CI_Model
          return $this->db->get()->row_array();
 	 }
 	 /* convert op to ip patient */
+	 
+	 /* doctor */
+	 public  function get_investigation_basedon_testtypes_list_with_groupby_testtypes($hos_id,$val){
+		 $this->db->select('lab_test_list.test_type,lab_test_list.t_id,lab_test_list.t_name')->from('lab_test_list');
+		$this->db->where('lab_test_list.status',1);
+		$this->db->where('lab_test_list.type',$val);
+		$this->db->where('lab_test_list.hos_id',$hos_id);
+		$this->db->group_by('lab_test_list.test_type');
+        return $this->db->get()->result_array();
+		 
+	 }
 
 }
