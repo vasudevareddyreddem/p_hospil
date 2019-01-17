@@ -1008,6 +1008,7 @@ class Hospital extends In_frontend {
 					//echo $this->db->last_query();exit;
 					$data['hospital_treatment_list']=$this->Hospital_model->get_all_doctor_treatment_list($hos_ids['a_id'],$hos_ids['hos_id']);
 					//echo '<pre>';print_r($data);exit;
+					//echo '<pre>';print_r($data);exit;
 					$this->load->view('hospital/treament',$data);
 					$this->load->view('html/footer');
 			}else{
@@ -1486,8 +1487,10 @@ class Hospital extends In_frontend {
 				$post=$this->input->post();
 					$admindetails=$this->session->userdata('userdetails');
 					$hos_ids =$this->Hospital_model->get_hospital_id($admindetails['a_id'],$admindetails['a_email_id']);
+					$specialist_doctor_id=$this->Hospital_model->get_specialist_doctor_id($post['treatment_name'],$hos_ids['hos_id']);
+					//echo '<pre>';print_r($specialist_doctor_id);exit;
 					
-					$check=$this->Hospital_model->treatment_exist($post['treatment_name'],$post['specialist_doctor_id'],$post['assign_doctor']);
+					$check=$this->Hospital_model->treatment_exist($post['treatment_name'],$specialist_doctor_id['s_id'],$post['assign_doctor']);
 					if(count($check)>0){
 						$this->session->set_flashdata('error',"Treatment already exists. Please try again");
 						redirect('hospital/treatment');
@@ -1496,7 +1499,7 @@ class Hospital extends In_frontend {
 				//echo '<pre>';print_r($key);exit;
 							$addtreatment_details=array(
 							'hos_id'=>$hos_ids['hos_id'],
-							's_id'=>$post['specialist_doctor_id'],
+							's_id'=>$specialist_doctor_id['s_id'],
 							't_d_doc_id'=>$post['assign_doctor'],
 							't_d_name'=>$post['treatment_name'],
 							't_d_status'=>1,

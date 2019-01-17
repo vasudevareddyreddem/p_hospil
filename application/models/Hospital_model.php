@@ -397,6 +397,12 @@ class Hospital_model extends CI_Model
 		$this->db->order_by('patient_billing.b_id', "DESC");
         return $this->db->get()->result_array();	
 	}
+	public  function get_specialist_doctor_id($treatment_name,$hos_id){
+		$this->db->select('specialist.s_id')->from('specialist');		
+		$this->db->where('specialist.hos_id', $hos_id);
+		$this->db->where('specialist.d_id', $treatment_name);
+        return $this->db->get()->row_array();
+	}
 	
 	
 	

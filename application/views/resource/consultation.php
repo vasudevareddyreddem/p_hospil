@@ -648,9 +648,10 @@
 </div>
 <!-- patient_lab_test_list_model-->
 <script type="text/javascript">
+
    var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><div class='form-group'><div class=''><select class='form-control'name='investdation_serach[]' id='investdation_serach"+i+"' onchange='investdation_serach_row(this.value,"+i+")'><option value=''>select</option><option value='Lab'>Lab</option><option value='Radiology'>Radiology</option></select></div></div></td><td><div class='form-group'><div class=''><select class='form-control' onchange='test_list_purpose_row(this.value,"+i+")' name='internal_code[]' id='internal_code_row"+i+"'><option value=''>select</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='lab_test_name[]' id='lab_test_name_row"+i+"' style='width:100%;'><option value =''>Select</option><option value ='yellow'>YELLOW</option><option value = 'Red'>RED</option><option value ='Blue'>BLUE</option><option value ='White (ppc)'>WHITE (PPC)</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='frequency[]' id='frequency' style='width:100%;'><option value =''>Select</option><option value ='6 Hours'>6 Hours</option><option value ='12 Hours'>12 Hours</option><option value ='24 Hours'>24 Hours</option><option value ='48 Hours'>48 Hours</option></select></div></div></td>");
+      $('#addr'+i).html("<td><div class='form-group'><div class=''><select class='form-control select2'name='investdation_serach[]' id='investdation_serach"+i+"' onchange='investdation_serach_row(this.value,"+i+")'><option value=''>select</option><option value='Lab'>Lab</option><option value='Radiology'>Radiology</option></select></div></div></td><td><div class='form-group'><div class=''><select class='form-control select2' onchange='test_list_purpose_row(this.value,"+i+")' name='internal_code[]' id='internal_code_row"+i+"'><option value=''>select</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control select2'  name='lab_test_name[]' id='lab_test_name_row"+i+"' style='width:100%;'><option value =''>Select</option><option value ='yellow'>YELLOW</option><option value = 'Red'>RED</option><option value ='Blue'>BLUE</option><option value ='White (ppc)'>WHITE (PPC)</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='frequency[]' id='frequency' style='width:100%;'><option value =''>Select</option><option value ='6 Hours'>6 Hours</option><option value ='12 Hours'>12 Hours</option><option value ='24 Hours'>24 Hours</option><option value ='48 Hours'>48 Hours</option></select></div></div></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 
@@ -710,7 +711,7 @@ function investdation_serach_row(val,id){
    
 								for(i=0; i<data.text.length; i++) {
 									console.log(data.text[i].t_name);
-									 $('#internal_code_row'+id).append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>");                      
+									 $('#internal_code_row'+id).append("<option value='"+data.text[i].t_name+"'>"+data.text[i].t_name+"</option>").trigger("chosen:updated"); ;                      
 								}
    						}
    				 }
