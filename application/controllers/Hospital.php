@@ -1490,9 +1490,9 @@ class Hospital extends In_frontend {
 					$specialist_doctor_id=$this->Hospital_model->get_specialist_doctor_id($post['treatment_name'],$hos_ids['hos_id']);
 					//echo '<pre>';print_r($specialist_doctor_id);exit;
 					
-					$check=$this->Hospital_model->treatment_exist($post['treatment_name'],$specialist_doctor_id['s_id'],$post['assign_doctor']);
+					$check=$this->Hospital_model->op_treatment_exist($post['treatment_name'],$post['assign_doctor']);
 					if(count($check)>0){
-						$this->session->set_flashdata('error',"Treatment already exists. Please try again");
+						$this->session->set_flashdata('error',"Department Wise Consultant Names already exists. Please try again");
 						redirect('hospital/treatment');
 					}
 					//echo '<pre>';print_r($post);exit;
@@ -1999,7 +1999,7 @@ class Hospital extends In_frontend {
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
 
-					$data['patient_list']=$this->Hospital_model->get_patient_list($userdetails['hos_id']);
+					$data['patient_list']=$this->Hospital_model->get_patient_list_with_billing_wise($userdetails['hos_id']);
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('hospital/patient_list',$data);
 					$this->load->view('html/footer');
@@ -2088,6 +2088,8 @@ class Hospital extends In_frontend {
 	}
 	
 	
+	/* new op form purpose */
+	
 	public  function get_specialists_list(){
 		$post=$this->input->post();
 		$details=$this->Hospital_model->get_d_id_wise_specialist_list($post['dep_id']);
@@ -2101,6 +2103,73 @@ class Hospital extends In_frontend {
 					$data['msg']=2;
 					echo json_encode($data);exit;
 				}
+	}
+	public  function get_op_doctors_list(){
+		$post=$this->input->post();
+		$details=$this->Hospital_model->get_spec_doctors_list($post['treate_ment_id']);
+		//echo $this->db->last_query();exit;
+		if(count($details) > 0)
+				{
+				$data['msg']=1;
+				$data['list']=$details;
+				echo json_encode($data);exit;	
+				}else{
+					$data['msg']=2;
+					echo json_encode($data);exit;
+				}
+	}
+	public  function get_hospital_time_list(){
+		$post=$this->input->post();
+		
+		$doctor_list=$this->Hospital_model->get_doctor_time_list($post['doctor_id']);
+		//echo '<pre>';print_r($doctor_list);
+		if(count($doctor_list)>0){
+			$time_list=array("12:00 am","12:30 am","01:00 am","01:30 am","02:00 am","02:30 am","03:00 am","03:30 am","04:00 am","04:30 am","05:00 am","05:30 am","06:00 am","06:30 am","07:00 am","07:30 am","08:00 am","08:30 am","09:00 am","09:30 am","10:00 am","10:30 am","11:00 am","11:30 am","12:00 pm","12:30 pm","01:00 pm","01:30 pm","02:00 pm","02:30 pm","03:00 pm","03:30 pm","04:00 pm","04:30 pm","05:00 pm","05:30 pm","06:00 pm","06:30 pm","07:00 pm","07:30 pm","08:00 pm","08:30 pm","09:00 pm","09:30 pm","10:00 pm","10:30 pm","11:00 pm","11:30 pm");
+			$start_date =$doctor_list['in_time'];
+			$end_date = $doctor_list['out_time'];
+			$interval = '30 mins';
+			$format = '12';
+			$startTime = strtotime($start_date); 
+			$endTime   = strtotime($end_date);
+			$returnTimeFormat = ($format == '12')?'h:i a':'G:i:s';
+
+			$current   = time(); 
+			$addTime   = strtotime('+'.$interval, $current); 
+			$diff      = $addTime - $current;
+
+			$times = array(); 
+			while ($startTime < $endTime) { 
+			$times[] = date($returnTimeFormat, $startTime); 
+			$startTime += $diff; 
+			} 
+			$times[] = date($returnTimeFormat, $startTime);
+			
+	
+		}		
+		
+		
+				if(count($doctor_list)>0){
+					if(isset($times) && count($times)>0){
+						foreach($times as $lis){
+							$ddd[]=array('timeslot'=>$lis);
+						}
+					}else{
+						$ddd='';
+					}
+					if(count($ddd) > 0)
+						{
+						$data['msg']=1;
+						$data['list']=$ddd;
+						echo json_encode($data);exit;	
+						}else{
+							$data['msg']=2;
+							echo json_encode($data);exit;
+						}
+				}else{
+							$data['msg']=2;
+							echo json_encode($data);exit;
+						}
+		
 	}
 	
 	

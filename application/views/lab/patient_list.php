@@ -34,8 +34,8 @@
 					<th> Name </th>
 					<th> Mobile </th>
 					<th> Address </th>
-					<th> Date&Time</th>
-					<th> Consultant</th>
+					<th> Date & Time</th>
+					<th> Doctor</th>
 					<th> Out Lab portal </th>
 					<th> In Lab portal </th>
 				</tr>
@@ -49,7 +49,7 @@
 					<td> <?php echo $list['b_id']; ?> </td>
 					<td><?php echo $list['name']; ?></td>
 					<td><?php echo $list['mobile']; ?></td>
-					<td><?php echo $list['perment_address'].' , '.$list['p_c_name'].' , '.$list['p_s_name'].' , '.$list['p_country_name'].' - '.$list['p_zipcode']; ?></td>
+					<td><?php echo $list['perment_address']; ?></td>
 					
 					<td><?php echo $list['create_at']; ?></td>
 					<td><?php echo $list['created_by']; ?> </td>

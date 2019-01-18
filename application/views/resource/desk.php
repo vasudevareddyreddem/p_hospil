@@ -175,19 +175,19 @@
 												<div class="col-md-12"><h3>Assign</h3></div>
 												<div class="form-group col-md-6">
                                                    <label for="Consultant  Department">Consultant  Department</label>
-                                                   <select id="department_name1" name="department_name" onchange="get_department_list(this.value);" class="form-control" required>
+                                                   <select id="department_name1" name="department_name" onchange="get_doctor_list(this.value);" class="form-control" required>
                                                       <option value="">Select</option>
                                                       <?php foreach($departments_list as $lis){ ?>
                                                       <option value="<?php echo $lis['t_id']; ?>"><?php echo $lis['t_name']; ?></option>
                                                       <?php } ?>
                                                    </select>
                                                 </div>
-												<div class="form-group col-md-6">
+												<!--<div class="form-group col-md-6">
                                                    <label for="email">Consultant  Speciality</label>
                                                    <select id="specialist_doc" name="specialist_doctor_id" onchange="get_doctor_list(this.value);" class="form-control" required>
 														  <option value="">Select Speciality</option>
 													</select>
-												</div>
+												</div>-->
                                                  
 												
                                                 <div class="form-group col-md-6">
@@ -293,9 +293,9 @@ function get_department_list(id){
 
    function get_doctor_list(id){
    				jQuery.ajax({
-   					url: "<?php echo base_url('resources/get_spec_doctors_list');?>",
+   					url: "<?php echo base_url('hospital/get_op_doctors_list');?>",
    					data: {
-   						spec_id: id,
+   						treate_ment_id: id,
    					},
    					dataType: 'json',
    					type: 'POST',

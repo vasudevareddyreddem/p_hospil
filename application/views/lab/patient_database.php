@@ -34,7 +34,7 @@
 					<th> Mobile </th>
 					<th> Address </th>
 					<th> Lab Tests </th>
-					<th> Date </th>
+					<th> Date & Time </th>
 					<th> Action </th>
 				</tr>
 			</thead>

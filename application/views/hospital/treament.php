@@ -36,7 +36,7 @@
                                        
 									   <select  class="form-control" id="treatment_name" onchange="get_department_list(this.value);" name="treatment_name" required>
 									   <?php if(count($treatment_list)>0){ ?>
-									   <option value="">Select</option>
+									   <option value="">Select Department</option>
 									   <?php foreach($treatment_list as $list){ ?>
 									   <option value="<?php echo $list['t_id']; ?>"><?php echo $list['t_name']; ?> </option>
 									   <?php } ?>
@@ -45,7 +45,7 @@
 										
 										<select  class="form-control" id="assign_doctor" name="assign_doctor" required>
 									   <?php if(count($doctors_list)>0){ ?>
-									   <option value="">Select</option>
+									   <option value="">Select Consultant</option>
 									   <?php foreach($doctors_list as $list){ ?>
 									   <option value="<?php echo $list['a_id']; ?>"><?php echo $list['resource_name']; ?> </option>
 									   <?php } ?>

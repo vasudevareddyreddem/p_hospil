@@ -25,9 +25,7 @@
                                     <table id="example4" class="table table-striped table-bordered" style="width:100%;">
                                         <thead>
                                             <tr>
-                                                <th>Slot</th>
 												<th>Patient Id</th>
-												 <th>Patient Card Number </th>
 												<th>Patient Name </th>
                                                 <th>Age</th>
                                                 <th>Visit-Type</th>
@@ -38,13 +36,11 @@
                                         <tbody>
 										<?php foreach($worksheet as $list){ ?>
                                             <tr>
-                                                <td><button class="btn btn-xs bg-success no-margin" type="button"><?php echo htmlentities($list['type']); ?></button></td>
                                                 <td><?php echo htmlentities($list['pid']); ?></td>
-                                                <td><?php echo htmlentities($list['card_number']); ?></td>
                                                 <td><?php echo htmlentities($list['name']); ?></td>
                                                 
 												<td> <?php echo htmlentities($list['age']); ?></td>
-												<td><?php echo htmlentities($list['visit_type']); ?></td>
+												<td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
 												<td><?php echo htmlentities($list['assignbydoctor']); ?></td>
                                                 <td> 
 												  <a href="<?php echo base_url('resources/consultation/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>" class="btn btn-xs bg-primary no-margin" type="button">Start Consultation</a>

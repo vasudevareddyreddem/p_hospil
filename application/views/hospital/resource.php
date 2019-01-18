@@ -154,6 +154,7 @@
 												<th>Name</th>
 												<th>Email Address</th>
                                                 <th>Contact Number </th>
+                                                <th>Alternative Contact Number </th>
                                                 <th>Create date</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -165,6 +166,7 @@
                                                 <td><?php echo htmlentities($list['r_name']); ?></td>
                                                 <td><?php echo htmlentities($list['resource_name']); ?></td>
                                                 <td><?php echo htmlentities($list['resource_email']); ?></td>
+                                                <td><?php echo htmlentities($list['resource_mobile']); ?></td>
                                                 <td><?php echo htmlentities($list['resource_contatnumber']); ?></td>
                                                 <td><?php echo htmlentities($list['r_created_at']); ?></td>
 												<td><?php if($list['r_status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>

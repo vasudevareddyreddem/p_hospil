@@ -87,7 +87,7 @@ class Hospital_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	public function get_resources_list($a_id,$hos_id){
-		$this->db->select('resource_list.r_id,resource_list.a_id,roles.r_name,resource_list.resource_name,resource_list.role_id,resource_list.resource_contatnumber,resource_list.r_status,resource_list.r_created_at,resource_list.resource_email,resource_list.r_create_by')->from('resource_list');		
+		$this->db->select('resource_list.r_id,resource_list.a_id,roles.r_name,resource_list.resource_name,resource_list.role_id,resource_list.resource_contatnumber,resource_list.r_status,resource_list.r_created_at,resource_list.resource_email,resource_list.r_create_by,resource_list.resource_mobile')->from('resource_list');		
         $this->db->join('roles', 'roles.r_id = resource_list.role_id', 'left');
 		$this->db->where('resource_list.r_create_by',$a_id);
 		$this->db->where('resource_list.hos_id',$hos_id);
@@ -97,7 +97,7 @@ class Hospital_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	public function get_doctor_resources_list($a_id,$hos_id){
-		$this->db->select('resource_list.r_id,resource_list.a_id,roles.r_name,resource_list.resource_name,resource_list.role_id,resource_list.resource_contatnumber,resource_list.r_status,resource_list.r_created_at,resource_list.resource_email')->from('resource_list');		
+		$this->db->select('resource_list.r_id,resource_list.a_id,roles.r_name,resource_list.resource_name,resource_list.role_id,resource_list.resource_contatnumber,resource_list.r_status,resource_list.r_created_at,resource_list.resource_email,resource_list.resource_mobile')->from('resource_list');		
         $this->db->join('roles', 'roles.r_id = resource_list.role_id', 'left');
 		$this->db->where('resource_list.r_create_by',$a_id);
 		$this->db->where('resource_list.hos_id',$hos_id);
@@ -335,6 +335,14 @@ class Hospital_model extends CI_Model
 		$this->db->order_by('patients_list_1.pid', "DESC");
         return $this->db->get()->result_array();	
 	}
+	public function get_patient_list_with_billing_wise($hos_id){
+		$this->db->select('patient_billing.patient_type,patients_list_1.pid,patients_list_1.card_number,patients_list_1.name,patients_list_1.mobile,patients_list_1.age,patients_list_1.hos_id,patients_list_1.registrationtype,patients_list_1.patient_category,patients_list_1.dob,patients_list_1.nationali_id,patients_list_1.create_at')->from('patient_billing');		
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->result_array();	
+	}
 	
 	public  function get_patient_lab_details($p_id){
 		$this->db->select('patient_lab_reports.*,patients_list_1.card_number,patients_list_1.name,')->from('patient_lab_reports');
@@ -404,15 +412,26 @@ class Hospital_model extends CI_Model
         return $this->db->get()->row_array();
 	}
 	
-	public  function op_treatment_exist($t_id,$d_id){
+	public  function op_treatment_exist($d_id,$t_id){
 		$this->db->select('*')->from('treatmentwise_doctors');		
 		$this->db->where('t_d_doc_id',$t_id);
 		$this->db->where('t_d_name',$d_id);
-		//$this->db->where('s_id',$s_id);
 		$this->db->where('treatmentwise_doctors.t_d_status !=',2);
 		return $this->db->get()->row_array();
 	}
-	
+	/* new op purpose */
+	public  function get_spec_doctors_list($t_d_name){
+		$this->db->select('resource_list.resource_name,resource_list.current_status,treatmentwise_doctors.t_d_doc_id,treatmentwise_doctors.t_d_name')->from('treatmentwise_doctors');		
+		$this->db->join('resource_list', 'resource_list.a_id = treatmentwise_doctors.t_d_doc_id', 'left');
+		$this->db->where('treatmentwise_doctors.t_d_name',$t_d_name);
+		$this->db->where('resource_list.r_status',1);
+        return $this->db->get()->result_array();
+	}
+	public  function get_doctor_time_list($doctor_id){
+		$this->db->select('in_time,out_time')->from('resource_list');		
+		$this->db->where('a_id',$doctor_id);
+        return $this->db->get()->row_array();
+	}
 	
 	
 

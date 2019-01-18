@@ -120,6 +120,26 @@ class Resources extends In_frontend {
 			$this->session->set_flashdata('error','Please login to continue');
 			redirect('admin');
 		}
+	}public function patient_vitals_list()
+	{	
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=3){
+					$admindetails=$this->session->userdata('userdetails');
+					$patient_id=base64_decode($this->uri->segment(3));
+					$data['patients_vital_list']= $this->Resources_model->get_all_patient_vitals_list($patient_id);
+					//echo '<pre>';print_r($data);exit;
+					$this->load->view('resource/patient_vitals_list',$data);
+					$this->load->view('html/footer');
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+			
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
 	}
 	public function addvital()
 	{	
@@ -1238,28 +1258,54 @@ class Resources extends In_frontend {
 			redirect('admin');
 		}
 	}
-	public function removemedicine(){
+	public function removemedicine_from_list(){
 		if($this->session->userdata('userdetails'))
 		{
 				if($admindetails['role_id']=4){
 					$post=$this->input->post();
 					$admindetails=$this->session->userdata('userdetails');
-					//echo '<pre>';print_r($post);exit;
-			
+					//echo '<pre>';print_r($post);
 					$removedattch=$this->Resources_model->remove_attachment($post['medicine_id']);
 					if(count($removedattch) > 0)
 					{
 						
+					$qtys=$this->Resources_model->get_medicine_list_details_with_id($post['org_medicine_id']);
+					$qty=(($qtys['qty'])+($post['medicine_qty']));
+					$up_data=array('qty'=>$qty);
+					$this->Resources_model->update_medicine_details($qtys['id'],$up_data);
+					$data['msg']=1;
+					echo json_encode($data);exit;	
+					}
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}public function removemedicine(){
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=4){
+					$post=$this->input->post();
+					$admindetails=$this->session->userdata('userdetails');
+					echo '<pre>';print_r($post);exit;
+			
+					//$removedattch=$this->Resources_model->remove_attachment($post['medicine_id']);
+					//if(count($removedattch) > 0)
+					//{
+						
 					$qtys=$this->Resources_model->get_medicine_list_details_with_id($post['medicine_id']);
-					//echo $this->db->last_query();
-					//exit;
+					echo $this->db->last_query();
+					exit;
 					$qty=(($qtys['qty'])+($post['medicine_qty']));
 					$data=array('qty'=>$qty);
 					$this->Resources_model->update_medicine_details($qtys['id'],$data);
 
 					$data['msg']=1;
 					echo json_encode($data);exit;	
-					}
+					//}
 				}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");
 					redirect('dashboard');
@@ -1670,7 +1716,7 @@ class Resources extends In_frontend {
 									'patient_type'=>0,
 									'treatment_id'=>$post['department_name'],
 									'doct_id'=>$post['department_doctors'],
-									'specialist_id'=>$post['specialist_doctor_id'],	
+									'specialist_id'=>isset($post['specialist_doctor_id'])?$post['specialist_doctor_id']:'',	
 									'patient_payer_deposit_amount'=>isset($post['patient_payer_deposit_amount'])?$post['patient_payer_deposit_amount']:'',
 									'payment_mode'=>isset($post['payment_mode'])?$post['payment_mode']:'',
 									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'',

@@ -257,6 +257,7 @@ class Lab extends In_frontend {
 					
 					$data['userdetails']=$userdetails;
 					$datalabtest_list=$this->Lab_model->get_all_patients_lists($userdetails['hos_id']);
+					//echo '<pre>';print_r($datalabtest_list);exit;
 					
 					if(isset($datalabtest_list) && count($datalabtest_list)>0){
 						foreach($datalabtest_list as $list){

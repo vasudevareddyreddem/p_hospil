@@ -25,7 +25,7 @@
 			<header>Add Medicine</header>
 			</div>
 			
-		<form method="post" action="<?php echo base_url('medicine/exelupload'); ?>" enctype="multipart/form-data">
+		<form method="post" id="add_medicine" action="<?php echo base_url('medicine/exelupload'); ?>" enctype="multipart/form-data">
 		<div class="row" style="padding:20px;">
 			<div class="col-md-5">
 			<label>Upload excel file</label>
@@ -401,6 +401,27 @@ $(document).ready(function() {
 					message: 'Others can only consist of alphanumeric, space and dot'
 					}
                 }
+            }
+			}
+		
+	})
+     
+});
+$(document).ready(function() {
+ 
+    $('#add_medicine').bootstrapValidator({
+		fields: {
+          
+             uploadfile: {
+                 validators: {
+					notEmpty: {
+						message: 'File is required'
+					},
+					regexp: {
+					regexp: "(.*?)\.(xlsx|xls)$",
+					message: 'Uploaded file is not a valid. Only xlsx,xls files are allowed'
+					}
+				}
             }
 			}
 		

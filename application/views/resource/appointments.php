@@ -63,7 +63,7 @@
 												</div>
 												<div class="form-group col-md-6">
 												   <label for="email">Department</label>
-													<select class="form-control" id="department" onchange="get_department_list(this.value);" name="department">
+													<select class="form-control" id="department" onchange="get_doctor_list(this.value);" name="department">
 														<option value="">Select</option>
 														<?php foreach($departments_list as $list){ ?>
 															<option value="<?php echo $list['t_id']; ?>"><?php echo $list['t_name']; ?></option>
@@ -71,16 +71,11 @@
 													
 													</select>
 												</div>
-												<div class="form-group col-md-6">
-												   <label for="email">Speciality</label>
-													<select class="form-control" id="specialist" name="specialist" onchange="get_doctor_list(this.value);">
-													
-													</select>
-												</div>
+												
 												<div class="form-group col-md-6">
 												   <label for="email"> Doctor </label>
-													<select class="form-control" id="doctor_id" name="doctor_id">
-													
+													<select class="form-control" id="doctor_id" name="doctor_id" onchange="get_doctors_time_list(this.value);">
+													<option value="">Select</option>
 													</select>
 												</div>
 												  <div class="form-group col-md-6">
@@ -92,17 +87,12 @@
                                                 </div> 
 												<div class="form-group col-md-6">
                                                    <label class="">Booking Time </label>
-												   <?php $time_list=array("12:00 am","12:30 am","01:00 am","01:30 am","02:00 am","02:30 am","03:00 am","03:30 am","04:00 am","04:30 am","05:00 am","05:30 am","06:00 am","06:30 am","07:00 am","07:30 am","08:00 am","08:30 am","09:00 am","09:30 am","10:00 am","10:30 am","11:00 am","11:30 am","12:00 pm","12:30 pm","01:00 pm","01:30 pm","02:00 pm","02:30 pm","03:00 pm","03:30 pm","04:00 pm","04:30 pm","05:00 pm","05:30 pm","06:00 pm","06:30 pm","07:00 pm","07:30 pm","08:00 pm","08:30 pm","09:00 pm","09:30 pm","10:00 pm","10:30 pm","11:00 pm","11:30 pm"); ?>
 													<select class="form-control" id="time" name="time">
-														<option value="">Select</option>
-														<?php foreach($time_list as $list){ ?>
-															<option value="<?php echo $list; ?>"><?php echo $list; ?></option>
-														<?php } ?>
-													
+														<option value="">Select</option>													
 													</select>
                                                 </div>
 											</div>
-											<button type="submit" class="btn btn-primary"   >Book Appointment</button>
+											<button type="submit" name="submit" class="btn btn-primary"   >Book Appointment</button>
 											</form>
                            </div>
                            </div>
@@ -315,7 +305,7 @@
 								   <th> Age</th>
 								   <th> Mobile </th>
 								   <th> Department </th>
-								   <th> Speciality </th>
+								   <!--<th> Speciality </th>-->
 								   <th> Doctor </th>
 								   <th > Booking Date </th>
 								   <th> Booking Time </th>
@@ -330,7 +320,7 @@
 								   <td><?php echo $list['age']; ?></td>
 								   <td><?php echo $list['mobile']; ?></td>
 								   <td><?php echo $list['t_name']; ?></td>
-								   <td><?php echo $list['specialist_name']; ?></td>
+								   <!--<td><?php echo $list['specialist_name']; ?></td>-->
 								   <td><?php echo $list['resource_name']; ?></td>
 								   <td> <?php echo $list['date']; ?></td>
 								   <td><?php echo $list['time']; ?> </td>
@@ -358,6 +348,32 @@
 </div>
 <div id="sucessmsg" style="display:none;"></div>
 <script>
+
+function get_doctors_time_list(id){
+	if(id!=''){
+			jQuery.ajax({
+   					url: "<?php echo base_url('hospital/get_hospital_time_list');?>",
+   					data: {
+   						doctor_id: id,
+   					},
+   					dataType: 'json',
+   					type: 'POST',
+   					success: function (data) {
+						//console.log(data);return false;
+   						$('#time').empty();
+   						$('#time').append("<option>select</option>");
+   						for(i=0; i<data.list.length; i++) {
+   							$('#time').append("<option value='"+data.list[i].timeslot+"'>"+data.list[i].timeslot+"</option>");                      
+                         
+   						}
+   						//console.log(data);return false;
+   					}
+   				
+   				});
+				
+			}
+	
+}
 
 function admindeactive(id){
 	$(".popid").attr("href","<?php echo base_url('appointments/accept_status/'); ?>"+"/"+id);
@@ -431,11 +447,11 @@ function get_department_list(id){
 			}
 			
 }
-			function get_doctor_list(id){
+function get_doctor_list(id){
    				jQuery.ajax({
-   					url: "<?php echo base_url('resources/get_spec_doctors_list');?>",
+   					url: "<?php echo base_url('hospital/get_op_doctors_list');?>",
    					data: {
-   						spec_id: id,
+   						treate_ment_id: id,
    					},
    					dataType: 'json',
    					type: 'POST',
@@ -453,10 +469,11 @@ function get_department_list(id){
    				});
    	
    }
+   
 
 $(document).ready(function() {
     
-       $('#add_appointment').bootstrapValidator({
+       $('#add_appointment1').bootstrapValidator({
    		fields: {
              
                 patinet_name: {
@@ -497,13 +514,7 @@ $(document).ready(function() {
    					}
    				}
                },
-               specialist: {
-                   validators: {
-   					notEmpty: {
-   						message: 'Speciality is required'
-   					}
-   				}
-               },
+               
    			doctor_id: {
                    validators: {
    					notEmpty: {

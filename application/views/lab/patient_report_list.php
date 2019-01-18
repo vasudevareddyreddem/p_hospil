@@ -34,7 +34,7 @@
 					<th> Test Name </th>
 					<th> Problem </th>
 					<th> Symptoms </th>
-					<th> Date </th>
+					<th> Date & Time </th>
 					<th> Report File </th>
 				</tr>
 			</thead>
@@ -48,7 +48,7 @@
 					<td><?php echo $list['t_name']; ?></td>
 					<td><?php echo $list['problem']; ?></td>
 					<td><?php echo $list['symptoms']; ?></td>
-					<td><?php echo date('M-j-Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>
+					<td><?php echo $list['create_at'];?></td>
 					<td>
 					<?php if($list['image'] !=''){ ?>
 						<a class="btn btn-primary btn-sm" href="<?php echo base_url('assets/patient_reports/'.$list['image']); ?>" download>Download </a>

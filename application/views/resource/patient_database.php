@@ -50,7 +50,7 @@
 					
 					<td><?php echo $list['age']; ?> </td>
 					<td><?php echo $list['mobile']; ?> </td>
-					<td><?php echo date('M j h:i A',strtotime(htmlentities($list['create_at'])));?></td>
+					<td><?php echo date('M-j-Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>
 					
 				</tr>
 				

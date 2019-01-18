@@ -501,3 +501,11 @@ ALTER TABLE `hospital`.`coupon_code_history`
   DROP COLUMN `remaining_lab_wallet`, 
   CHANGE `ip_wallet_amount` `wallet_amount` VARCHAR(250) CHARSET latin1 COLLATE latin1_swedish_ci NULL,
   CHANGE `remaining_ip_wallet` `remaining_wallet_amount` VARCHAR(250) CHARSET latin1 COLLATE latin1_swedish_ci NULL;
+  
+  
+   op module  sql c hanges 
+   
+   
+   ALTER TABLE `hospital`.`manual_prescription_list`   
+  ADD COLUMN `batchno` VARCHAR(250) NULL AFTER `p_id`;
+

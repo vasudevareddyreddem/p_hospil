@@ -3,12 +3,12 @@
                     <div class="page-bar">
 			  <div class="page-title-breadcrumb">
 				 <div class=" pull-left">
-					<div class="page-title">Worksheet</div>
+					<div class="page-title">Patient Vitals List</div>
 				 </div>
 				 <ol class="breadcrumb page-breadcrumb pull-right">
 					<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="<?php echo base_url('dashboard'); ?>">Dashboard</a>&nbsp;<i class="fa fa-angle-right"></i>
 					</li>
-					<li><a class="parent-item active" >Worksheet List</a>&nbsp;</i>
+					<li><a class="parent-item active" >Patient Vitals List</a>&nbsp;</i>
 					</li>
 				 </ol>
 			  </div>
@@ -16,37 +16,38 @@
 					<div class="row">
                        <div class="col-md-12">
                             <div class="card card-topline-aqua">
-							
                                 <div class="card-head">
-                                     <header>My worksheet</header>
+                                     <header>Patient Vitals List</header>
                                
                                 </div>
-                                <div class="card-body table-responsive ">
-								<?php if(count($worksheet)>0){ ?>
+                                <div class="card-body ">
+								<?php if(count($patients_vital_list)>0){ ?>
                                     <table id="example4" class="table table-striped table-bordered" style="width:100%;">
                                         <thead>
                                             <tr>
-												<th>Patient Id</th>
-												<th>Patient Name </th>
-                                                <th>Age</th>
-                                                <th>Visit-Type</th>
-                                                <th>Action</th>
+												<th>S.NO </th>
+												<th>BP (80-120) </th>
+												<th>Pulse (70-80)</th>
+												<th>FBS/RBS (70-110) </th>
+                                                <th>Temp (98.6 F)</th>
+                                                <th>Weight</th>
+                                                <th>Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-										<?php foreach($worksheet as $list){ ?>
+										<?php $cnt=1;foreach($patients_vital_list as $list){ ?>
                                             <tr>
-                                                <td><?php echo htmlentities($list['pid']); ?></td>
-												<td><?php echo htmlentities($list['name']); ?></td>
-                                                <td> <?php echo htmlentities($list['age']); ?></td>
-												<td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
-                                                <td>
-                                                  
-												  <a href="<?php echo base_url('resources/consultation/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>" class="btn btn-xs bg-primary no-margin" type="button">Start Consultation</a>
-												  <!--<button class="btn btn-xs bg-danger no-margin" type="button">Close</button>-->
-                                                </td>
+                                                <td><?php echo isset($cnt)?$cnt:''; ?></td>
+                                                <td><?php echo htmlentities($list['bp']); ?></td>
+                                                <td><?php echo htmlentities($list['pulse']); ?></td>
+                                                
+												<td> <?php echo htmlentities($list['fbs_rbs']); ?></td>
+												<td> <?php echo htmlentities($list['temp']); ?></td>
+												<td> <?php echo htmlentities($list['weight']); ?></td>
+												<td> <?php echo htmlentities($list['date']); ?></td>
+												
                                             </tr>
-										<?php } ?>
+										<?php $cnt++;} ?>
 											
                                         </tbody>
                                     </table>
@@ -66,7 +67,7 @@
 <script>
 $(document).ready(function() {
     $('#example4').DataTable( {
-        "order": [[ 0, "desc" ]]
+        "order": [[ 6, "desc" ]]
     } );
 } );
 </script>

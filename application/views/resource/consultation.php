@@ -563,7 +563,7 @@
                                        <td><?php echo $list['medicine_name']; ?></td>
                                        <td><?php echo $list['qty']; ?></td>
                                        <td><?php echo $list['dosage']; ?> </td>
-                                       <td><span onclick="removemedicine('<?php echo $list['m_id']; ?>','<?php echo $list['qty']; ?>','<?php echo $list['medicine_name']; ?>');" class="btn btn-danger btn-sm" >Remove</span></td>
+                                       <td><span onclick="removemedicine_from_list('<?php echo $list['m_id']; ?>','<?php echo $list['qty']; ?>','<?php echo $list['medicine_name']; ?>','<?php echo $list['medicine_id']; ?>');" class="btn btn-danger btn-sm" >Remove</span></td>
                                     </tr>
                                     <?php }?>											
                                  </tbody>
@@ -611,7 +611,7 @@
 									<tr class="odd gradeX">
 										<td><?php echo isset($list['medicine_name'])?$list['medicine_name']." - dosage ".$list['dosage']." - type ".$list['medicine_type']:''; ?></td>
 										<td><?php echo $list['batchno']; ?></td>
-										<td><?php echo date('M-j-Y',strtotime(htmlentities($list['expiry_date'])));?></td>
+										<td><?php echo $list['expiry_date'];?></td>
 										<td><?php echo $list['qty']; ?></td>
 										<td><?php echo $list['frequency']; ?> </td>
 										
@@ -1136,7 +1136,27 @@ function get_patient_list(){
         
    });	
    
-      function removemedicine(id,qty,med_name){
+      function removemedicine_from_list(id,qty,med_name,org_medicine_id){
+      	if(id!=''){
+      		 jQuery.ajax({
+      					url: "<?php echo site_url('resources/removemedicine_from_list');?>",
+      					data: {
+      						medicine_id: id,
+      						medicine_qty: qty,
+      						medicine_name: med_name,
+      						org_medicine_id: org_medicine_id,
+      					},
+      					dataType: 'json',
+      					type: 'POST',
+      					success: function (data) {
+      					if(data.msg==1){
+      						jQuery('#medicine_id_'+id).hide();
+      					}
+      				 }
+      				});
+      			}
+      	
+      } function removemedicine(id,qty,med_name){
       	if(id!=''){
       		 jQuery.ajax({
       					url: "<?php echo site_url('resources/removemedicine');?>",

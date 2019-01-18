@@ -22,10 +22,7 @@
                                  <thead>
                                     <tr>
                                        <th> Patient Id </th>
-                                       <th> Patient card Number</th>
                                        <th> Name </th>
-                                       <th> Type </th>
-                                       <th> Category </th>
                                        <th> Age </th>
                                        <th> Mobile </th>
                                        <th> Action </th>
@@ -35,17 +32,13 @@
                                     <?php foreach($patients_list as $list){ ?>
                                     <tr class="odd gradeX">
                                        <td> <?php echo $list['pid']; ?> </td>
-                                       <td> <?php echo $list['card_number']; ?> </td>
                                        <td>
                                           <?php echo $list['name']; ?>
                                        </td>
-                                       <td>
-                                          <?php echo $list['registrationtype']; ?>
-                                       </td>
-                                       <td><?php echo $list['patient_category']; ?> </td>
                                        <td><?php echo $list['age']; ?> </td>
                                        <td><?php echo $list['mobile']; ?> </td>
-                                       <td ><a href="<?php echo base_url('resources/addvital/'.base64_encode($list['pid'])); ?>">Add Vitals</a>
+                                       <td ><a href="<?php echo base_url('resources/addvital/'.base64_encode($list['pid'])); ?>">Add Vitals</a> &nbsp; | &nbsp;
+                                       <a href="<?php echo base_url('resources/patient_vitals_list/'.base64_encode($list['pid'])); ?>">Vitals List</a>
                                           
                                        </td>
                                     </tr>

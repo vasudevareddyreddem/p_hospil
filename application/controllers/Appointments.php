@@ -143,7 +143,7 @@ class Appointments extends In_frontend {
 					'create_by'=>$admindetails['a_id'],
 					'coming_through'=>1,
 					);
-					//echo '<pre>';print_r($userdetails);exit;
+					//echo '<pre>';print_r($add);exit;
 					$save=$this->Appointments_model->save_appointments($add);
 					if(count($save)>0){
 							   $hospital_details=$this->Appointments_model->get_hospital_name_details($userdetails['hos_id']);

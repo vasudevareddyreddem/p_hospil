@@ -90,6 +90,10 @@ class Users extends In_frontend {
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
 					
 					$post=$this->input->post();
+					if(isset($post['cheking_value']) && $post['cheking_value']==0){
+						$this->session->set_flashdata('error',"Some medicine having available quantity is less than your quantity");
+						redirect('users/addprescription');
+					}
 					
 					//echo '<pre>';print_r($post);exit;
 					$add=array(
@@ -426,6 +430,36 @@ class Users extends In_frontend {
 					redirect('dashboard');
 				}
 			
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
+	public function get_medicine_avaiable_qty(){
+		if($this->session->userdata('userdetails'))
+		{
+				$post=$this->input->post();
+					//echo '<pre>';print_r($post);exit;
+					$details=$this->Users_model->get_medicine_avaialeqty_details($post['m_id']);
+					if(count($details) > 0)
+					{
+						
+								if($post['p_qty']<=$details['qty']){
+									 $data['msg']=1;
+									 $data['a_qty']=$details['qty'];
+									 echo json_encode($data);exit;
+								}else{
+									$data['msg']=0;
+									 $data['a_qty']=$details['qty'];
+									 echo json_encode($data);exit;
+								}
+					 	
+					}else{
+						$data['msg']=0;
+						$data['a_qty']='';
+						echo json_encode($data);exit;
+					}
+				
 		}else{
 			$this->session->set_flashdata('error','Please login to continue');
 			redirect('admin');

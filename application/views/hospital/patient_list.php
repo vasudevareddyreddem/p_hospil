@@ -28,7 +28,7 @@
                                             <tr>
 												<th>Patient Id</th>
 												<th>Name</th>
-                                                <th>Registration Type</th>
+                                                <th>Visit Type</th>
                                                 <th>Date & Time</th>
                                                 <th>Action</th>
                                             </tr>
@@ -38,7 +38,7 @@
                                             <tr>
                                                 <td><?php echo htmlentities($list['pid']); ?></td>
                                                 <td><?php echo htmlentities($list['name']); ?></td>
-                                                <td><?php echo htmlentities($list['registrationtype']); ?></td>
+                                                <td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP";} ?></td>
                                                 <td><?php echo date('M j Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>
                                                 <td>
 												<a  href="<?php echo base_url('hospital/patient_labdetails/'.base64_encode($list['pid'])); ?>">Reports</a>  | 

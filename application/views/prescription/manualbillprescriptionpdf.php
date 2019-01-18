@@ -119,17 +119,11 @@ table, th, td {
 		<td><strong>Name:</strong> <span><?php echo isset($details['name'])?$details['name']:''; ?></span></td>
 		<td><strong>Mobile:</strong> <span><?php echo isset($details['mobile'])?$details['mobile']:''; ?></span></td>
 		<td><strong>Blood group:</strong> <span><?php echo isset($details['bloodgroup'])?$details['bloodgroup']:''; ?></span></td>
-		<td><strong>Marital status:</strong> <span><?php echo isset($details['martial_status'])?$details['martial_status']:''; ?></span></td>
+		<td><strong>Age:</strong> <span><?php echo isset($details['age'])?$details['age']:''; ?></span></td>
 	  </tr>
 	    <tr>
-		<td><strong>DOB:</strong> <span><?php echo isset($details['dob'])?$details['dob']:''; ?></span></td>
-		<td><strong>Age:</strong> <span><?php echo isset($details['age'])?$details['age']:''; ?></span></td>
-		<td colspan="2"><strong>Address:</strong> <span>
-		<?php echo isset($details['perment_address'])?$details['perment_address'].',':''; ?>
-		<?php echo isset($details['p_c_name'])?$details['p_c_name'].',':''; ?>
-		<?php echo isset($details['p_s_name'])?$details['p_s_name'].',':''; ?>
-		<?php echo isset($details['p_country_name'])?$details['p_country_name'].',':''; ?>
-		<?php echo isset($details['p_zipcode'])?$details['p_zipcode']:''; ?>
+		<td colspan="4"><strong>Address:</strong> <span>
+		<?php echo isset($details['perment_address'])?$details['perment_address']:''; ?>
 		</span></td>
 	
 		
@@ -137,13 +131,12 @@ table, th, td {
 	</table>	  
 	<table style="width:100%">
 	  <tr style="background:#ddd;line-height:25px">
-		<th colspan="8">Prescription  Details</th>
+		<th colspan="5">Prescription  Details</th>
 		
 	  </tr>
 	   <tr>
 		<th>Medicine Name </th>
 		<th>Expiry Date</th>
-		<th>Batchno </th>
 		<th>QTY</th>
 		<th>Amount</th>
 		<th>Total Amount</th>
@@ -154,8 +147,7 @@ table, th, td {
 	  foreach($medicine as $list){?>
 	  <tr>
 		<td><?php echo isset($list['medicine_name'])?$list['medicine_name']:''; ?>&nbsp;<?php echo isset($list['dosage'])?$list['dosage']:''; ?></td>
-		<td><?php echo isset($list['expiry_date'])?$list['expiry_date']:''; ?></td>
-		<td><?php echo isset($list['batchno'])?$list['batchno']:''; ?></td>
+		<td><?php echo isset($list['expirydate'])?$list['expirydate']:''; ?></td>
 		<td><?php echo isset($list['qty'])?$list['qty']:''; ?></td>
 		<td><?php echo isset($list['amount'])?$list['amount']:''; ?></td>
 		<td><?php echo isset($list['amount'])?$list['amount']*$list['qty']:''; ?></td>
@@ -163,7 +155,7 @@ table, th, td {
 	  <?php } ?>
 	  <?php } ?>
 	  	<tr>
-		<th colspan="4"  style="background:#ddd;">Prescription Billing Mode</th>
+		<th colspan="3"  style="background:#ddd;">Prescription Billing Mode</th>
 		
 		<?php if(isset($details['medicine_payment_mode']) && $details['medicine_payment_mode']!=''){ ?>
 				<td colspan="2">
