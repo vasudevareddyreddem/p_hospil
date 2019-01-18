@@ -41,6 +41,7 @@
 				</tr>
 			</thead>
 			<tbody>
+			<?php //echo '<pre>';print_r($labtest_list);exit;?>
 			<?php foreach($labtest_list as $list){ ?>
 				<tr class="odd gradeX">
 					
@@ -56,7 +57,7 @@
 					<td>
 							<?php if(isset($list['tests']) && count($list['tests'])>0){ ?>
 							<?php $cnt=1;foreach($list['tests'] as $li){ ?>
-							<p><?php if($userdetails['hos_id']= $li['hos_id']){?>
+							<p><?php if($userdetails['out_source_lab']= $li['out_source']){?>
 							<?php }else{ ?>
 							<i class="fa fa-circle" style="color:red;"></i><span class="txtOnline"> &nbsp;</span>
 							<?php echo $cnt; ?>.<?php echo $li['t_name']; ?></p>
@@ -71,7 +72,7 @@
 					<td>
 						<?php if(isset($list['tests']) && count($list['tests'])>0){ ?>
 						<?php $cnt=1;foreach($list['tests'] as $li){ ?>
-						<p><?php if($userdetails['hos_id']= $li['hos_id']){?>
+							<p><?php if($userdetails['out_source_lab']= $li['out_source']){?>
 						<i class="fa fa-circle user-online"></i><span class="txtOnline"> &nbsp;</span>
 						<?php echo $cnt; ?>.<?php echo $li['t_name']; ?></p>
 

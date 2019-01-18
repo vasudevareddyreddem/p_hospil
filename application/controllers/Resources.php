@@ -1081,7 +1081,11 @@ class Resources extends In_frontend {
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
 					$post=$this->input->post();
-					//echo '<pre>';print_r($post);
+					//echo '<pre>';print_r($post);exit;
+					if(isset($post['cheking_value']) && $post['cheking_value']==0){
+						$this->session->set_flashdata('error',"Some medicine having available quantity is less than given quantity");
+						redirect('resources/consultation/'.base64_encode($post['pid']).'/'.base64_encode($post['bid']).'#step-2');
+					}
 					$cnt=0;foreach($post['medicine_name'] as $list){
 							if($list!=''){
 										$m_name=explode("_",$post['medicine_name'][$cnt]);
@@ -1722,25 +1726,26 @@ class Resources extends In_frontend {
 									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'',
 									'received_form'=>isset($post['received_form'])?$post['received_form']:'',
 									'create_at'=>date('Y-m-d H:i:s'),
-									'type'=>$type
+									'type'=>$type,
+									'completed'=>1,
 									);
 									//echo '<pre>';print_r($billing);exit;
 									$update=$this->Resources_model->update_all_patient_billing_details($billing);
 									//echo $this->db->last_query();exit;
 									if(isset($post['verifying']) && $post['verifying']=='verify'){
-										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11).'/'.base64_encode($update));
+										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1).'/'.base64_encode($update));
 									}else{
-										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11).'/'.base64_encode($update));
+										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1).'/'.base64_encode($update));
 
 									}
 							}else{
-							redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(2));	
+							redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1));	
 							}
 							
 						}else{
 							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 							if(isset($post['op']) && $post['op']==1){
-								redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(11));
+								redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1));
 							}else{
 								redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1));
 							
@@ -1783,9 +1788,9 @@ class Resources extends In_frontend {
 									);
 									//echo '<pre>';print_r($billing);exit;
 									$update=$this->Resources_model->update_all_patient_billing_details($billing);
-									redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(11).'/'.base64_encode($update));
+									redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(1).'/'.base64_encode($update));
 								}else{
-								redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(2));	
+								redirect('resources/desk/'.base64_encode($addtab).'/'.base64_encode(1));	
 								}
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

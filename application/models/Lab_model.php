@@ -17,11 +17,7 @@ class Lab_model extends CI_Model
 		$this->db->insert('patient_lab_reports', $data);
 		return $insert_id = $this->db->insert_id();	
 	}
-	public function get_lab_test_details($hos_id){
-		$this->db->select('lab_test_list.*')->from('lab_test_list');
-		$this->db->where('lab_test_list.hos_id',$hos_id);
-        return $this->db->get()->result_array();	
-	}
+	
 	public function update_labtest_details($t_id,$data){
 		$this->db->where('t_id',$t_id);
     	return $this->db->update("lab_test_list",$data);
@@ -403,6 +399,20 @@ class Lab_model extends CI_Model
 		$this->db->where('lab_test_list.t_name',$t_name);
 		$this->db->where('lab_test_list.type',$type);
 		return $this->db->get()->row_array();
+	}
+	
+	/* for outsources lab purpose */
+	public function get_lab_test_details($hos_id){
+		$this->db->select('lab_test_list.*')->from('lab_test_list');
+		$this->db->where('lab_test_list.hos_id',$hos_id);
+        return $this->db->get()->result_array();	
+	}
+	public function get_outlab_test_details($hos_id,$a_id,$out_sources){
+		$this->db->select('lab_test_list.*')->from('lab_test_list');
+		$this->db->where('lab_test_list.hos_id',$hos_id);
+		$this->db->where('lab_test_list.create_by',$a_id);
+		$this->db->where('lab_test_list.out_source',$out_sources);
+        return $this->db->get()->result_array();	
 	}
 	
 	

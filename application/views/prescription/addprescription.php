@@ -180,13 +180,6 @@
 </div>
 <script>
 
-function validateForm(){
-	var val_check=$('#cheking_value').val();
-	alert(val_check);return false;
-	
-	
-}
-
 function check_avaiable_qty(qty,ids){
 	var medicine_name=$('#medicinename'+ids).val();
 	if(medicine_name!=''){
@@ -205,7 +198,7 @@ function check_avaiable_qty(qty,ids){
 						}else{
 							console.log('sdmnasbdhb');
 							$('#cheking_value').val(0);
-							alert('available quantity is less than your quantity');
+							alert('available quantity is less than given quantity');
 						}
 						
    					}

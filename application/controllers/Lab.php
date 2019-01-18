@@ -37,8 +37,9 @@ class Lab extends In_frontend {
 		{
 				if($admindetails['role_id']=4){
 					$admindetails=$this->session->userdata('userdetails');
+					//echo '<pre>';print_r($admindetails);exit;
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
-					$data['labtest_list']=$this->Lab_model->get_lab_test_details($userdetails['hos_id'],$admindetails['a_id']);
+					$data['labtest_list']=$this->Lab_model->get_outlab_test_details($userdetails['hos_id'],$admindetails['a_id'],$admindetails['out_source']);
 					//echo '<pre>';print_r($data['labtest_list']);exit;
 					$data['test_type_list']=$this->Lab_model->get_lab_test_type_details();
 					//echo '<pre>';print_r($data['test_type_list']);exit;
@@ -257,7 +258,7 @@ class Lab extends In_frontend {
 					
 					$data['userdetails']=$userdetails;
 					$datalabtest_list=$this->Lab_model->get_all_patients_lists($userdetails['hos_id']);
-					//echo '<pre>';print_r($datalabtest_list);exit;
+					//echo '<pre>';print_r($userdetails);exit;
 					
 					if(isset($datalabtest_list) && count($datalabtest_list)>0){
 						foreach($datalabtest_list as $list){
@@ -276,7 +277,7 @@ class Lab extends In_frontend {
 					$data['tab']=base64_decode($this->uri->segment(3));
 					$this->load->view('lab/patient_list',$data);
 					$this->load->view('html/footer');
-					//echo '<pre>';print_r($data);
+					//echo '<pre>';print_r($data);exit;
 					//exit;
 				}else{
 					$this->session->set_flashdata('error',"you don't have permission to access");

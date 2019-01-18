@@ -144,7 +144,7 @@
                         <div class="col-sm-3 nopadding">
                            <label> Select Medicine</label>
                            <div class="form-group">
-                              <select class="form-control  select2" id="medicine_name"  name="medicine_name[]">
+                              <select class="form-control  select2" id="medicine_name0"  name="medicine_name[]">
                                  <option value="">Select</option>
                                  <?php foreach($medicine_list as $list){ ?>
                                  <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
@@ -155,7 +155,7 @@
                         <div class="col-sm-1 nopadding">
                            <label> Qty</label>
                            <div class="form-group">
-                              <input type="text" class="form-control" id="qty"  name="qty[]" value="" placeholder="Qty">
+                              <input type="text" class="form-control" id="qty0"  name="qty[]" onchange="check_avaiable_qty(this.value,'0');" value="" placeholder="Qty">
                            </div>
                         </div>
                         <div class="col-sm-3 nopadding">
@@ -174,7 +174,7 @@
                                  </label>
                               </div>
                               <div class="checkbox checkbox-black col-md-4">
-                                 <input id="checkboxbg1" type="checkbox" name="Frequency[0][]" value="Evening">
+                                 <input id="checkboxbg1" type="checkbox" name="Frequency[0][]" value="Night">
                                  <label for="checkboxbg1">
                                  Night
                                  </label>
@@ -202,7 +202,7 @@
                         <div class="col-sm-3 nopadding">
                            <label> Select Medicine</label>
                            <div class="form-group">
-                              <select class="form-control  select2" id="medicine_name"  name="medicine_name[]">
+                              <select class="form-control  select2" id="medicine_name1"  name="medicine_name[]">
                                  <option value="">Select</option>
                                  <?php foreach($medicine_list as $list){ ?>
                                  <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
@@ -213,7 +213,7 @@
                         <div class="col-sm-1 nopadding">
                            <label> Qty</label>
                            <div class="form-group">
-                              <input type="text" class="form-control" id="qty"  name="qty[]" value="" placeholder="Qty">
+                              <input type="text" class="form-control" id="qty1"  name="qty[]" onchange="check_avaiable_qty(this.value,'1');" value="" placeholder="Qty">
                            </div>
                         </div>
                         <div class="col-sm-3 nopadding">
@@ -232,7 +232,7 @@
                                  </label>
                               </div>
                               <div class="checkbox checkbox-black col-md-4">
-                                 <input id="checkboxbg1" name="Frequency[1][]" type="checkbox" value="Evening">
+                                 <input id="checkboxbg1" name="Frequency[1][]" type="checkbox" value="Night">
                                  <label for="checkboxbg1">
                                  Night
                                  </label>
@@ -260,7 +260,7 @@
                         <div class="col-sm-3 nopadding">
                            <label> Select Medicine</label>
                            <div class="form-group">
-                              <select class="form-control  select2" id="medicine_name"  name="medicine_name[]">
+                              <select class="form-control  select2" id="medicine_name2"  name="medicine_name[]">
                                  <option value="">Select</option>
                                  <?php foreach($medicine_list as $list){ ?>
                                  <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
@@ -271,7 +271,7 @@
                         <div class="col-sm-1 nopadding">
                            <label> Qty</label>
                            <div class="form-group">
-                              <input type="text" class="form-control" id="qty"  name="qty[]" value="" placeholder="Qty">
+                              <input type="text" class="form-control" id="qty2"  name="qty[]" onchange="check_avaiable_qty(this.value,'2');" value="" placeholder="Qty">
                            </div>
                         </div>
                         <div class="col-sm-3 nopadding">
@@ -290,7 +290,7 @@
                                  </label>
                               </div>
                               <div class="checkbox checkbox-black col-md-4">
-                                 <input id="checkboxbg1" type="checkbox" name="Frequency[2][]" value="Evening">
+                                 <input id="checkboxbg1" type="checkbox" name="Frequency[2][]" value="Night">
                                  <label for="checkboxbg1">
                                  Night
                                  </label>
@@ -318,7 +318,7 @@
                         <div class="col-sm-3 nopadding">
                            <label> Select Medicine</label>
                            <div class="form-group">
-                              <select class="form-control  select2" id="medicine_name"  name="medicine_name[]">
+                              <select class="form-control  select2" id="medicine_name3"  name="medicine_name[]">
                                  <option value="">Select</option>
                                  <?php foreach($medicine_list as $list){ ?>
                                  <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option>
@@ -329,7 +329,7 @@
                         <div class="col-sm-1 nopadding">
                            <label> Qty</label>
                            <div class="form-group">
-                              <input type="text" class="form-control" id="qty"  name="qty[]" value="" placeholder="Qty">
+                              <input type="text" class="form-control" id="qty3"  name="qty[]" value="" onchange="check_avaiable_qty(this.value,'3');" placeholder="Qty">
                            </div>
                         </div>
                         <div class="col-sm-3 nopadding">
@@ -348,7 +348,7 @@
                                  </label>
                               </div>
                               <div class="checkbox checkbox-black col-md-4">
-                                 <input id="checkboxbg1" type="checkbox" name="Frequency[3][]" value="Evening">
+                                 <input id="checkboxbg1" type="checkbox" name="Frequency[3][]" value="Night">
                                  <label for="checkboxbg1">
                                  Night
                                  </label>
@@ -389,6 +389,8 @@
                         </div>
                      </div>
                   </div>
+				  										<input type="hidden" name="cheking_value" id="cheking_value" value="0">
+
                   <div class="clearfix">&nbsp;</div>
                   <button class="btn btn-sm btn-success" type="submit">Submit</button>
                   <?php if(isset($patient_medicine_list) && count($patient_medicine_list)>0){?>
@@ -471,6 +473,7 @@
 			 <a href="javascript:void(0)" onclick="get_patient_list()" data-toggle="modal" data-target="#test_list_searchmodal" class="btn btn-sm btn-warning">View</a>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
+			<a href="<?php echo base_url('resources/worksheet'); ?>" class="btn btn-default pull-right">complleted</a>
           
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
@@ -664,6 +667,32 @@
      });
 </script>
 <script type="text/javascript">
+function check_avaiable_qty(qty,ids){
+	var medicine_name=$('#medicine_name'+ids).val();
+	if(medicine_name!=''){
+		    jQuery.ajax({
+   			url: "<?php echo base_url('Users/get_medicine_avaiable_qty_with_name');?>",
+   			data: {
+				m_id: medicine_name,				
+				p_qty:qty,
+			},
+   			type: "POST",
+   			format:"Json",
+   					success:function(data){
+						var datas = JSON.parse(data);
+						if(datas.msg==1){
+							$('#cheking_value').val(1);					
+						}else{
+							console.log('sdmnasbdhb');
+							$('#cheking_value').val(0);
+							alert('available quantity is less than given quantity');
+						}
+						
+   					}
+           });
+	   }
+	
+}
 function investdation_serach_one(val){
 	if(val!=''){
    			$('#internal_code').empty();
@@ -757,7 +786,7 @@ function test_list_purpose_row(val,id){
       var divtest = document.createElement("div");
    divtest.setAttribute("class", "form-group removeclass"+room);
    var rdiv = 'removeclass'+room;
-      divtest.innerHTML = '<div class="row" style="margin:0px"><div class="col-sm-3 nopadding"><div class="form-group"><select style="width:100%;height:40px;" class="form-control" id="medicinename" onchange="get_medicin_amount_list(this.value,'+room+')" name="medicine_name[]"><option value="">Select</option><?php foreach($medicine_list as $list){ ?> <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option><?php } ?></select></div></div>	<div class="col-sm-1 nopadding"><div class="form-group"><input type="text" class="form-control" id="qty"  name="qty[]" value="" placeholder="Qty"></div></div>	<div class="col-sm-3 nopadding"><div class="row"><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Morning"> <label for="checkboxbg1"> Mrng </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Afternoon"> <label for="checkboxbg1"> Afnoon </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Evening"> <label for="checkboxbg1"> Night </label> </div> </div></div>	<div class="col-sm-2 nopadding"><select class="form-control" name="food[]" id="food"> <option value="" >Select</option> <option value="Before">Before</option> <option value="After">After</option> </select></div>	<div class="col-sm-2 nopadding"><div class="form-group"><input type="text" class="form-control" id="amount'+room+'"  name="days[]"  value="" placeholder="No of days"></div></div><div class="col-sm-1 nopadding"><div class="input-group-btn"><button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button>  </div></div></div>';
+      divtest.innerHTML = '<div class="row" style="margin:0px"><div class="col-sm-3 nopadding"><div class="form-group"><select style="width:100%;height:40px;" class="form-control" id="medicine_name'+room+'" onchange="get_medicin_amount_list(this.value,'+room+')" name="medicine_name[]"><option value="">Select</option><?php foreach($medicine_list as $list){ ?> <option value="<?php echo $list['medicine_name'].'_'.$list['qty']; ?>"><?php echo $list['medicine_name']; ?>-<?php echo "dosage ".$list['dosage']; ?> - <?php echo "Avl qty :".$list['qty']; ?> - <?php echo "Type :".$list['medicine_type']; ?></option><?php } ?></select></div></div>	<div class="col-sm-1 nopadding"><div class="form-group"><input type="text" class="form-control" id="qty'+room+'"  name="qty[]" onchange="check_avaiable_qty(this.value,'+room+');" value="" placeholder="Qty"></div></div>	<div class="col-sm-3 nopadding"><div class="row"><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Morning"> <label for="checkboxbg1"> Mrng </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Afternoon"> <label for="checkboxbg1"> Afnoon </label> </div><div class="checkbox checkbox-black col-md-4"> <input id="checkboxbg1" type="checkbox" name="Frequency['+room+'][]" value="Night"> <label for="checkboxbg1"> Night </label> </div> </div></div>	<div class="col-sm-2 nopadding"><select class="form-control" name="food[]" id="food"> <option value="" >Select</option> <option value="Before">Before</option> <option value="After">After</option> </select></div>	<div class="col-sm-2 nopadding"><div class="form-group"><input type="text" class="form-control" id="amount'+room+'"  name="days[]"  value="" placeholder="No of days"></div></div><div class="col-sm-1 nopadding"><div class="input-group-btn"><button class="btn btn-danger" type="button" onclick="remove_education_fields('+ room +');"> <span class="glyphicon glyphicon-minus" aria-hidden="true">-</span> </button>  </div></div></div>';
       
       objTo.append(divtest);
    }
@@ -1067,7 +1096,7 @@ function get_patient_list(){
         
    });
    	$(document).ready(function() {
-   	$('#add_medicines').bootstrapValidator({
+   	$('#add_medicines_backup').bootstrapValidator({
    		fields: {
              
                 type_of_medicine: {

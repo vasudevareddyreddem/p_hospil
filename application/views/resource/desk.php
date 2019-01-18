@@ -20,7 +20,7 @@
                <header class="panel-heading panel-heading-gray custom-tab ">
                   <ul class="nav nav-tabs x-scrool">
 				    
-					 <li style="border-right:2px solid #fff" class="nav-item "><a href="#aboutop" data-toggle="tab" class="<?php if(isset($tab) && $tab==11 || $tab==12 || $tab==13 || $tab==0){ echo "active";}?>">OP Registration</a>
+					 <li style="border-right:2px solid #fff" class="nav-item "><a href="#aboutop" data-toggle="tab" class="<?php if(isset($tab) && $tab==1 || $tab==0){ echo "active";}?>">OP Registration</a>
                      </li>
 					 
                     <!-- <li style="border-right:2px solid #fff" class="nav-item"><a href="#home" data-toggle="tab" class="<?php if(isset($tab) && $tab!=11 && $tab!=12 && $tab!=13  && $tab!=0){ echo "active";}?>">IP New-Registration</a>
@@ -101,7 +101,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="tab-pane  <?php if(isset($tab) && $tab==11 || $tab==12 || $tab==13 || $tab==0){ echo "active";}?>" id="aboutop">
+                     <div class="tab-pane  <?php if(isset($tab) && $tab==1 || $tab==0){ echo "active";}?>" id="aboutop">
                         <div class="card ">
                            <div class="card-head">
                               <header>Patient Details</header>

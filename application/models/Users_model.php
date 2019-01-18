@@ -177,6 +177,12 @@ class Users_model extends CI_Model
 		$this->db->where('medicine_list.id', $m_id);
         return $this->db->get()->row_array();
 	}
+	public  function get_medicine_avaiable_qty_with_name($medicine_name,$hos_id){
+		$this->db->select('expiry_date,amount,total_amount,qty')->from('medicine_list');	
+		$this->db->where('medicine_list.medicine_name', $medicine_name);
+		$this->db->where('medicine_list.hos_id', $hos_id);
+        return $this->db->get()->row_array();
+	}
 	
 	
 

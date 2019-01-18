@@ -68,7 +68,7 @@ class Resources_model extends CI_Model
         return $this->db->get()->result_array();	
 	}
 	public function get_all_resouce_details($admin_id){
-		$this->db->select('resource_list.r_id,resource_list.hos_id,admin.a_id,admin.role_id,admin.a_email_id,admin.a_name,roles.r_name,admin.a_profile_pic')->from('admin');		
+		$this->db->select('resource_list.r_id,resource_list.hos_id,admin.a_id,admin.role_id,admin.a_email_id,admin.a_name,roles.r_name,admin.a_profile_pic,resource_list.out_source_lab')->from('admin');		
 		$this->db->join('roles', 'roles.r_id = admin.role_id', 'left');
 		$this->db->join('resource_list', 'resource_list.a_id = admin.a_id', 'left');
 		$this->db->where('admin.a_id', $admin_id);
