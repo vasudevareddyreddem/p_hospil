@@ -129,7 +129,7 @@
                         </div>
                        
                         <div class="form-group col-md-6">
-                           <label for="email">Nationality</label>
+                           <label for="email">&nbsp;</label>
                            <div class="row">
                               <div class="col-md-6">
                                  <input type="text" id="hos_rep_zipcode" name="hos_rep_zipcode" value="<?php echo isset($hospital_details['hos_rep_zipcode'])?$hospital_details['hos_rep_zipcode']:''; ?>" class="form-control"  placeholder="Enter pin Code" >
@@ -138,10 +138,8 @@
                                  <input type="text" id="hos_rep_city" name="hos_rep_city" value="<?php echo isset($hospital_details['hos_rep_city'])?$hospital_details['hos_rep_city']:''; ?>" class="form-control"  placeholder="Enter City" >
                               </div>
                            </div>
-                        </div>
-                        <div class="form-group col-md-6">
-                           <label for="email">&nbsp;</label>
-                           <div class="row">
+                            <br>
+                            <div class="row">
                               <div class="col-md-6">
 								<?php $states = array ('Andhra Pradesh' => 'Andhra Pradesh', 'Arunachal Pradesh' => 'Arunachal Pradesh', 'Assam' => 'Assam', 'Bihar' => 'Bihar', 'Chhattisgarh' => 'Chhattisgarh', 'Goa' => 'Goa', 'Gujarat' => 'Gujarat', 'Haryana' => 'Haryana', 'Himachal Pradesh' => 'Himachal Pradesh', 'Jammu & Kashmir' => 'Jammu & Kashmir', 'Jharkhand' => 'Jharkhand', 'Karnataka' => 'Karnataka', 'Kerala' => 'Kerala', 'Madhya Pradesh' => 'Madhya Pradesh', 'Maharashtra' => 'Maharashtra', 'Manipur' => 'Manipur', 'Meghalaya' => 'Meghalaya', 'Mizoram' => 'Mizoram', 'Nagaland' => 'Nagaland', 'Odisha' => 'Odisha', 'Punjab' => 'Punjab', 'Rajasthan' => 'Rajasthan', 'Sikkim' => 'Sikkim', 'Tamil Nadu' => 'Tamil Nadu', 'Telangana' => 'Telangana', 'Tripura' => 'Tripura', 'Uttarakhand' => 'Uttarakhand','Uttar Pradesh' => 'Uttar Pradesh', 'West Bengal' => 'West Bengal', 'Andaman & Nicobar' => 'Andaman & Nicobar', 'Chandigarh' => 'Chandigarh', 'Dadra and Nagar Haveli' => 'Dadra and Nagar Haveli', 'Daman & Diu' => 'Daman & Diu', 'Delhi' => 'Delhi', 'Lakshadweep' => 'Lakshadweep', 'Puducherry' => 'Puducherry'); ?>
 								  <select class="form-control" required="required" name="hos_rep_state" id="hos_rep_state">
@@ -217,7 +215,7 @@
                         </div>
                       
                         <div class="form-group col-md-6">
-                           <label for="email">Nationality</label>
+                           <label for="email">&nbsp;</label>
                            <div class="row">
                               <div class="col-md-6">
                                  <input type="text" id="hos_bas_zipcode" name="hos_bas_zipcode" value="<?php echo isset($hospital_details['hos_bas_zipcode'])?$hospital_details['hos_bas_zipcode']:''; ?>" class="form-control"  placeholder="Enter pin Code" >
@@ -249,7 +247,23 @@
                               </div>
                            </div>
                         </div>
-                        <div class="form-group col-md-6">
+                         <div class="col-md-6">
+                           <label for="email">Reschedule Patient Time</label>
+									<?php $days =array ('1' => '1 day', '2' => '2 days', '3' => '3 days', '4' => '4 days', '5' => '5 days', '6' => '6 days', '7' => '7 days'); ?>
+								  <select class="form-control" required="required" name="reschedule_date" id="reschedule_date">
+								  <option value = "">Select days</option>
+									<?php foreach($days as $key=>$state):
+											if($hospital_details['reschedule_date'] == $state):
+											$selected ='selected=selected';
+											else : 
+											$selected = '';
+											endif;
+										 ?>
+										<option value = "<?php echo $state?>" <?php echo $selected;?> ><?php echo $state?></option>
+									<?php endforeach; ?>
+								  </select> 
+						  </div>
+                        <div class="col-md-6">
                            <label for="email">Upload Documents</label>
                            <div class="compose-editor">
                               <input type="file" id="hos_bas_document" name="hos_bas_document"class="default form-control">
@@ -267,22 +281,7 @@
 								<?php } ?>
                            </div>
                         </div>
-						 <div class="col-md-6">
-                           <label for="email">Reschedule Patient Time</label>
-									<?php $days =array ('1' => '1 day', '2' => '2 days', '3' => '3 days', '4' => '4 days', '5' => '5 days', '6' => '6 days', '7' => '7 days'); ?>
-								  <select class="form-control" required="required" name="reschedule_date" id="reschedule_date">
-								  <option value = "">Select days</option>
-									<?php foreach($days as $key=>$state):
-											if($hospital_details['reschedule_date'] == $state):
-											$selected ='selected=selected';
-											else : 
-											$selected = '';
-											endif;
-										 ?>
-										<option value = "<?php echo $state?>" <?php echo $selected;?> ><?php echo $state?></option>
-									<?php endforeach; ?>
-								  </select> 
-						  </div>
+						 
                      </div>
                      <div class="form-actions">
                         <div class="row">

@@ -34,7 +34,30 @@
    <header>Start Consultation</header>
 </div>
 <div class="row py-4 px-2">
-   <div class="panel-group col-md-9" id="accordion">
+    <div class="col-md-9 table-responsive">
+        <table class="" border="1" border-color="red" cellpadding="15px" style="border-collapse: collapse;width: 100%;border-color: #ccc; border: 1px solid #ccc;">
+            <tr>
+                <th colspan="6" class="text-center bg-info">Patient Details</th>
+            </tr> 
+            <tr class="text-center">
+                <td><b>Patient Name</b></td>
+                <td><b>Gender</b></td>
+                <td><b>Mobile</b></td>
+                <td><b>Blood group</b></td>
+                <td><b>Age</b></td>
+                <td><b>Address</b></td>
+            </tr>
+            <tr>
+                <td><?php echo isset($patient_details['name'])?$patient_details['name']:''; ?></td>
+                <td><?php echo isset($patient_details['gender'])?$patient_details['gender']:''; ?></td>
+                <td><?php echo isset($patient_details['mobile'])?$patient_details['mobile']:''; ?></td>
+                <td><?php echo isset($patient_details['bloodgroup'])?$patient_details['bloodgroup']:''; ?></td>
+                <td><?php echo isset($patient_details['age'])?$patient_details['age']:''; ?></td>
+                <td><?php echo isset($patient_details['perment_address'])?$patient_details['perment_address']:''; ?></td>
+            </tr>
+          </table>
+      </div>
+   <!--<div class="panel-group col-md-9" id="accordion">
       <div class="panel panel-default">
          <div class="panel-heading">
             <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="panel-title expand">
@@ -75,7 +98,7 @@
             </div>
          </div>
       </div>
-   </div>
+   </div>-->
    <div class="col-md-3">
       <a href="javascript:void(0)" data-toggle="modal" data-target="#medicine_list_hmodal" class="btn btn-sm btn-warning">Previous Medication Reports</a>
       <a target="_blank" href="<?php echo base_url('resources/patient_report_details/'.base64_encode($patient_id));?>" class="btn btn-sm btn-success" type="button">Previous Investigation Reports</a>
@@ -514,7 +537,7 @@
                                        </tr>
                                     </thead>
                                     <tbody id="lab_test_type_list">
-                                      
+                                        
                                     </tbody>
                                  </table>
                               </div>
@@ -828,7 +851,7 @@ function get_patient_list(){
 						$('#lab_test_type_list').empty();
 						for(i=0; i<data.text.length; i++) {
 						//$('#testlist').append("<option value="+data.text[i].l_assistent_id+">"+data.text[i].l_code+"</option>");                      
-						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
+						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a class='btn btn-sm btn-danger' onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
 
 						}
 						}
@@ -1016,7 +1039,7 @@ function get_patient_list(){
    						$('#lab_test_type_list').empty();
    						for(i=0; i<data.text.length; i++) {
    						//$('#testlist').append("<option value="+data.text[i].l_assistent_id+">"+data.text[i].l_code+"</option>");                      
-   						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");'>Remove</a></td></tr>");                      
+   						$('#lab_test_type_list').append("<tr id=td_id"+data.text[i].PLid+"><td>"+data.text[i].t_name+"</td><td>"+data.text[i].amuont+"</td><td>"+data.text[i].duration+"</td><td><a onclick='remove_patient_lab_test("+data.text[i].PLid+");' class='btn btn-sm btn-danger'>Remove</a></td></tr>");                      
    
    						}
    						}

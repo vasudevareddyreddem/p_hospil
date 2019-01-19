@@ -36,8 +36,8 @@
 					<th> Address </th>
 					<th> Date & Time</th>
 					<th> Doctor</th>
-					<th> Out Lab portal </th>
-					<th> In Lab portal </th>
+					<th> OutSource Test </th>
+					<th> In-House Test </th>
 				</tr>
 			</thead>
 			<tbody>

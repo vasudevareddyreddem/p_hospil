@@ -41,8 +41,8 @@
                                                 <td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP";} ?></td>
                                                 <td><?php echo date('M j Y h:i A',strtotime(htmlentities($list['create_at'])));?></td>
                                                 <td>
-												<a  href="<?php echo base_url('hospital/patient_labdetails/'.base64_encode($list['pid'])); ?>">Reports</a>  | 
-												<a  href="<?php echo base_url('hospital/patient_medicinedetails/'.base64_encode($list['pid'])); ?>">Medicine</a>
+												<a  href="<?php echo base_url('hospital/patient_labdetails/'.base64_encode($list['pid'])); ?>">Investigation Reports</a>  | 
+												<a  href="<?php echo base_url('hospital/patient_medicinedetails/'.base64_encode($list['pid'])); ?>">Prescription</a>
 												</td>
                                                
                                             </tr>

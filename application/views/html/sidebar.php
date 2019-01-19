@@ -197,7 +197,7 @@
 							<li class="nav-item start <?php if($this->uri->segment(2)=='oursource'){ echo "active";} ?>">
 	                            <a href="<?php echo base_url('lab/oursource');?>" class="nav-link nav-toggle">
 	                                <i class="material-icons">track_changes</i>
-	                                <span class="title">Out Source </span>
+	                                <span class="title">OutSource </span>
 	                                <span class="selected"></span>
                                 	<span class="arrow "></span>
 	                            </a>
