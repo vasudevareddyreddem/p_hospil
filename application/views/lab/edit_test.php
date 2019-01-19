@@ -63,7 +63,7 @@
 									</div>
 							
 							<button type="submit" class="btn btn-sm btn-success pull-right" type="button">Update Test</button>
-
+                            <div class="clearfix">&nbsp;</div>
 							</form>
 						</div>
 					

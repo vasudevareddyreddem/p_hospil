@@ -15,6 +15,9 @@
     color: #fff !important;
 	width:100px;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0px;
+}
 </style>
 
 <div class="page-content-wrapper">

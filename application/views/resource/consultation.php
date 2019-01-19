@@ -422,7 +422,7 @@
                               Test Type
                            </th>
                            <th class="text-center">
-                              TestName
+                              Test Name
                            </th>
                            <th class="text-center">
                               Frequency
@@ -465,15 +465,16 @@
                </div>
 			
             </div>
-            <a id="add_row" class="btn btn-default pull-left">Add Row</a> <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
-			<div class="row  pull-right ">
+                <a id="add_row" class="btn btn-default pull-left">Add Row</a> 
+                <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+			<div class="row  pull-right mr-2">
                <button class="btn btn-primary" type="submit">Submit</button>
             </div>
 			</form>
-			 <a href="javascript:void(0)" onclick="get_patient_list()" data-toggle="modal" data-target="#test_list_searchmodal" class="btn btn-sm btn-warning">View</a>
+			 <a href="javascript:void(0)" onclick="get_patient_list()" data-toggle="modal" data-target="#test_list_searchmodal" class="btn btn-warning ml-2">View</a>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
-			<a href="<?php echo base_url('resources/worksheet'); ?>" class="btn btn-default pull-right">complleted</a>
+			<a href="<?php echo base_url('resources/worksheet'); ?>" class="btn btn-default pull-right">completed</a>
           
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>

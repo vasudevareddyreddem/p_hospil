@@ -42,7 +42,7 @@
 												<td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
                                                 <td>
                                                   
-												  <a href="<?php echo base_url('resources/consultation/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>" class="btn btn-xs bg-primary no-margin" type="button">Start Consultation</a>
+												  <a href="<?php echo base_url('resources/consultation/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>" class="btn btn-xs btn-primary no-margin" type="button">Start Consultation</a>
 												  <!--<button class="btn btn-xs bg-danger no-margin" type="button">Close</button>-->
                                                 </td>
                                             </tr>
