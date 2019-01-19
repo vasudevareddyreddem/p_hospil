@@ -34,7 +34,7 @@
 
                                                 <?php if($List['type']=='Replay'){ ?>
                                                 <li class="left clearfix"><span class="chat-img pull-left">
-                                                        <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($List['sender_name'], 0, 2)); ?></b></span>
                                                     </span>
                                                     <div class="chat-body clearfix">
@@ -50,18 +50,21 @@
                                                 </li>
                                                 <?php }else{ ?>
                                                 <li class="right clearfix"><span class="chat-img pull-right">
-                                                        <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($List['reciver_name'], 0, 2)); ?></b></span>
                                                     </span>
                                                     <div class="chat-body clearfix">
                                                         <div class="header">
                                                             <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                                            <strong class="pull-right primary-font">
-                                                                <?php echo isset($List['reciver_name'])?$List['reciver_name']:''; ?></strong>
+                                                            <div class="pull-right text-right">
+                                                                <strong class="primary-font">
+                                                                    <?php echo isset($List['reciver_name'])?$List['reciver_name']:''; ?></strong>
+                                                                <p>
+                                                                    <?php echo isset($List['comments'])?$List['comments']:''; ?>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <p>
-                                                            <?php echo isset($List['comments'])?$List['comments']:''; ?>
-                                                        </p>
+                                                        
                                                     </div>
                                                 </li>
                                                 <?php } ?>

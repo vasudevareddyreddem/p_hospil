@@ -186,19 +186,28 @@
 
 .chat li.left .chat-body
 {
-    margin-left: 60px;
+    margin-left: 50px;
 }
 
 .chat li.right .chat-body
 {
-    margin-right: 60px;
+    margin-right: 50px;
 }
-
-
+.chat li .chat-img{
+    margin-top: inherit;
+}
+.chat li .chat-body strong
+{
+    font-weight: 500;
+    font-size: 11px;
+    color: #636c72;
+    text-transform: uppercase;
+}
 .chat li .chat-body p
 {
     margin: 0;
-    color: #777777;
+    color: #000000;
+    font-size: 16px;
 }
 
 .chat-help.panel .slidedown .glyphicon, .chat .glyphicon

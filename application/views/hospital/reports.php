@@ -72,7 +72,7 @@
                 <td>Visit Type</td>
                 <td>Date of Visit</td>
                 <td>Total Fee</td>
-                <td>Paid Fee</td>
+                <!--<td>Paid Fee</td>-->
             </tr>
         </thead>
         <tbody>
@@ -85,7 +85,7 @@
                 <td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
                 <td><?php echo isset($list['create_at'])?$list['create_at']:''; ?></td>
                 <td><?php echo isset($list['total_amt'])?$list['total_amt']:''; ?></td>
-                <td><?php echo isset($list['bill_amount'])?$list['bill_amount']:''; ?></td>
+                <!--<td><?php echo isset($list['bill_amount'])?$list['bill_amount']:''; ?></td>-->
             </tr>
 		<?php } ?>
 			 

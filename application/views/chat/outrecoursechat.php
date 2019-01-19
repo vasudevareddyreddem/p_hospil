@@ -47,7 +47,7 @@
 															$admindetails=$this->session->userdata('userdetails');
 														if($list['user_id']==$admindetails['a_id']){ ?>
                                                 <li class="left clearfix"><span class="chat-img pull-left">
-                                                        <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($list['sendername'], 0, 2)); ?></b></span>
 
                                                     </span>
@@ -72,7 +72,7 @@
                                                 </li>
                                                 <?php }else{ ?>
                                                 <li class="right clearfix"><span class="chat-img pull-right">
-                                                        <span class="bg-success" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-success" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($list['sendername'], 0, 2)); ?></b></span>
 
                                                     </span>
@@ -89,12 +89,15 @@
 																		echo date('Y-m-d h:i:s a ', strtotime($date));
 																	?>
                                                             </small>
-                                                            <strong class="pull-right primary-font">
-                                                                <?php echo isset($list['sendername'])?$list['sendername']:''; ?></strong>
+                                                            <div class="pull-right text-right">
+                                                                <strong class="primary-font">
+                                                                    <?php echo isset($list['sendername'])?$list['sendername']:''; ?></strong>
+                                                                <p>
+                                                                    <?php echo isset($list['comment'])?$list['comment']:''; ?>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <p>
-                                                            <?php echo isset($list['comment'])?$list['comment']:''; ?>
-                                                        </p>
+                                                        
                                                         <?php if(isset($list['image']) && $list['image']!=''){ ?>
                                                         <p><a target="_blank" href="<?php echo base_url('assets/chating_file/'.$list['image']);?>">download</a>
                                                             <?php } ?>
@@ -169,7 +172,7 @@
 
                                         <?php if($list['type']=='Replayed'){ ?>
                                         <li class="left clearfix"><span class="chat-img pull-left">
-                                                <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                         <?php echo ucfirst(substr($list['replayedname'], 0, 2)); ?></b></span>
 
                                             </span>
@@ -194,7 +197,7 @@
                                         </li>
                                         <?php }else{ ?>
                                         <li class="right clearfix"><span class="chat-img pull-right">
-                                                <span class="bg-success" style="padding:15px;border-radius:50%"><b>
+                                                <span class="bg-success" style="padding:10px;border-radius:50%"><b>
                                                         <?php echo ucfirst(substr($list['replayname'], 0, 2)); ?></b></span>
 
                                             </span>
@@ -211,12 +214,15 @@
 																		echo date('Y-m-d h:i:s a ', strtotime($date));
 																	?>
                                                     </small>
-                                                    <strong class="pull-right primary-font">
-                                                        <?php echo isset($list['replayname'])?$list['replayname']:''; ?></strong>
+                                                    <div class="pull-right text-right">
+                                                        <strong class="pull-right primary-font">
+                                                            <?php echo isset($list['replayname'])?$list['replayname']:''; ?></strong>
+                                                        <p>
+                                                            <?php echo isset($list['comment'])?$list['comment']:''; ?>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <p>
-                                                    <?php echo isset($list['comment'])?$list['comment']:''; ?>
-                                                </p>
+                                                
                                                 <?php if(isset($list['image']) && $list['image']!=''){ ?>
                                                 <p><a target="_blank" href="<?php echo base_url('assets/chating_file/'.$list['image']);?>">download</a>
                                                     <?php } ?>
@@ -276,7 +282,7 @@
 
                                         <?php if($list['type']=='Replayed'){ ?>
                                         <li class="left clearfix"><span class="chat-img pull-left">
-                                                <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                         <?php echo ucfirst(substr($list['replayedname'], 0, 2)); ?></b></span>
 
                                             </span>
@@ -302,7 +308,7 @@
                                         <?php }else{ ?>
                                         <li class="right clearfix"><span class="chat-img pull-right">
 
-                                                <span class="bg-success" style="padding:15px;border-radius:50%"><b>
+                                                <span class="bg-success" style="padding:10px;border-radius:50%"><b>
                                                         <?php echo ucfirst(substr($list['replayname'], 0, 2)); ?></b></span>
 
                                             </span>
@@ -319,12 +325,15 @@
 																		echo date('Y-m-d h:i:s a ', strtotime($date));
 																	?>
                                                     </small>
-                                                    <strong class="pull-right primary-font">
-                                                        <?php echo isset($list['replayname'])?$list['replayname']:''; ?></strong>
+                                                    <div class="pull-right text-right">
+                                                        <strong class="primary-font">
+                                                            <?php echo isset($list['replayname'])?$list['replayname']:''; ?></strong>
+                                                        <p>
+                                                            <?php echo isset($list['comment'])?$list['comment']:''; ?>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <p>
-                                                    <?php echo isset($list['comment'])?$list['comment']:''; ?>
-                                                </p>
+                                                
                                                 <?php if(isset($list['image']) && $list['image']!=''){ ?>
                                                 <p><a target="_blank" href="<?php echo base_url('assets/chating_file/'.$list['image']);?>">download</a>
                                                     <?php } ?>

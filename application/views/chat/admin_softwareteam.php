@@ -34,7 +34,7 @@
 
                                                 <?php if($List['type']=='Replay'){ ?>
                                                 <li class="left clearfix"><span class="chat-img pull-left">
-                                                        <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($List['replayname'], 0, 2)); ?></b></span>
                                                     </span>
                                                     <div class="chat-body clearfix">
@@ -54,19 +54,22 @@
                                                 </li>
                                                 <?php }else{ ?>
                                                 <li class="right clearfix"><span class="chat-img pull-right">
-                                                        <span class="bg-indigo" style="padding:15px;border-radius:50%"><b>
+                                                        <span class="bg-indigo" style="padding:10px;border-radius:50%"><b>
                                                                 <?php echo ucfirst(substr($List['replayedname'], 0, 2)); ?></b></span>
                                                     </span>
                                                     <div class="chat-body clearfix">
                                                         <div class="header">
                                                             <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>
                                                                 <?php echo date('M j h:i A',strtotime(htmlentities($List['create_at'])));?></small>
-                                                            <strong class="pull-right primary-font">
-                                                                <?php echo isset($List['replayedname'])?$List['replayedname']:''; ?></strong>
+                                                            <div class="pull-right text-right">
+                                                                <strong class="primary-font">
+                                                                    <?php echo isset($List['replayedname'])?$List['replayedname']:''; ?></strong>
+                                                                <p>
+                                                                    <?php echo isset($List['comment'])?$List['comment']:''; ?>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <p>
-                                                            <?php echo isset($List['comment'])?$List['comment']:''; ?>
-                                                        </p>
+                                                        
                                                         <?php if(isset($List['image']) && $List['image']!=''){ ?>
                                                         <p><a target="_blank" href="<?php echo base_url('assets/chating_file/'.$List['image']);?>">download</a>
                                                             <?php } ?>
