@@ -881,7 +881,7 @@ class Admin extends CI_Controller {
 									$resourcedata=array(
 									'a_id'=>$addresourcedmin,
 									'role_id'=>'5',
-									'hos_id'=>$hos_details['hos_id'],
+									//'hos_id'=>$hos_details['hos_id'],
 									'out_source_lab'=>1,
 									'resource_name'=>$post['lab_name'],
 									'resource_mobile'=>$post['lab_mobile'],
@@ -1061,13 +1061,13 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	public function editlab(){
+	public function  addlabbackup(){
 		if($this->session->userdata('userdetails'))
 		{
 			if($admindetails['role_id']=1){
 					$post=$this->input->post();
 					
-					//echo '<pre>';print_r($post);exit;
+					echo '<pre>';print_r($post);exit;
 						$lab_detils= $this->Admin_model->get_get_out_sources_details($post['lab_id']);
 						if($lab_detils['resource_email']!= $post['lab_email']){
 							

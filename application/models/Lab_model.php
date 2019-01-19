@@ -409,7 +409,7 @@ class Lab_model extends CI_Model
 	}
 	public function get_outlab_test_details($hos_id,$a_id,$out_sources){
 		$this->db->select('lab_test_list.*')->from('lab_test_list');
-		$this->db->where('lab_test_list.hos_id',$hos_id);
+		//$this->db->where('lab_test_list.hos_id',$hos_id);
 		$this->db->where('lab_test_list.create_by',$a_id);
 		$this->db->where('lab_test_list.out_source',$out_sources);
         return $this->db->get()->result_array();	

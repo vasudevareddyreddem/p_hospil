@@ -496,9 +496,11 @@ class Users extends In_frontend {
 		{
 				 	$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
-				 $post=$this->input->post();
+					$post=$this->input->post();
+					$var=explode('_',$post['m_id']);
 					//echo '<pre>';print_r($post);exit;
-					$details=$this->Users_model->get_medicine_avaiable_qty_with_name($post['m_id'],$userdetails['hos_id']);
+					$details=$this->Users_model->get_medicine_avaiable_qty_with_name($var[0],$userdetails['hos_id']);
+					//echo $this->db->last_query();exit;
 					if(count($details) > 0)
 					{
 						

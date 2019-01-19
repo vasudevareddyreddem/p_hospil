@@ -43,7 +43,7 @@
 					<td> <?php echo $list['pid']; ?> </td>
 					<td><?php echo $list['name']; ?></td>
 					<td><?php echo $list['mobile']; ?></td>
-					<td><?php echo $list['perment_address'].' , '.$list['p_c_name'].' , '.$list['p_s_name'].' , '.$list['p_country_name'].' - '.$list['p_zipcode']; ?></td>
+					<td><?php echo $list['perment_address']; ?></td>
 					
 					<td><?php echo $list['create_at']; ?></td>
 					<td><a href="<?php echo base_url('lab/patient_details/'.base64_encode($list['p_id']).'/'.base64_encode($list['b_id'])); ?>">View </td>
