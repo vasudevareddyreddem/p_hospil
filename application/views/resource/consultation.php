@@ -100,7 +100,7 @@
       </div>
    </div>-->
    <div class="col-md-3">
-      <a href="javascript:void(0)" data-toggle="modal" data-target="#medicine_list_hmodal" class="btn btn-sm btn-warning">Previous Medication Reports</a>
+      <a href="javascript:void(0)" data-toggle="modal" data-target="#medicine_list_hmodal" class="btn btn-sm btn-warning mt-5">Previous Medication Reports</a>
       <a target="_blank" href="<?php echo base_url('resources/patient_report_details/'.base64_encode($patient_id));?>" class="btn btn-sm btn-success" type="button">Previous Investigation Reports</a>
    </div>
 </div>
