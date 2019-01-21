@@ -456,7 +456,7 @@ class Resources_model extends CI_Model
 		 $this->db->select('lab_test_list.test_type,lab_test_list.t_id,lab_test_list.t_name')->from('lab_test_list');
 		$this->db->where('lab_test_list.status',1);
 		$this->db->where('lab_test_list.type',$val);
-		$this->db->where('lab_test_list.hos_id',$hos_id);
+		//$this->db->where('lab_test_list.hos_id',$hos_id);
 		$this->db->group_by('lab_test_list.test_type');
         return $this->db->get()->result_array();
 		 
@@ -468,6 +468,13 @@ class Resources_model extends CI_Model
 		 $this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
 		 $this->db->where('patient_vitals_list.p_id',$p_id);
          return $this->db->get()->result_array();
+	 }
+	 public  function get_patient_vitals_list($p_id,$b_id){
+		$this->db->select('*')->from('patient_vitals_list');
+		$this->db->where('patient_vitals_list.p_id',$p_id);
+		$this->db->where('patient_vitals_list.b_id',$b_id);
+		$this->db->order_by('patient_vitals_list.id','desc');
+        return $this->db->get()->row_array(); 
 	 }
 
 }

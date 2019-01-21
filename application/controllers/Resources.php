@@ -977,7 +977,7 @@ class Resources extends In_frontend {
 					$data['patient_privious_medicine_list']=$this->Resources_model->get_patient_previous_medicine_details_list($patient_id);
 					//echo '<pre>';print_r($data['patient_privious_medicine_list']);exit;
 					$data['patient_privious_alternate_medicine_list']=$this->Resources_model->get_patient_previous_alternate_medicine_details_list($patient_id);
-					$data['patient_investigation_list']=$this->Resources_model->get_patient_investigation_details_list($patient_id,$data['billing_id']);
+					$data['patient_investigation_list']=$this->Resources_model->get_patient_lab_test_list($patient_id,$data['billing_id']);
 					$data['medicine_list']=$this->Resources_model->get_hospital_medicine_list($userdetails['hos_id']);
 					$data['doctors_list']=$this->Resources_model->get_hospital_doctors_list($userdetails['hos_id']);
 					//$data['patient_lab_list']=$this->Resources_model->get_patient_lab_test_list($patient_id,$data['billing_id']);
@@ -1853,6 +1853,51 @@ class Resources extends In_frontend {
 		}else{
 				$this->session->set_flashdata('error','Please login to continue');
 			    redirect('admin');
+		}
+	}
+	public function patient_details_print()
+	{	
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=4){
+					$patient_id=base64_decode($this->uri->segment(3));
+					if($patient_id==''){
+						$this->session->set_flashdata('error',"you don't have permission to access");
+						redirect('dashboard');
+					}
+					$data['patient_id']=isset($patient_id)?$patient_id:'';
+					$data['billing_id']=base64_decode($this->uri->segment(4));
+					$admindetails=$this->session->userdata('userdetails');
+					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
+					$data['patient_details']=$this->Resources_model->get_patient_details($patient_id);
+					$data['patient_medicine_list']=$this->Resources_model->get_patient_medicine_details_list($patient_id,$data['billing_id']);
+					$data['patient_investigation_list']=$this->Resources_model->get_patient_lab_test_list($patient_id,$data['billing_id']);
+					$data['patient_vitals_list']=$this->Resources_model->get_patient_vitals_list($patient_id,$data['billing_id']);
+					//echo $this->db->last_query();
+					//echo '<pre>';print_r($data);exit;
+					$path = rtrim(FCPATH,"/");
+					$file_name = $data['patient_id'].'_'.$data['billing_id'].time().'.pdf';                
+					$data['page_title'] = $data['patient_details']['name'].'invoice'; // pass data to the view
+					$pdfFilePath = $path."/assets/complete_patient_details/".$file_name;
+					ini_set('memory_limit','320M'); // boost the memory limit if it's low <img src="https://s.w.org/images/core/emoji/72x72/1f609.png" alt="??" draggable="false" class="emoji">
+					$html = $this->load->view('resource/complete_patient_details', $data, true); // render the view into HTML
+					//echo '<pre>';print_r($html);exit;
+					$this->load->library('pdf');
+					$pdf = $this->pdf->load();
+					$pdf->SetFooter($_SERVER['HTTP_HOST'].'|{PAGENO}|'.date('M-d-Y')); // Add a footer for good measure <img src="https://s.w.org/images/core/emoji/72x72/1f609.png" alt="??" draggable="false" class="emoji">
+					$pdf->SetDisplayMode('fullpage');
+					$pdf->list_indent_first_level = 0;	// 1 or 0 - whether to indent the first level of a list
+					$pdf->WriteHTML($html); // write the HTML into the PDF
+					$pdf->Output($pdfFilePath, 'F');
+					redirect("/assets/complete_patient_details/".$file_name);
+					
+				}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('dashboard');
+				}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
 		}
 	}
 	

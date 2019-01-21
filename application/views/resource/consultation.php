@@ -498,7 +498,9 @@
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
 			<a href="<?php echo base_url('resources/worksheet'); ?>" class="btn btn-default pull-right">completed</a>
-          
+			<?php if(isset($patient_medicine_list) && count($patient_medicine_list)>0 || isset($patient_investigation_list) && count($patient_investigation_list)>0){ ?>
+				<a href="<?php echo base_url('resources/patient_details_print/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" class="btn btn-default pull-right">Print</a>
+			<?php } ?>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
          </div>
