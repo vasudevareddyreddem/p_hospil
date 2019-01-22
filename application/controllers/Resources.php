@@ -31,6 +31,7 @@ class Resources extends In_frontend {
 							$data['bill_id']='';
 							$data['patient_detailes']=array();
 							$data['appointment_id']=base64_decode($this->uri->segment(5));
+							$data['p_type']= base64_decode($this->uri->segment(5));
 						}else{
 								$data['patient_detailes']= $this->Resources_model->get_details_details($patient_id);
 								$data['tab']= base64_decode($this->uri->segment(4));
@@ -54,6 +55,7 @@ class Resources extends In_frontend {
 						$data['tab']=0;
 						 $data['pid']='';
 						 $data['bill_id']='';
+						 $data['p_type']= base64_decode($this->uri->segment(5));
 					}
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('resource/desk',$data);

@@ -213,7 +213,7 @@
 																	  <select class="form-control"  name="payment_mode" name="payment_mode">
 																		<option value = "">Select</option>
 																		<?php foreach($modes as $key=>$state):
-																				if($billing_detailes['payment_mode'] == $state):
+																				if(isset($billing_detailes['payment_mode']) && $billing_detailes['payment_mode'] == $state):
 																				$selected ='selected=selected';
 																				else : 
 																				$selected = '';
