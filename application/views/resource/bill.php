@@ -93,12 +93,12 @@ table, th, td {
       <div  style="float:left;width:200px">
         <img style="width:auto;height:100px;" src="<?php echo base_url('assets/hospital_logos/'.$details['hos_bas_logo']); ?>">
       </div>
-      <div style="float:right;width:200px">
+      <div style="float:right;width:300px">
         <h2 class="name"><?php echo isset($details['hos_bas_name'])?$details['hos_bas_name']:''; ?></h2>
         <div>
 		<?php echo isset($details['hos_bas_add1'])?$details['hos_bas_add1']:''; ?>,
 		<?php echo isset($details['hos_bas_add2'])?$details['hos_bas_add2']:''; ?>,
-		<?php echo isset($details['hos_bas_city'])?$details['hos_bas_city']:''; ?>,
+		<?php echo isset($details['hos_bas_city'])?$details['hos_bas_city']:''; ?>,<br>
 		<?php echo isset($details['hos_bas_state'])?$details['hos_bas_state']:''; ?>,
 		<?php echo isset($details['hos_bas_country'])?$details['hos_bas_country']:''; ?>,
 		<?php echo isset($details['hos_bas_zipcode'])?$details['hos_bas_zipcode']:''; ?>
