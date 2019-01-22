@@ -35,16 +35,17 @@ class Resources extends In_frontend {
 								$data['patient_detailes']= $this->Resources_model->get_details_details($patient_id);
 								$data['tab']= base64_decode($this->uri->segment(4));
 								$data['pid']= base64_decode($this->uri->segment(3));
-								$data['subtab']=base64_decode($this->uri->segment(6));
-								$data['bill_id']=base64_decode($this->uri->segment(5));
-								$billing_id=base64_decode($this->uri->segment(5));
-								if($billing_id!=''){
-									$data['billing_detailes']= $this->Resources_model->get_billing_details($data['pid'],$billing_id);
+								$data['p_type']= base64_decode($this->uri->segment(5));
+								if(is_numeric($data['p_type']))
+									{
+									$data['bill_id']= base64_decode($this->uri->segment(5));
+									$data['billing_detailes']= $this->Resources_model->get_billing_details($data['pid'],$data['p_type']);
 									$data['vitals_detailes']= $this->Resources_model->get_billing_vitals_details($data['pid']);
 								}else{
 									$data['billing_detailes']=array();
 									$data['vitals_detailes']=array();
 								}
+								
 							
 						}
 						
@@ -1710,7 +1711,7 @@ class Resources extends In_frontend {
 							$this->session->set_flashdata('success',"Basic Details successfully updated.");
 							if(isset($post['op']) && $post['op']==1){
 								
-									if(isset($post['verifying']) && $post['verifying']=='verify'){
+									if(isset($post['verifying']) && $post['verifying']=='reschedule'){
 										$type='Reschedule';
 									}else{
 										$type='Repeated';
@@ -1721,9 +1722,9 @@ class Resources extends In_frontend {
 									'treatment_id'=>$post['department_name'],
 									'doct_id'=>$post['department_doctors'],
 									'specialist_id'=>isset($post['specialist_doctor_id'])?$post['specialist_doctor_id']:'',	
-									'patient_payer_deposit_amount'=>isset($post['patient_payer_deposit_amount'])?$post['patient_payer_deposit_amount']:'',
+									'patient_payer_deposit_amount'=>isset($post['patient_payer_deposit_amount'])?$post['patient_payer_deposit_amount']:'0',
 									'payment_mode'=>isset($post['payment_mode'])?$post['payment_mode']:'',
-									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'',
+									'bill_amount'=>isset($post['bill_amount'])?$post['bill_amount']:'0',
 									'received_form'=>isset($post['received_form'])?$post['received_form']:'',
 									'create_at'=>date('Y-m-d H:i:s'),
 									'type'=>$type,
@@ -1732,7 +1733,7 @@ class Resources extends In_frontend {
 									//echo '<pre>';print_r($billing);exit;
 									$update=$this->Resources_model->update_all_patient_billing_details($billing);
 									//echo $this->db->last_query();exit;
-									if(isset($post['verifying']) && $post['verifying']=='verify'){
+									if(isset($post['verifying']) && $post['verifying']=='reschedule'){
 										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1).'/'.base64_encode($update));
 									}else{
 										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1).'/'.base64_encode($update));

@@ -39,15 +39,19 @@ class Resources_model extends CI_Model
 						$date1=date_create($dat['create_at']);
 						$date2=date_create($current);
 						$diff=date_diff($date1,$date2);
-						$now_date=$diff->format("%a");
-						if($now_date<=$Lis['reschedule_date']){
+						$now_date=$diff->days;
+						$cnt_days=substr($Lis['reschedule_date'],0,1);
+						if($now_date<= $cnt_days){
 							$reschedule=1;
 						}else{
 							$reschedule=0;
 						}
+						
+					
 				$data[$Lis['pid']]=$Lis;
 				$data[$Lis['pid']]['patient_reschedule_date']=$reschedule;
 		}
+		//echo '<pre>';print_r($data);exit;
 		if(!empty($data))
 		{
 		return $data;

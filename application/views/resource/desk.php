@@ -74,16 +74,18 @@
                                                    <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(1)); ?>">
                                                    <i class="icon-docs"></i> Edit </a>
                                                 </li>
-												<?php //if($list['patient_reschedule_date']==1){ ?>
+											
 													<li>
-                                                    <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(0).'/'.base64_encode('verify')) ?>">
+                                                    <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(0).'/'.base64_encode('reschedule')) ?>">
                                                     <i class="icon-docs"></i> Reschedule </a>
 													</li>
-												<?php //} ?>
-                                                <li>
-                                                   <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(0).'/'.base64_encode('reschedule')); ?>">
-                                                   <i class="icon-docs"></i> Repeated </a>
-                                                </li>
+												
+													<?php if($list['patient_reschedule_date']==1){ ?>
+														<li>
+														   <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(0).'/'.base64_encode('repeated')); ?>">
+														   <i class="icon-docs"></i> Repeated </a>
+														</li>
+													<?php } ?>
 												<!--<li>
                                                    <a href="<?php echo base_url('resources/transforto_ip/'.base64_encode($list['pid'])); ?>">
                                                    <i class="icon-docs"></i> Transfer to ip </a>
@@ -117,7 +119,7 @@
 									   <h3>Basic Details</h3>
                                           <form class=" pad30 form-horizontal" action="<?php echo base_url('resources/opregistration'); ?> " method="post"  id="basic_details1" name="basic_details1">
                                              <input type="hidden" id="pid" name="pid" value="<?php echo isset($pid)?$pid:''; ?>">
-											  <input type="hidden" id=" verifying" name="verifying" value="<?php echo isset($bill_id)?$bill_id:''; ?>">
+											  <input type="hidden" id=" verifying" name="verifying" value="<?php echo isset($p_type)?$p_type:''; ?>">
 
                                              <input type="hidden" id="op" name="op" value="1">
                                              <input type="hidden" id="appointment_id" name="appointment_id" value="<?php echo isset($appointment_id)?$appointment_id:'';?>">
@@ -196,11 +198,12 @@
                                                       <option value="">Select Consultant</option>
                                                    </select>
                                                 </div>
+												<?php if(isset($p_type) && $p_type!='repeated'){ ?>
 												<div class="col-md-12">
 												 <h3>Billing Information</h3>
 												 </div>
                                                 
-												 <div class="form-group col-md-6">
+														<div class="form-group col-md-6">
                                                                   <label for="mobile">Total Amount</label>
                                                                   <input type="text" class="form-control" id="patient_payer_deposit_amount"  name="patient_payer_deposit_amount" placeholder="Enter Total Amount" value="<?php echo isset($billing_detailes['patient_payer_deposit_amount'])?$billing_detailes['patient_payer_deposit_amount']:''; ?>">
                                                                </div>
@@ -225,17 +228,18 @@
                                                                   <label for="mobile">Received from</label>
                                                                   <input type="text" class="form-control" id="received_form"  name="received_form" placeholder="Enter Received from" value="<?php echo isset($billing_detailes['received_form'])?$billing_detailes['received_form']:''; ?>">
                                                                </div>
+															   <?php } ?>
                                           </div>
                                      
 									   
 												<div>
 									   
 													 <?php if(isset($billing_detailes['completed']) && $billing_detailes['completed']==1){ ?>
-													 <a target="_blank" href="<?php echo base_url('resources/print_op_patient_details/'.base64_encode($pid).'/'.base64_encode($bill_id)); ?>" class="btn btn-success  " type="bitton">Print</a>
-													 <a href="<?php echo base_url('resources/desk'); ?>" class="btn btn-success  " type="bitton">Submit</a>
+															<a target="_blank" href="<?php echo base_url('resources/print_op_patient_details/'.base64_encode($pid).'/'.base64_encode($bill_id)); ?>" class="btn btn-success  " type="bitton">Print</a>
+															<a href="<?php echo base_url('resources/desk'); ?>" class="btn btn-success  " type="bitton">Submit</a>
 													 <?php }else{ ?>
-														 <button class="btn btn-success"  name="form_submit" type="submit">Next</button>
-														<?php } ?>
+															<button class="btn btn-success"  name="form_submit" type="submit">Next</button>
+													<?php } ?>
 												</div> 
 										  </form>
 										    </div>

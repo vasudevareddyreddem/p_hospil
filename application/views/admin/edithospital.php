@@ -247,8 +247,8 @@
                               </div>
                            </div>
                         </div>
-                         <div class="col-md-6">
-                           <label for="email">Reschedule Patient Time</label>
+                         <div class="col-md-6 form-group">
+                           <label for="email">Repeated Patient Time</label>
 									<?php $days =array ('1' => '1 day', '2' => '2 days', '3' => '3 days', '4' => '4 days', '5' => '5 days', '6' => '6 days', '7' => '7 days'); ?>
 								  <select class="form-control" required="required" name="reschedule_date" id="reschedule_date">
 								  <option value = "">Select days</option>
@@ -263,7 +263,7 @@
 									<?php endforeach; ?>
 								  </select> 
 						  </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 form-group">
                            <label for="email">Upload Documents</label>
                            <div class="compose-editor">
                               <input type="file" id="hos_bas_document" name="hos_bas_document"class="default form-control">
@@ -272,7 +272,7 @@
 								<?php } ?> 
 								</div>
                         </div>
-					       <div class="col-md-6">
+					       <div class="col-md-6 form-group">
                            <label for="email">Hospital Logo</label>
                            <div class="compose-editor">
                               <input type="file" id="hos_bas_logo" name="hos_bas_logo"class="default form-control">
@@ -722,7 +722,7 @@ $(document).ready(function() {
 			reschedule_date: {
                 validators: {
 					notEmpty: {
-						message: 'Reschedule Patient Time is required'
+						message: 'Repeated Patient Time is required'
 					}
 				}
             },

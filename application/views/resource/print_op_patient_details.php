@@ -136,9 +136,9 @@ table, th, td {
 		
 	  </tr>
 	  <tr>
-		<td><strong>Total Amount:</strong> <span><?php echo isset($details['patient_payer_deposit_amount'])?$details['patient_payer_deposit_amount']:''; ?></span></td>
+		<td><strong>Total Amount:</strong> <span><?php echo isset($details['patient_payer_deposit_amount'])?$details['patient_payer_deposit_amount']:'0'; ?></span></td>
 		<td><strong>Payment mode:</strong> <span><?php echo isset($details['payment_mode'])?$details['payment_mode']:''; ?></span></td>
-		<td colspan="2"><strong>Received from:</strong> <span><?php echo isset($details['received_form'])?$details['received_form']:''; ?></span></td>
+		<td colspan="2"><strong>Received from:</strong> <span><?php echo isset($details['received_form'])?$details['received_form']:'0'; ?></span></td>
 	  </tr>
 	
 		
