@@ -56,31 +56,31 @@
 					<td><?php echo $list['created_by']; ?> </td>
 					<td>
 							<?php if(isset($list['tests']) && count($list['tests'])>0){ ?>
-							<?php $cnt=1;foreach($list['tests'] as $li){ ?>
-							<p><?php if($userdetails['out_source_lab']= $li['out_source']){?>
-							<?php }else{ ?>
-							<i class="fa fa-circle" style="color:red;"></i><span class="txtOnline"> &nbsp;</span>
-							<?php echo $cnt; ?>.<?php echo $li['t_name']; ?></p>
-							<?php } ?>
-							
-							<?php $cnt++;} ?>
-							<?php }?>
-							<a href="<?php echo base_url('lab/outsource/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>">View
-							</a>
-					</td>
-
-					<td>
-						<?php if(isset($list['tests']) && count($list['tests'])>0){ ?>
 						<?php $cnt=1;foreach($list['tests'] as $li){ ?>
 							<p><?php if($userdetails['out_source_lab']= $li['out_source']){?>
-						<i class="fa fa-circle user-online"></i><span class="txtOnline"> &nbsp;</span>
+						<i class="fa fa-circle" style="color:red;"></i><span class="txtOnline"> &nbsp;</span>
 						<?php echo $cnt; ?>.<?php echo $li['t_name']; ?></p>
 
 						<?php } ?>
 						<?php $cnt++;} ?>
 						<?php }?>
-						<a href="<?php echo base_url('lab/patient_details/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>">View 
-						</a>
+						<a href="<?php echo base_url('lab/outsource/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>">View
+							</a>
+					</td>
+
+					<td>
+						<?php if(isset($list['tests']) && count($list['tests'])>0){ ?>
+							<?php $cnt=1;foreach($list['tests'] as $li){ ?>
+							<p><?php if($userdetails['out_source_lab']= $li['out_source']){?>
+							<?php }else{ ?>
+							<i class="fa fa-circle user-online"></i><span class="txtOnline"> &nbsp;</span>
+							<?php echo $cnt; ?>.<?php echo $li['t_name']; ?></p>
+							<?php } ?>
+							
+							<?php $cnt++;} ?>
+							<?php }?>
+							<a href="<?php echo base_url('lab/patient_details/'.base64_encode($list['pid']).'/'.base64_encode($list['b_id'])); ?>">View 
+							</a>
 					
 					</td>
 					
