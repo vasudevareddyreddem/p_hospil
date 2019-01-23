@@ -1734,6 +1734,115 @@ class Admin extends CI_Controller {
 		}
 		
 	}
+	public function editlab(){
+		if($this->session->userdata('userdetails'))
+		{
+			if($admindetails['role_id']=1){
+					$post=$this->input->post();
+					
+					//echo '<pre>';print_r($post);exit;
+						$lab_detils= $this->Admin_model->get_get_out_sources_details($post['lab_id']);
+						if($lab_detils['resource_email']!= $post['lab_email']){
+							
+							$emailcheck= $this->Hospital_model->check_email_exits($post['lab_email']);
+								
+								//echo '<pre>';print_r($emailcheck);exit;
+								if(count($emailcheck)>0){
+									$this->session->set_flashdata('error','Email id already exists.please use another Email id');
+									redirect('admin/editoutsource/'.base64_encode($post['lab_id']));
+								}else{
+										if(isset($_FILES['lab_photo']['name']) && $_FILES['lab_photo']['name']!=''){
+											unlink("assets/adminprofilepic/".$lab_detils['resource_photo']);
+											$temp = explode(".", $_FILES["lab_photo"]["name"]);
+											$img =round(microtime(true)) . '.' . end($temp);
+											move_uploaded_file($_FILES['lab_photo']['tmp_name'], "assets/adminprofilepic/" . $img);
+										}else{
+											$img=$lab_detils['resource_photo'];
+										}
+									$admindetails=$this->session->userdata('userdetails');
+									//echo '<pre>';print_r($statusdata);exit;
+									$admin_details=array(
+									'a_name'=>$post['lab_name'],
+									'a_email_id'=>$post['lab_email'],
+									'a_mobile'=>$post['lab_mobile'],
+									'a_updated_at'=>date('Y-m-d H:i:s')
+									);
+									$addresourcedmin = $this->Admin_model->update_admin_details($lab_detils['a_id'],$admin_details);
+									//echo $this->db->last_query();exit;
+									$resourcedata=array(
+										'resource_name'=>isset($post['lab_name'])?$post['lab_name']:'',
+										'resource_mobile'=>isset($post['lab_mobile'])?$post['lab_mobile']:'',
+										'resource_add1'=>isset($post['lab_add1'])?$post['lab_add1']:'',
+										'resource_add2'=>isset($post['lab_add2'])?$post['lab_add2']:'',
+										'resource_city'=>isset($post['lab_city'])?$post['lab_city']:'',
+										'resource_state'=>isset($post['lab_state'])?$post['lab_state']:'',
+										'resource_zipcode'=>isset($post['lab_zipcode'])?$post['lab_zipcode']:'',
+										'resource_other_details'=>isset($post['lab_other_details'])?$post['lab_other_details']:'',
+										'resource_contatnumber'=>isset($post['lab_contatnumber'])?$post['lab_contatnumber']:'',
+										'resource_email'=>isset($post['lab_email'])?$post['lab_email']:'',
+										'resource_photo'=>$img,
+									'r_created_at'=>date('Y-m-d H:i:s')
+									);
+									//echo '<pre>';print_r($onedata);exit;
+									$saveresource =$this->Admin_model->update_lab_resourse_details($post['lab_id'],$resourcedata);
+									if(count($saveresource)>0){
+										$this->session->set_flashdata('success',"Out Source Lab details are successfully updated");
+										redirect('lab/oursource/'.base64_encode(1));
+										
+									}else{
+										$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+										redirect('admin/editoutsource/'.base64_encode($post['lab_id']));
+									}
+								}
+							
+							
+						}else{
+							
+							if(isset($_FILES['lab_photo']['name']) && $_FILES['lab_photo']['name'] !=''){
+								$temp = explode(".", $_FILES["lab_photo"]["name"]);
+								$img =round(microtime(true)) . '.' . end($temp);
+								move_uploaded_file($_FILES['lab_photo']['tmp_name'], "assets/adminprofilepic/" . $img);
+
+								}else{
+									$img=$lab_detils['resource_photo'];
+								}
+							
+							$resourcedata=array(
+							'resource_name'=>isset($post['lab_name'])?$post['lab_name']:'',
+							'resource_mobile'=>isset($post['lab_mobile'])?$post['lab_mobile']:'',
+							'resource_add1'=>isset($post['lab_add1'])?$post['lab_add1']:'',
+							'resource_add2'=>isset($post['lab_add2'])?$post['lab_add2']:'',
+							'resource_city'=>isset($post['lab_city'])?$post['lab_city']:'',
+							'resource_state'=>isset($post['lab_state'])?$post['lab_state']:'',
+							'resource_zipcode'=>isset($post['lab_zipcode'])?$post['lab_zipcode']:'',
+							'resource_other_details'=>isset($post['lab_other_details'])?$post['lab_other_details']:'',
+							'resource_contatnumber'=>isset($post['lab_contatnumber'])?$post['lab_contatnumber']:'',
+							'resource_email'=>isset($post['lab_email'])?$post['lab_email']:'',
+							'resource_photo'=>$img,
+							);
+							$saveresource =$this->Admin_model->update_lab_resourse_details($post['lab_id'],$resourcedata);
+									if(count($saveresource)>0){
+										$this->session->set_flashdata('success',"Out Source Lab details are successfully updated");
+										redirect('lab/oursource/'.base64_encode(1));
+										
+									}else{
+										$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+										redirect('admin/editoutsource/'.base64_encode($post['lab_id']));
+									}
+							
+						}
+
+					//echo '<pre>';print_r($post);exit;
+					
+			}else{
+					$this->session->set_flashdata('error',"You have no permission to access");
+					redirect('dashboard');
+			}
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+	}
 	
 	
 }

@@ -78,7 +78,7 @@
 															
 															<li data-toggle="modal" data-target="#foldersmallModalmove<?php echo $list['t_id']; ?>"><a href="javascript:void(0);"> <i class="fa fa-edit"></i>Edit</a></a></li>
                                                             <li>
-															    <a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['t_id'])).'/'.base64_encode(htmlentities($list['t_status']));?>');adminstatus2('<?php echo $list['t_status'];?>')" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
+															    <a href="javascript;void(0);" onclick="admindelete('<?php echo base64_encode(htmlentities($list['t_id'])).'/'.base64_encode(htmlentities($list['t_status']));?>');adminstatus2('<?php echo $list['t_status'];?>')" href="javascript:void(0)" data-toggle="modal" data-target="#myModal">
                                                                     <i class="fa fa-trash-o"></i>Delete</a>
                                                             </li>
                                                             

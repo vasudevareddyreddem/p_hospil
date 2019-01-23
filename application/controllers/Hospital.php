@@ -220,7 +220,7 @@ class Hospital extends In_frontend {
 							);
 							$steptwo= $this->Hospital_model->update_hospital_details(base64_decode($post['hospital_id']),$twodata);
 							if(count($steptwo)>0){
-								$this->session->set_flashdata('success',"Hospital Representative Details are successfully updated");
+								$this->session->set_flashdata('success',"Hospital Credentials are successfully updated");
 								redirect('hospital/add/'.base64_encode(3).'/'.$post['hospital_id']);
 							}else{
 								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -571,7 +571,7 @@ class Hospital extends In_frontend {
 										$this->session->set_flashdata('success',"Hospital Credentials Details are successfully updated");
 										redirect('hospital/edit/'.$post['hospital_id'].'/'.base64_encode($post['tab_id']));
 									}elseif($post['tab_id']==3){
-										$this->session->set_flashdata('success',"Hospital Representative Details are successfully updated");
+										$this->session->set_flashdata('success',"Hospital Credentials are successfully updated");
 										redirect('hospital/edit/'.$post['hospital_id'].'/'.base64_encode($post['tab_id']));
 									}else if($post['tab_id']==4){
 										$this->session->set_flashdata('success',"Hospital Basic Details are successfully updated");
@@ -1003,7 +1003,7 @@ class Hospital extends In_frontend {
 					$data['tab']=base64_decode($this->uri->segment(3));
 					$admindetails=$this->session->userdata('userdetails');
 					$hos_ids =$this->Hospital_model->get_hospital_id($admindetails['a_id'],$admindetails['a_email_id']);
-					$data['treatment_list']=$this->Hospital_model->get_treatment_list($hos_ids['a_id'],$hos_ids['hos_id']);
+					$data['treatment_list']=$this->Hospital_model->get_active_treatment_list($hos_ids['a_id'],$hos_ids['hos_id']);
 					$data['doctors_list']=$this->Hospital_model->get_doctors_list($hos_ids['a_id'],$hos_ids['hos_id']);
 					//echo $this->db->last_query();exit;
 					$data['hospital_treatment_list']=$this->Hospital_model->get_all_doctor_treatment_list($hos_ids['a_id'],$hos_ids['hos_id']);
@@ -1375,7 +1375,7 @@ class Hospital extends In_frontend {
 				if($editdata_check['t_name']!=$post['treatment_name']){
 					$exits_treatment = $this->Hospital_model->get_saved_treatment($post['treatment_name'],$hos_ids['hos_id']);
 					if(count($exits_treatment)>0){
-						$this->session->set_flashdata('error',"Treatment name already exists .please use another name");
+						$this->session->set_flashdata('error',"Department name already exists .please use another name");
 						redirect('hospital/addtreatment/'.base64_encode(1));
 					}
 				}
@@ -2020,12 +2020,12 @@ class Hospital extends In_frontend {
 		{
 				if($admindetails['role_id']=2){
 					$post=$this->input->post();
-					//echo '<pre>';print_r($post);exit;
+					//echo '<pre>';print_r($post);
 
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
 					if(isset($post['to_date']) && $post['to_date']!==''){
-						$data['patients_list']=$this->Hospital_model->get_hospital_patient_list_date_wise($userdetails['hos_id'],$post['to_date'],$post['from_date']);
+						$data['patients_list']=$this->Hospital_model->get_hospital_patient_list_date_wise($userdetails['hos_id'],$post['from_date'],$post['to_date']);
 					}else{
 					    $data['patients_list']=$this->Hospital_model->get_hospital_wise_patient_list($userdetails['hos_id']);
 					}

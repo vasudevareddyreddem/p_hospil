@@ -47,11 +47,13 @@
 									<form id="fm_filters" action="<?php echo base_url('hospital/reports'); ?>" method="post">
 								   <div class="row">
 								   <div class="col-md-5 form-group">
-                                        <input class="form-control" name="from_date" id="from_date"  type="text" placeholder="From Date : 1992-07-14" value="<?php echo isset($search_list['from_date'])?$search_list['from_date']:''; ?>">
+                                        <input class="form-control" name="to_date" id="to_date"   type="date" placeholder="From Date : 1992-07-14" value="<?php echo isset($search_list['to_date'])?$search_list['to_date']:''; ?>">
                                     </div>
 								   <div class="col-md-5 form-group">
-                                        <input class="form-control" name="to_date" id="to_date"   type="text" placeholder="To Date : 1993-07-14" value="<?php echo isset($search_list['to_date'])?$search_list['to_date']:''; ?>">
-                                    </div> 
+                                        <input class="form-control" name="from_date" id="from_date"  type="date" placeholder="From Date : 1993-07-14" value="<?php echo isset($search_list['from_date'])?$search_list['from_date']:''; ?>">
+                                    </div>
+									   
+								 
 									
 									<div class="col-md-2">
                                         <button type="submit" class="btn btn-primary btn-sm">Filter</div>
@@ -72,7 +74,6 @@
                 <td>Visit Type</td>
                 <td>Date of Visit</td>
                 <td>Total Fee</td>
-                <!--<td>Paid Fee</td>-->
             </tr>
         </thead>
         <tbody>
@@ -85,7 +86,6 @@
                 <td><?php if($list['patient_type']==0){ echo "OP";}else{ echo "IP"; } ?></td>
                 <td><?php echo isset($list['create_at'])?$list['create_at']:''; ?></td>
                 <td><?php echo isset($list['total_amt'])?$list['total_amt']:''; ?></td>
-                <!--<td><?php echo isset($list['bill_amount'])?$list['bill_amount']:''; ?></td>-->
             </tr>
 		<?php } ?>
 			 
@@ -101,7 +101,6 @@
                 <td>Visit Type</td>
                 <td>Date of Visit</td>
                  <td>Total Fee</td>
-                <td>Paid Fee</td>
             </tr>
 			
         </tfoot>

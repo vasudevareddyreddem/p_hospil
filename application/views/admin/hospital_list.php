@@ -29,7 +29,7 @@
 												<th>Name</th>
                                                 <th>Contact </th>
                                                 <th>Patient Intake</th>
-                                                <th>Onine Status</th>
+                                                <th>Online Status</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
