@@ -588,8 +588,8 @@ $(document).ready(function() {
 						message: 'National ID is required'
 					},
 					regexp: {
-					regexp:  /^[0-9]{10,14}$/,
-					message:'National ID must be 10 to 14 digits'
+					regexp:  /^[0-9]{4,14}$/,
+					message:'National ID must be 4 to 14 digits'
 					}
 				
 				}
@@ -673,9 +673,7 @@ $(document).ready(function() {
             
             bank_holder_name: {
                  validators: {
-					notEmpty: {
-						message: 'Bank Holder Name is required'
-					},
+					
 					regexp: {
 					regexp: /^[a-zA-Z ]+$/,
 					message: 'Bank Holder Name can only consist of alphabets and space'
@@ -685,10 +683,7 @@ $(document).ready(function() {
 			 bank_acc_no: {
                 validators: 
 					{
-					    notEmpty: 
-						{
-						    message: 'Bank Acc No is required'
-					    },
+					   
 						regexp: 
 						{
 					     regexp:  /^[0-9]{9,16}$/,
@@ -697,9 +692,7 @@ $(document).ready(function() {
 				}
             },bank_name: {
                 validators: {
-					notEmpty: {
-						message: 'Bank Name is required'
-					},
+					
 					regexp: {
 					regexp: /^[a-zA-Z ]+$/,
 					message: 'Bank Name can only consist  of alphabets and Space'
@@ -707,9 +700,7 @@ $(document).ready(function() {
 				}
             },bank_ifsc: {
                 validators: {
-					notEmpty: {
-						message: 'IFSC Code is required'
-					},
+					
 					regexp: {
 					 regexp: /^[A-Za-z0-9]{4}\d{7}$/,
 					message: 'IFSC Code must be alphanumeric'

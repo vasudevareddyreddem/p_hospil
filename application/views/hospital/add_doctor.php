@@ -350,9 +350,7 @@ $(document).ready(function() {
 				}
             },resource_contatnumber: {
               validators: {
-					notEmpty: {
-						message: 'Contact Number is required'
-					},
+					
 					regexp: {
 					regexp:  /^[0-9]{10,14}$/,
 					message:'Contact Number must be 10 to 14 digits'

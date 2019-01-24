@@ -300,10 +300,12 @@ class Lab_model extends CI_Model
 		$this->db->select('lab_test_list.t_name,lab_test_list.t_id,lab_test_list.out_source,lab_test_list.hos_id')->from('patient_lab_test_list');
 		$this->db->join('lab_test_list', 'lab_test_list.t_id = patient_lab_test_list.test_id', 'left');
 		$this->db->join('bidding_test', 'bidding_test.test_id = lab_test_list.t_id', 'left');
+		$this->db->join('out_source_lab_test_lists', 'out_source_lab_test_lists.b_id = patient_lab_test_list.b_id', 'left');
 		$this->db->where('patient_lab_test_list.p_id',$p_id);
 		$this->db->where('bidding_test.b_id',$b_id);
 		$this->db->where('bidding_test.send_by',$a_id);
 		$this->db->where('patient_lab_test_list.out_source',$out_source);
+		$this->db->where('out_source_lab_test_lists.status',1);
 		$this->db->where('bidding_test.status',4);
 		return $this->db->get()->result_array();	
 	}

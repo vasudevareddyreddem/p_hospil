@@ -498,7 +498,6 @@ class Lab extends In_frontend {
 					$data['patient_details']=$this->Lab_model->get_billing_details($data['patient_id'],$data['billing_id']);
 					if($admindetails['out_source']==1){
 						$data['labtest_list']=$this->Lab_model->get_all_patients_out_labtest_lists($data['patient_id'],$data['billing_id'],1,$admindetails['a_id']);
-
 						$data['direct_labtest_list']=$this->Lab_model->get_all_with_bidding_patients_out_labtest_lists($data['patient_id'],$data['billing_id'],0);
 						$data['report_lists']=$this->Lab_model->get_all_patients_out_source_lab_report_lists($data['patient_id'],$data['billing_id'],1,$admindetails['a_id']);
 						//echo '<pre>';print_r($data['labtest_list']);exit;
