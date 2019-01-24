@@ -467,9 +467,10 @@ class Lab extends In_frontend {
 		{
 				if($admindetails['role_id']=4){
 					$admindetails=$this->session->userdata('userdetails');
+					//echo '<pre>';print_r($admindetails);exit;
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
 					$data['patient']=base64_decode($this->uri->segment(3));
-					$data['report_list']=$this->Lab_model->get_all_patient_reports_lists($data['patient']);
+					$data['report_list']=$this->Lab_model->get_all_patient_reports_lists_with_outsources($data['patient'],$admindetails['out_source']);
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('lab/patient_report_list',$data);
 					$this->load->view('html/footer');
@@ -1102,7 +1103,7 @@ class Lab extends In_frontend {
 							$out_source_list = $this->Lab_model->save_lab_tests($details);
 							}
 						
-							$this->session->set_flashdata('success',"Bid successfully approved.");
+							$this->session->set_flashdata('success',"Bid successfully changed.");
 							redirect('lab/outsource/'.$p_id.'/'.$billing_id.'/'.base64_encode(3));
 					}else{
 							$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

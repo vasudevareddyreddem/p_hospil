@@ -37,7 +37,6 @@
 									<h4 class="py-2"><?php echo isset($patient_details['mobile'])?$patient_details['mobile']:''; ?></h4></header>
 									<div class="tools">
                                    <h4><b>ID: <span><?php echo isset($patient_details['pid'])?$patient_details['pid']:''; ?></span></b></h4>
-                                   <h5><b>DOB: <span><?php echo isset($patient_details['dob'])?$patient_details['dob']:''; ?></span></b></h5>
 									
 									</div>
                                  </div>

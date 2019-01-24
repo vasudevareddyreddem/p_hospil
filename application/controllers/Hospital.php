@@ -2172,6 +2172,53 @@ class Hospital extends In_frontend {
 		
 	}
 	
+	public  function patientexport(){
+		
+		if($this->session->userdata('userdetails'))
+		{
+				if($admindetails['role_id']=2){
+					$post=$this->input->post();
+					$from_date=$this->uri->segment(3);
+					$to_date=$this->uri->segment(4);
+					//echo "";exit;
+					$admindetails=$this->session->userdata('userdetails');
+					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
+					if($from_date!='' && $to_date!=''){
+						$usersData=$this->Hospital_model->get_hospital_patient_list_date_wise_export($userdetails['hos_id'],$from_date,$to_date);	
+						$t_amt=$this->Hospital_model->get_hospital_patient_list_date_wise_export_amt($userdetails['hos_id'],$from_date,$to_date);
+						$usersData[]=array(" Total Patients",count($usersData)," "," "," ","Total Amount",$t_amt['total_amt']);
+					
+					}else{
+						$usersData=$this->Hospital_model->get_hospital_wise_patient_list_export($userdetails['hos_id']);
+						$t_amt=$this->Hospital_model->get_hospital_wise_patient_list_total_amout($userdetails['hos_id']);
+						$usersData[]=array(" Total Patients",count($usersData)," "," "," ","Total Amount",$t_amt['total_amt']);
+					}
+					$filename = 'patientlist_'.date('Ymd').'.csv'; 
+				   header("Content-Description: File Transfer"); 
+				   header("Content-Disposition: attachment; filename=$filename"); 
+				   header("Content-Type: application/csv; ");
+					$file = fopen('php://output', 'w');
+					 
+					   $header = array("Patient id","Name","Age","Doctor","Visit Type","Date of Visit","Total Fee"); 
+					   fputcsv($file, $header);
+					   foreach ($usersData as $key=>$line){ 
+						 fputcsv($file,$line); 
+					   }
+					   fclose($file); 
+					   exit;
+					//echo '<pre>';print_r($data);exit;
+				}else{
+					$this->session->set_flashdata('error',"You have no permission to access");
+					redirect('dashboard');
+				}
+			
+		}else{
+			$this->session->set_flashdata('error','Please login to continue');
+			redirect('admin');
+		}
+		
+	}
+	
 	
 	
 	

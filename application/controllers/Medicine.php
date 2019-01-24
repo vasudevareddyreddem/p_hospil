@@ -344,6 +344,7 @@ class Medicine extends In_frontend {
 																'added_by'=>$userdetails['a_id'],		
 																'updated_at'=>date('Y-m-d H:i:s'),		
 																);
+																//echo'<pre>';print_r($data);exit;
 	
 																	$save=$this->medicine_model->insert_data_pramacy($data);
 																}

@@ -57,7 +57,7 @@
 											<button type="submit" class="btn btn-primary btn-sm">Filter</button>
 										</div>
 										<div class="col-md-2">
-											<a class="btn btn-warning btn-sm">Print</a>
+											<a target="_blank" href="<?php echo base_url('hospital/patientexport/'.$search_list['from_date'].'/'.$search_list['to_date']); ?>" class="btn btn-warning btn-sm">Print</a>
 										</div>
                                     </div>
 									</form>
@@ -120,7 +120,7 @@
 <script>
 $(document).ready(function() {
 	$('#example').DataTable( {
-		"order": [[ 5, "desc" ]]
+		"order": [[ 0, "desc" ]]
 	} );
 } );
 

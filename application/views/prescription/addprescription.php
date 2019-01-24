@@ -93,7 +93,7 @@
 										
 										<div class="col-sm-1 nopadding">
 										  <div class="input-group-btn">
-											<button class="btn btn-success" type="button"  onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </button>
+											<a class="btn btn-success" type="button"  onclick="education_fields();"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
 										  </div>
 										</div>
 										</div>
@@ -104,7 +104,7 @@
                                  <br>
 								 									
                               </div>
-							  <button type="submit" onclick="form_submittion();" class="btn btn-sm btn-success">Add  Prescription </button>
+							  <button type="submit"  class="btn btn-sm btn-success">Add  Prescription </button>
 
 								 </form>
                            </div>

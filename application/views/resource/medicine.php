@@ -183,8 +183,8 @@
 
 			</div>
 		
-			<button class="add_field_button btn btn-primary">Add More Medicine</button>
-			<button id="remobing" class="remove_field btn btn-warning">Remove</button>
+			<a class="add_field_button btn btn-primary">Add More Medicine</a>
+			<a id="remobing" class="remove_field btn btn-warning">Remove</a>
 			<button class="btn btn-success"  type="submit">Submit</button>
 			</form>
 			

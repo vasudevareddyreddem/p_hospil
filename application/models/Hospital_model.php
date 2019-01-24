@@ -443,6 +443,55 @@ class Hospital_model extends CI_Model
 		$this->db->where('a_id',$doctor_id);
         return $this->db->get()->row_array();
 	}
+	public  function get_hospital_wise_patient_list_export($hos_id){
+		$this->db->select('patients_list_1.pid,patients_list_1.name,patients_list_1.age,resource_list.resource_name,if("patient_billing.patient_type==0","IP","OP") as ptype,patient_billing.create_at,patient_billing.patient_payer_deposit_amount as total_amt')->from('patient_billing');
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+		$this->db->join('resource_list', 'resource_list.a_id = patient_billing.doct_id', 'left');
+		$this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
+		$this->db->join('specialist', 'specialist.s_id = patient_billing.specialist_id', 'left');
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->result_array();	
+	}
+	public  function get_hospital_wise_patient_list_total_amout($hos_id){
+		$this->db->select('SUM(patient_billing.patient_payer_deposit_amount) as total_amt')->from('patient_billing');
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+		$this->db->join('resource_list', 'resource_list.a_id = patient_billing.doct_id', 'left');
+		$this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
+		$this->db->join('specialist', 'specialist.s_id = patient_billing.specialist_id', 'left');
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->row_array();	
+	}
+	
+	public  function get_hospital_patient_list_date_wise_export_amt($hos_id,$from_date,$to_date){
+		$to_date1=strtotime("1 day", strtotime($to_date));
+		$plusone= date("d-m-Y", $to_date1);
+		$this->db->select('SUM(patient_billing.patient_payer_deposit_amount) as total_amt')->from('patient_billing');
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+		$this->db->join('resource_list', 'resource_list.a_id = patient_billing.doct_id', 'left');
+		$this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
+		$this->db->join('specialist', 'specialist.s_id = patient_billing.specialist_id', 'left');
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->where('patient_billing.create_at BETWEEN "'. date('Y-m-d', strtotime($from_date)). '" and "'. date('Y-m-d', strtotime($plusone)).'"');
+		//$this->db->where('date_format(patient_billing.create_at,"%m-%d-%Y") BETWEEN '".$from_date."' AND '".$todate."'');
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->row_array();	
+	}
+	public  function get_hospital_patient_list_date_wise_export($hos_id,$from_date,$to_date){
+		$to_date1=strtotime("1 day", strtotime($to_date));
+		$plusone= date("d-m-Y", $to_date1);
+		$this->db->select('patients_list_1.pid,patients_list_1.name,patients_list_1.age,resource_list.resource_name,if("patient_billing.patient_type==0","IP","OP") as ptype,patient_billing.create_at,patient_billing.patient_payer_deposit_amount as total_amt')->from('patient_billing');
+		$this->db->join('patients_list_1 ', 'patients_list_1.pid = patient_billing.p_id', 'left');
+		$this->db->join('resource_list', 'resource_list.a_id = patient_billing.doct_id', 'left');
+		$this->db->join('treament', 'treament.t_id = patient_billing.treatment_id', 'left');
+		$this->db->join('specialist', 'specialist.s_id = patient_billing.specialist_id', 'left');
+		$this->db->where('patients_list_1.hos_id', $hos_id);
+		$this->db->where('patient_billing.create_at BETWEEN "'. date('Y-m-d', strtotime($from_date)). '" and "'. date('Y-m-d', strtotime($plusone)).'"');
+		//$this->db->where('date_format(patient_billing.create_at,"%m-%d-%Y") BETWEEN '".$from_date."' AND '".$todate."'');
+		$this->db->order_by('patient_billing.b_id', "DESC");
+        return $this->db->get()->result_array();	
+	}
 	
 	
 

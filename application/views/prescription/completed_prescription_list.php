@@ -29,7 +29,7 @@
 												<th>Patient Id</th>
 												<th>Name</th>
                                                 <th>Doctor</th>
-                                                <th>Date</th>
+                                                <th>Date & Time</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

@@ -21,7 +21,6 @@
                                             <header>Name : &nbsp;<span><?php echo isset($prescriptions['information']['name'])?$prescriptions['information']['name']:''; ?> </span><h4 class="py-2"><?php echo isset($prescriptions['information']['mobile'])?$prescriptions['information']['mobile']:''; ?></h4></header>
 											<div class="tools">
 											<h4><b>ID: <span><?php echo isset($prescriptions['information']['pid'])?$prescriptions['information']['pid']:''; ?></span></b></h4>
-											<h5><b>DOB: <span><?php echo isset($prescriptions['information']['dob'])?$prescriptions['information']['dob']:''; ?></span></b></h5>
 											<?php if($prescriptions['information']['sheet_prescription']==1){ ?>
 											<form action="<?php echo base_url('users/sheet_prescription'); ?>" method="post" enctype="multipart/form-data">
 											<input type="hidden" name="p_id" value="<?php echo isset($prescriptions['information']['pid'])?$prescriptions['information']['pid']:''; ?>">
