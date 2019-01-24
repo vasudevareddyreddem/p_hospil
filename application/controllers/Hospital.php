@@ -561,7 +561,7 @@ class Hospital extends In_frontend {
 							$editdetails= $this->Hospital_model->update_hospital_details(base64_decode($post['hospital_id']),$editdata);
 							if(count($editdetails)>0){
 								$email_details=array(
-								'a_email_id'=>isset($post['hos_email_id'])?$post['hos_email_id']:$hospital_details['hos_bas_name'],
+								'a_email_id'=>isset($post['hos_email_id'])?$post['hos_email_id']:$hospital_details['hos_email_id'],
 								'a_updated_at'=>date('Y-m-d H:i:s')
 								);
 							$this->Hospital_model->update_adminhospital_details($hospital_details['a_id'],$email_details);

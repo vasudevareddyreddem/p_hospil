@@ -71,7 +71,7 @@
                                              </button>
                                              <ul class="dropdown-menu pull-left" role="menu">
                                                 <li>
-                                                   <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(1)); ?>">
+                                                   <a href="<?php echo base_url('resources/desk/'.base64_encode($list['pid']).'/'.base64_encode(1).'/'.base64_encode('edit')); ?>">
                                                    <i class="icon-docs"></i> Edit </a>
                                                 </li>
 											
@@ -174,6 +174,7 @@
                                                    <label for="email"> Address</label>
                                                    <textarea type="textarea" id="perment_address" name="perment_address" class="form-control"  placeholder="Enter Address" ><?php echo isset($patient_detailes['perment_address'])?$patient_detailes['perment_address']:''; ?></textarea>
                                                 </div>
+													<?php if(isset($p_type) &&  $p_type!='edit'){ ?>
 												<div class="col-md-12"><h3>Assign</h3></div>
 												<div class="form-group col-md-6">
                                                    <label for="Consultant  Department">Consultant  Department</label>
@@ -198,7 +199,8 @@
                                                       <option value="">Select Consultant</option>
                                                    </select>
                                                 </div>
-												<?php if(isset($p_type) && $p_type!='repeated'){ ?>
+													<?php } ?>
+												<?php if(isset($p_type) && $p_type!='repeated' && $p_type!='edit'){ ?>
 												<div class="col-md-12">
 												 <h3>Billing Information</h3>
 												 </div>
@@ -387,10 +389,16 @@ function get_department_list(id){
    					}
                    }
                }, 
-			   department_name1: {
+			   department_name: {
                    validators: {
    					notEmpty: {
-   						message: 'Consultant  Department is required'
+   						message: 'Please select consultant department'
+   					}
+                   }
+               }, department_doctors: {
+                   validators: {
+   					notEmpty: {
+   						message: 'Please select consultant name'
    					}
                    }
                },

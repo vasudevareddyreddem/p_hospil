@@ -78,13 +78,13 @@
 													<option value="">Select</option>
 													</select>
 												</div>
-												  <div class="form-group col-md-6">
-                                                   <label class="">Booking Date </label>
-                                                   <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd  " data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                                                      <input class="form-control" size="16" type="text" id="date" name="date" value="">
-                                                      <span class="input-group-addon"><span class="fa fa-calendar"><span style="color:red" id="check"></span></span></span>
-                                                   </div>
-                                                </div> 
+												<div class="form-group col-md-6">
+												   <label for="email"> Booking Date </label>
+													 <input class="form-control" size="16" type="date" id="date" name="date" value="">
+
+													</select>
+												</div>
+												  
 												<div class="form-group col-md-6">
                                                    <label class="">Booking Time </label>
 													<select class="form-control" id="time" name="time">
@@ -92,7 +92,7 @@
 													</select>
                                                 </div>
 											</div>
-											<button type="submit" name="submit" class="btn btn-primary"   >Book Appointment</button>
+											<button type="submit" name="form_submit" class="btn btn-primary"   >Book Appointment</button>
 											</form>
                            </div>
                            </div>
@@ -473,7 +473,7 @@ function get_doctor_list(id){
 
 $(document).ready(function() {
     
-       $('#add_appointment1').bootstrapValidator({
+       $('#add_appointment').bootstrapValidator({
    		fields: {
              
                 patinet_name: {
@@ -522,13 +522,14 @@ $(document).ready(function() {
    					}
    				}
                },
-   			date: {
+			   date: {
                    validators: {
    					notEmpty: {
-   						message: 'Booking Date is required'
+   						message: 'Date is required'
    					}
    				}
-               },time: {
+               },
+   			time: {
                    validators: {
    					notEmpty: {
    						message: 'Booking Time is required'
@@ -541,38 +542,4 @@ $(document).ready(function() {
    });
    
    </script>
-<script>
-$(document).ready(function() {
- 
-   $('#defaultForm').bootstrapValidator({
-//       
-        fields: {
-           
-			
-            
-			rea_son: {
-                validators: {
-					notEmpty: {
-						message: 'reason is required'
-					}
-				}
-            }
-			
-           
-           
-			
-        }
-    });
-    // Validate the form manually
-    $('#validateBtn').click(function() {
-        $('#defaultForm').bootstrapValidator('validate');
-    });
 
-    $('#resetBtn').click(function() {
-        $('#defaultForm').data('bootstrapValidator').resetForm(true);
-    });
-	
-});
-
-
-</script>

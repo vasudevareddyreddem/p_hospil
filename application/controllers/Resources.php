@@ -1718,6 +1718,9 @@ class Resources extends In_frontend {
 									}else{
 										$type='Repeated';
 									}
+									if(isset($post['verifying']) && $post['verifying']=='edit'){
+										redirect('resources/desk/'.base64_encode($post['pid']).'/'.base64_encode(1));
+									}
 									$billing=array(
 									'p_id'=>isset($post['pid'])?$post['pid']:'',
 									'patient_type'=>0,

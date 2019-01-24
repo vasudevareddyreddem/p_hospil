@@ -47,10 +47,10 @@
 									<form id="fm_filters" action="<?php echo base_url('hospital/reports'); ?>" method="post">
 								   <div class="row">
 								   <div class="col-md-5 form-group">
-                                        <input class="form-control" name="to_date" id="to_date"   type="date" placeholder="From Date : 1992-07-14" value="<?php echo isset($search_list['to_date'])?$search_list['to_date']:''; ?>">
+                                        <input class="form-control" name="from_date" id="from_date"  type="date" placeholder="From Date : 1992-07-14" value="<?php echo isset($search_list['from_date'])?$search_list['from_date']:''; ?>">
                                     </div>
 								   <div class="col-md-5 form-group">
-                                        <input class="form-control" name="from_date" id="from_date"  type="date" placeholder="From Date : 1993-07-14" value="<?php echo isset($search_list['from_date'])?$search_list['from_date']:''; ?>">
+                                        <input class="form-control" name="to_date" id="to_date"  type="date" placeholder="From Date : 1993-07-14" value="<?php echo isset($search_list['to_date'])?$search_list['to_date']:''; ?>">
                                     </div>
 									   
 								 

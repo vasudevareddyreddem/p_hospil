@@ -155,7 +155,7 @@
          
       </div>
       <div id="step-2" class="">
-         <a href="<?php echo base_url('resources/skip_prescription/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" >Alternate way</a>
+         <!--<a href="<?php echo base_url('resources/skip_prescription/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" >Alternate way</a>-->
          <form id="add_medicines" name="add_medicines" onsubmit="return check_qty()"  action="<?php echo base_url('resources/medicine'); ?>" method="post" >
             <input type="hidden" name="pid" id="pid" value="<?php echo isset($patient_id)?$patient_id:''; ?>">
             <input type="hidden" name="bid" id="bid" value="<?php echo isset($billing_id)?$billing_id:''; ?>">
@@ -488,8 +488,8 @@
                </div>
 			
             </div>
-                <a id="add_row" class="btn btn-default pull-left">Add Row</a> 
-                <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+                <a id="add_row" onclick="add_more_data()" class="btn btn-default pull-left">Add Row</a> 
+                <a id="delete_row"  onclick="delete_more_data()" class="pull-right btn btn-default">Delete Row</a>
 			<div class="row  pull-right mr-2">
                <button class="btn btn-primary" type="submit">Submit</button>
             </div>
@@ -499,7 +499,7 @@
             <div class=" clearfix">&nbsp;</div>
 			<a href="<?php echo base_url('resources/worksheet'); ?>" class="btn btn-default pull-right">completed</a>
 			<?php if(isset($patient_medicine_list) && count($patient_medicine_list)>0 || isset($patient_investigation_list) && count($patient_investigation_list)>0){ ?>
-				<a href="<?php echo base_url('resources/patient_details_print/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" class="btn btn-default pull-right">Print</a>
+				<a href="<?php echo base_url('resources/patient_details_print/'.base64_encode($patient_id).'/'.base64_encode($billing_id)); ?>" target="_blank" class="btn btn-default pull-right">Print</a>
 			<?php } ?>
             <div class=" clearfix">&nbsp;</div>
             <div class=" clearfix">&nbsp;</div>
@@ -677,20 +677,19 @@
 </div>
 <!-- patient_lab_test_list_model-->
 <script type="text/javascript">
-
-   var i=1;
-     $("#add_row").click(function(){
-      $('#addr'+i).html("<td><div class='form-group'><div class=''><select class='form-control select2'name='investdation_serach[]' id='investdation_serach"+i+"' onchange='investdation_serach_row(this.value,"+i+")'><option value=''>select</option><option value='Lab'>Lab</option><option value='Radiology'>Radiology</option></select></div></div></td><td><div class='form-group'><div class=''><select class='form-control select2' onchange='test_list_purpose_row(this.value,"+i+")' name='internal_code[]' id='internal_code_row"+i+"'><option value=''>select</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control select2'  name='lab_test_name[]' id='lab_test_name_row"+i+"' style='width:100%;'><option value =''>Select</option><option value ='yellow'>YELLOW</option><option value = 'Red'>RED</option><option value ='Blue'>BLUE</option><option value ='White (ppc)'>WHITE (PPC)</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='frequency[]' id='frequency' style='width:100%;'><option value =''>Select</option><option value ='6 Hours'>6 Hours</option><option value ='12 Hours'>12 Hours</option><option value ='24 Hours'>24 Hours</option><option value ='48 Hours'>48 Hours</option></select></div></div></td>");
-
-      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
-      i++; 
-  });
-     $("#delete_row").click(function(){
-         if(i>1){
-         $("#addr"+(i-1)).html('');
-         i--;
+ var j=0;
+function add_more_data(){
+	$('#addr1'+j).html("<td><div class='form-group'><div class=''><select class='form-control select2'name='investdation_serach[]' id='investdation_serach"+j+"' onchange='investdation_serach_row(this.value,"+j+")'><option value=''>select</option><option value='Lab'>Lab</option><option value='Radiology'>Radiology</option></select></div></div></td><td><div class='form-group'><div class=''><select class='form-control select2' onchange='test_list_purpose_row(this.value,"+j+")' name='internal_code[]' id='internal_code_row"+j+"'><option value=''>select</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control select2'  name='lab_test_name[]' id='lab_test_name_row"+j+"' style='width:100%;'><option value =''>Select</option><option value ='yellow'>YELLOW</option><option value = 'Red'>RED</option><option value ='Blue'>BLUE</option><option value ='White (ppc)'>WHITE (PPC)</option></select></div></div></td><td>  <div class='form-group'><div class=''><select class='form-control'  name='frequency[]' id='frequency' style='width:100%;'><option value =''>Select</option><option value ='6 Hours'>6 Hours</option><option value ='12 Hours'>12 Hours</option><option value ='24 Hours'>24 Hours</option><option value ='48 Hours'>48 Hours</option></select></div></div></td>");
+      $('#tab_logic').append('<tr id="addr1'+(j+1)+'"></tr>');
+      j++; 
+}
+function delete_more_data(){
+		if(j>1){
+         $("#addr1"+(j-1)).html('');
+         j--;
          }
-     });
+}
+
 </script>
 <script type="text/javascript">
 function check_avaiable_qty(qty,ids){
