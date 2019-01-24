@@ -1,6 +1,4 @@
 <head>
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
 
 <title>Patient List</title>
 
@@ -116,32 +114,12 @@
                 </div>
             </div>
 <script>
-// $(document).ready(function() {
-	// $('#example').DataTable( {
-		// "order": [[ 5, "desc" ]]
-	// } );
-// } );
 $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                extend: 'print',
-                customize: function ( win ) {
-                    $(win.document.body)
-                        .css( 'font-size', '10pt' )
-                        .prepend(
-                            '<img src="<?php echo base_url(); ?>assets/vendor/img/print.png" style="position:absolute;  left: 50%;top: 50%;transform: translate(-50%,-50%);opacity:0.3" />'
-                        );
- 
-                    $(win.document.body).find( 'table' )
-                        .addClass( 'compact' )
-                        .css( 'font-size', 'inherit' );
-                }
-            }
-        ]
-    } );
+	$('#example').DataTable( {
+		"order": [[ 5, "desc" ]]
+	} );
 } );
+
 $(document).ready(function() {
     $('#fm_filters').bootstrapValidator({
         
