@@ -36,10 +36,12 @@
 
 <body class="backimg">
     <div class="form-title">
-        <h1>Login</h1>
+	        <div ><img style="width:400px;height:auto; background:#fff;padding:10px 80px;border-radius:8px 8px 0px 0px;" class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/logo-gif.gif" alt="logo"> </div>
+
     </div>
     <!-- Login Form-->
-    <div class="login-form">
+    <div class="login-form" style="margin-top:0px;">
+	
         <div class="">
         </div>
         <div class="form formLogin">

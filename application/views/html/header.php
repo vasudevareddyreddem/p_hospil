@@ -52,22 +52,13 @@
                 <div class="page-logo">
                     <a href="<?php echo base_url('dashboard'); ?>">
                     
-                    <span class="logo-default" ><img style="width:180px;height:auto;" class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/logo.png" alt="logo"> </span> </a>
+                    <span class="logo-default" ><img style="width:180px;height:auto;" class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/img/logo-gif.gif" alt="logo"> </span> </a>
                 </div>
                 <!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
-					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
+					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu fa fa-bars"></i></a></li>
 				</ul>
-                 <!--<form class="search-form-opened" action="#" method="GET">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." name="query">
-                        <span class="input-group-btn">
-                          <a href="javascript:;" class="btn submit">
-                             <i class="icon-magnifier"></i>
-                           </a>
-                        </span>
-                    </div>
-                </form>-->
+            
                 <!-- start mobile menu -->
                 <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                     <span></span>

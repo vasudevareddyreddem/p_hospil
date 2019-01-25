@@ -1,51 +1,4 @@
 @charset "UTF-8";
-/*
- *  Document   : theme_style.css
- *  Author     : RedStar Theme
- *  Description: The main theme stylesheet of the template
- *
- *  Structure (with shortcodes):
- 
- 		1. GLOBLE STYLE
-		2. BODY
-		3. HEADER	
-		4. SIDE MENU
-		5. SEARCH BAR 
-		6. NAVIGATION 
-		7. PANEL 
-		8. PAGE CONTENT 
-		9. FORM 
-		10. USER PANEL STYLE 
-		11. MODAL WINDOW 
-		12. CHAT PANEL 
-		13. CARD BOX STYLE 
-		14. PROFILE 
-		15. WIZARD 
-		16. TABLE 
-		17. BUTTON 
-		18. LABEL 
-		19. CALENDAR 
-		20. DROP DOWN STYLE 
-		21. CHECKBOX & RADIO 
-		22. ICON BUTTON 
-		23. VALIDATION ICONS 
-		24. NOTE 
-		25. PAGINATION 
-		26. ACCORDION 
-		27. TAB 
-		28. STATE OVERVIEW 
-		29. BORDER BOX 
-		30. RATING BUTTON 
-		31. TO DO LIST 
-		32. BADGE 
-		33. SCROLL TO TOP 
-		34. FOOTER 	
- */
-/***********************************************************************
-
-						[1. GLOBLE STYLE ]
-						
-***********************************************************************/
 
 h1,
 h2,
@@ -4830,8 +4783,8 @@ table.valign-middle tbody tr td {
   color: #fff !important;
 }
 .btn-info {
-  background-color: #3ac9d6 !important;
-  border: 1px solid #3ac9d6 !important;
+  background-color: #4285f4 !important;
+  border: 1px solid #4285f4 !important;
   color: #fff !important;
 }
 .btn-info:hover,
@@ -6682,7 +6635,7 @@ nav-tabs>li {
 .nav-tabs>li a.active, .nav-tabs>li a.active:focus, .nav-tabs>li a.active:hover {
     color: #fff;
     cursor: default;
-    background-color: #003f7f;
+    background-color: #4285f4;
     border-bottom-color: transparent;
 }
 /****************************************************************

@@ -102,7 +102,7 @@
 .sw-theme-default > ul.step-anchor > li.active > a {
     border: none !important;
     color: #fff !important;
-    background: #003f7f !important;
+    background: #4285f4 !important;
 }
 
 .sw-theme-default > ul.step-anchor > li.active > a::after {

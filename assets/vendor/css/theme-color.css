@@ -1,23 +1,17 @@
-/*
- *  Document   : theme-color.css
- *  Author     : RedStar Theme
- *  Description: stylesheet for change theme color, user can set any custom color for template, User have to just replace three classes
- 	(header-white white-sidebar-color logo-indigo) with (custom-sidebar-color logo-custom header-custom) classes in template <body> tag 
- 	and set bellow variable color as per desire. Thats It !!!!!!
- */
+
  
  :root {
   --sidebar-color: #ffffff;
   --sidebar-font-color: #4680ff;
   --logo-color: #222c3c;
-  --header-color: #003f7f;
+  --header-color: #4285f4;
 }
 
 /*
   --white-color: #ffffff;
   --dark-color: #222c3c;
   --blue-color: #1880c9;
-  --indigo-color: #003f7f;
+  --indigo-color: #4285f4;
   --cyan-color: #4ABAD2;
   --green-color: #3FCC7E;
   --red-color: #E44F56;
@@ -157,7 +151,7 @@
 
 /* White sidebar color */
 .white-sidebar-color .sidemenu-container {
-    background-color: #ffffff;
+    background-color: #4285f4;
 }
 .white-sidebar-color .sidemenu-container .sidemenu>li.active.open>a,
 .white-sidebar-color .sidemenu-container .sidemenu>li.active>a,
@@ -184,7 +178,7 @@
 .white-sidebar-color .txtOnline,
 .white-sidebar-color .sidemenu-container .sidemenu>li>a, 
 .white-sidebar-color .sidemenu-closed.sidemenu-container-fixed .sidemenu-container:hover .sidemenu>li>a{
-	color: #444;
+	color: #fff;
 }
 .white-sidebar-color .sidemenu-container .sidemenu>li.open>a>.arrow.open:before, 
 .white-sidebar-color .sidemenu-container .sidemenu>li.open>a>.arrow:before, 
@@ -405,7 +399,7 @@
 
 /* Indigo sidebar color */
 .indigo-sidebar-color .sidemenu-container {
-    background-color: #003f7f;
+    background-color: #4285f4;
 }
 .indigo-sidebar-color .sidemenu-container .sidemenu>li.active.open>a,
 .indigo-sidebar-color .sidemenu-container .sidemenu>li.active>a,
@@ -430,7 +424,7 @@
 .indigo-sidebar-color .sidemenu-container .sidemenu>li:hover>a, 
 .indigo-sidebar-color .sidemenu-closed.sidemenu-container-fixed .sidemenu-container:hover .sidemenu>li.open>a, 
 .indigo-sidebar-color .sidemenu-closed.sidemenu-container-fixed .sidemenu-container:hover .sidemenu>li:hover>a {
-    background-color: #003f7f;
+    background-color: #4285f4;
     color: #fff;
 }
 .indigo-sidebar-color .sidemenu-container .sidemenu>li.open>a>.arrow.open:before, 
@@ -478,7 +472,7 @@
 	color: #fff;
 }
 .indigo-sidebar-color .page-container{
-	background-color : #003f7f;
+	background-color : #4285f4;
 }
 .indigo-sidebar-color .sidemenu-container .sidemenu>li.heading>h3, 
 .indigo-sidebar-color .sidemenu-closed.sidemenu-container-fixed .sidemenu-container:hover .sidemenu>li.heading>h3{
@@ -1023,7 +1017,7 @@
 
 /* Header Indigo */
 .header-indigo .page-header.navbar{
-	background-color: #003f7f;
+	background-color: #4285f4;
 }
 .header-indigo form.search-form-opened .btn.submit {
     color: #fff;
