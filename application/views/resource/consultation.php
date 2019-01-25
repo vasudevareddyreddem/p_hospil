@@ -407,8 +407,8 @@
                      
                      <div class="row">
                         <div class="col-md-12">
-                           <label> Directions</label>
-                           <textarea type="textarea" name="directions" id="directions" class="form-control"  placeholder="Enter Directions" ></textarea>
+                           <label> Diagnosis</label>
+                           <textarea type="textarea" name="directions" id="directions" class="form-control"  placeholder="Enter Diagnosis" ></textarea>
                         </div>
                      </div>
                   </div>
