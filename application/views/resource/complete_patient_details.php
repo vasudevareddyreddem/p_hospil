@@ -121,7 +121,10 @@
         <br><hr>
         	<?php if(isset($patient_medicine_list[0]['directions']) && $patient_medicine_list[0]['directions']!=''){ ?>
         <h2>Diagonsis</h2>
-        <p><?php echo isset($patient_medicine_list[0]['directions'])?$patient_medicine_list[0]['directions']:''; ?></p>
+		<?php foreach($patient_medicine_list as $list){ ?>
+               <p><?php echo isset($list['directions'])?$list['directions']:''; ?></p>
+				<?php } ?>
+        
         
         <br><hr><br>
 		<?php } ?>
