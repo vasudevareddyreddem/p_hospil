@@ -72,7 +72,7 @@ class Resources_model extends CI_Model
         return $this->db->get()->result_array();	
 	}
 	public function get_all_resouce_details($admin_id){
-		$this->db->select('resource_list.r_id,resource_list.hos_id,admin.a_id,admin.role_id,admin.a_email_id,admin.a_name,roles.r_name,admin.a_profile_pic,resource_list.out_source_lab')->from('admin');		
+		$this->db->select('resource_list.r_id,resource_list.hos_id,admin.a_id,admin.role_id,admin.a_email_id,admin.a_name,roles.r_name,admin.a_profile_pic,resource_list.out_source_lab,resource_list.r_create_by')->from('admin');		
 		$this->db->join('roles', 'roles.r_id = admin.role_id', 'left');
 		$this->db->join('resource_list', 'resource_list.a_id = admin.a_id', 'left');
 		$this->db->where('admin.a_id', $admin_id);
@@ -457,7 +457,7 @@ class Resources_model extends CI_Model
 	 
 	 /* doctor */
 	 public  function get_investigation_basedon_testtypes_list_with_groupby_testtypes($hos_id,$val){
-		 $this->db->select('lab_test_list.test_type,lab_test_list.t_id,lab_test_list.t_name')->from('lab_test_list');
+		 $this->db->select('lab_test_list.test_type,lab_test_list.t_id,lab_test_list.t_name,lab_test_list.create_by')->from('lab_test_list');
 		$this->db->where('lab_test_list.status',1);
 		$this->db->where('lab_test_list.type',$val);
 		//$this->db->where('lab_test_list.hos_id',$hos_id);
@@ -479,6 +479,12 @@ class Resources_model extends CI_Model
 		$this->db->where('patient_vitals_list.b_id',$b_id);
 		$this->db->order_by('patient_vitals_list.id','desc');
         return $this->db->get()->row_array(); 
+	 }
+	 
+	 public  function get_same_hospital_created_list($created_id){
+		 $this->db->select('r_id,a_id')->from('resource_list');
+		$this->db->where('resource_list.r_create_by',$created_id);
+        return $this->db->get()->result_array(); 
 	 }
 
 }

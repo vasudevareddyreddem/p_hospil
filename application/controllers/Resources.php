@@ -1350,17 +1350,35 @@ class Resources extends In_frontend {
 		{ 
 				if($admindetails['role_id']=6){
 					$post=$this->input->post();
-					//echo '<pre>';print_r($post);exit;
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Resources_model->get_all_resouce_details($admindetails['a_id']);
+					$created_by_list=$this->Resources_model->get_same_hospital_created_list($userdetails['r_create_by']);
+					
+					if(count($created_by_list)>0){
+						foreach($created_by_list as $List){
+							$c_id_list[]=$List['a_id'];
+						}
+					}else{
+						$c_id_list[]=array();
+					}
 					$details=$this->Resources_model->get_investigation_basedon_testtypes_list_with_groupby_testtypes($userdetails['hos_id'],$post['searchdata']);
-					//echo $this->db->last_query();
+					if(count($details)>0){
+						foreach($details as $lis){
+								if (in_array($lis['create_by'], $c_id_list))
+								  {
+								  $in_out_list[]=$lis;
+								  }
+							}
+					}else{
+						$in_out_list[]=array();
+					}
+					
+					//echo '<pre>';print_r($in_out_list);
 					//echo '<pre>';print_r($details);exit;
-
-					if(count($details) > 0)
+					if(count($in_out_list) > 0)
 					{
 					$data['msg']=1;
-					$data['text']=$details;
+					$data['text']=$in_out_list;
 					echo json_encode($data);exit;	
 					}
 				}else{
