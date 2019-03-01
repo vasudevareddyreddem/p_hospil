@@ -561,7 +561,7 @@ class Hospital extends In_frontend {
 							$editdetails= $this->Hospital_model->update_hospital_details(base64_decode($post['hospital_id']),$editdata);
 							if(count($editdetails)>0){
 								$email_details=array(
-								'a_email_id'=>isset($post['hos_email_id'])?$post['hos_email_id']:$hospital_details['hos_email_id'],
+								'a_email_id'=>isset($post['hos_email_id'])?$post['hos_email_id']:$hospital_details['hos_bas_name'],
 								'a_updated_at'=>date('Y-m-d H:i:s')
 								);
 							$this->Hospital_model->update_adminhospital_details($hospital_details['a_id'],$email_details);
@@ -2025,11 +2025,12 @@ class Hospital extends In_frontend {
 					$admindetails=$this->session->userdata('userdetails');
 					$userdetails=$this->Admin_model->get_hospital_details($admindetails['a_id']);
 					if(isset($post['to_date']) && $post['to_date']!==''){
+						$data['search_list']=$post;
 						$data['patients_list']=$this->Hospital_model->get_hospital_patient_list_date_wise($userdetails['hos_id'],$post['from_date'],$post['to_date']);
 					}else{
+						$data['search_list']=array('from_date'=>'','to_date'=>'');
 					    $data['patients_list']=$this->Hospital_model->get_hospital_wise_patient_list($userdetails['hos_id']);
 					}
-					$data['search_list']=$post;
 					//echo $this->db->last_query();
 					//echo '<pre>';print_r($data);exit;
 					$this->load->view('hospital/reports',$data);
