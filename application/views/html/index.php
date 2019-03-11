@@ -2,642 +2,944 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
- 
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-  
-    <title>Main Website</title>
-  
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url(); ?>assets/vendor/plugins/vendor/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="<?php echo base_url(); ?>assets/vendor/plugins/vendor/css/mdb.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/vendor/plugins/vendor/css/compiled.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="<?php echo base_url(); ?>assets/vendor/plugins/vendor/css/custom.css" rel="stylesheet">
-	<script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/plugins/vendor/js/jquery-3.2.1.min.js"></script>
-	
-</head>
-<!-- END HEAD -->
-<header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-indigo scrolling-navbar">
-        <a class="navbar-brand" href="#"><strong>Website Name (logo)</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="nav navbar-nav  ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#aboutus">About us</a>
-                </li> 
-				<li class="nav-item">
-                    <a class="nav-link" href="#features">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#faq">FAQ's</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Us</a>
-                </li>
-				<li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('admin'); ?>">Admin Login</a>
-                </li>
-            </ul>
-          
+  <title>Hospil</title>
+
+  <!-- css -->
+  	<link rel="icon" href="<?php echo base_url(); ?>assets/vendor/home/img/fav.png" > 
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url(); ?>assets/vendor/home/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/nivo-lightbox.css" rel="stylesheet" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/owl.carousel.css" rel="stylesheet" media="screen" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/owl.theme.css" rel="stylesheet" media="screen" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/animate.css" rel="stylesheet" />
+  <link href="<?php echo base_url(); ?>assets/vendor/home/css/style.css" rel="stylesheet">
+      <link href="<?php echo base_url(); ?>assets/vendor/css/custom.css" rel="stylesheet" type="text/css" />
+
+
+  <!-- boxed bg -->
+  <link id="bodybg" href="<?php echo base_url(); ?>assets/vendor/home/bodybg/bg1.css" rel="stylesheet" type="text/css" />
+  <!-- template skin -->
+  <link id="t-colors" href="<?php echo base_url(); ?>assets/vendor/home/color/default.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="top-area">
+        <div class="container">
+          <div class="row">
+            <div class=" col-md-4">
+              <p class="bold text-left">Email: info@hospil.com </p>
+            </div>
+            <div class="col-sm-6 col-md-8 sm-hide">
+              <p class="bold text-right">Office: 040-48541273 | Mobile: 9494422779</p>
+            </div> 
+			
+          </div>
         </div>
+      </div>
+      <div class="container navigation">
+
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+          <a class="navbar-brand" href="index.html">
+                    <img src="<?php echo base_url(); ?>assets/vendor/home/img/logo.gif" alt="" width="200" height="auto" />
+                </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#page-top">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#we-provide">We provide!</a></li>
+            <li><a href="#features">Our Features</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            <li><a target="_blank" href="<?php echo base_url('admin'); ?>">Login</a></li>
+           
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
     </nav>
 
-</header>
-<!--Main Navigation-->
-                
-            
-<body style="padding-top:65px;" >
+    <!-- Section: intro -->
+    <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+                <h1 class="h-ultra ban-text">HOSPIL.COM</h1>
+              </div>
+              <div class="wow fadeInUp " data-wow-offset="0" data-wow-delay="0.1s">
+                <h4 class="h-light text-primary">Clinic Pharmacy, Lab, Radiology & Hospital </h4>  
+				<h4 class="h-light text-center">Information Management System...! </h4>
+              </div>
+              <div class="well well-trans">
+                <div class="wow fadeInRight" data-wow-delay="0.1s">
 
-   <!--Carousel Wrapper-->
-<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-        <!--First slide-->
-        <div class="carousel-item active">
-            <img class="d-block w-100" src="<?php echo base_url(); ?>assets/vendor/img/mainsite/b2.jpg" alt="First slide">
-        </div>
-        <!--/First slide-->
-        <!--Second slide-->
-        <div class="carousel-item">
-            <img class="d-block w-100" src="<?php echo base_url(); ?>assets/vendor/img/mainsite/b3.jpg" alt="Second slide">
-        </div>
-        <!--/Second slide-->
-        <!--Third slide-->
-        <div class="carousel-item">
-            <img class="d-block w-100" src="<?php echo base_url(); ?>assets/vendor/img/mainsite/b1.jpg" alt="Third slide">
-        </div>
-        <!--/Third slide-->
-    </div>
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-</div>
-<!--/.Carousel Wrapper-->
- <!--Section: Features v.4-->
- <div class="bacimgl" >
-	<div class="clearfix" id="aboutus">&nbsp;</div>
- <div class="container-main card">
-	<section>
+                  <ul class="lead-list">
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong> 10+Core Programs</strong></span></li>
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>5+Add on Programs</strong></span></li>
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>5+Add on Programs</strong></span></li>
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Cloud Access</strong></span></li>
+                  </ul>
+                  
+                </div>
+              </div>
 
-    <!--Section heading-->
-    <h1 class="py-5 font-bold text-center">About US</h1>
-    <!--Section description-->
-    <p class="px-5 mb-5 pb-3 lead grey-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam.</p>
 
-    <!--Grid row-->
-    <div class="row pt-2">
+            </div>
+            <div class="col-lg-6">
+              <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                <img src="<?php echo base_url(); ?>assets/vendor/home/img/ban-img1.png" class="img-responsive" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!--Grid column-->
-    <div class="col-lg-5 mb-r center-on-small-only">
-        <img src="<?php echo base_url(); ?>assets/vendor/img/mainsite/aboutus.png" alt="" class="img-fluid z-depth-0">
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-lg-7">
-
-        <!--Grid row-->
-        <div class="row pb-3">
-        <div class="col-2 col-md-1">
-            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
+   <!-- Section: works -->
+    <section id="aboutus" class="home-section ">
+      <div class="container ">
+        <div class="row py-4">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold">About <span class="text-primary">HOSPIL</span></h2>
+             
+              </div>
+            </div>
+            <div class="divider-short"></div>
+          </div>
         </div>
-        <div class="col-10">
-            <h5 class="font-bold text-left mb-3 dark-grey-text">Step-1</h5>
-            <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            .</p>
+     
+        <div class="row">
+          <div class="col-md-8">
+		  <div class="text-center">
+			<img  class="img-responsive" src="<?php echo base_url(); ?>assets/vendor/home/img/aboutus.png" alt="aboutus">
+		  </div>
+           <p>Hospil.com is a state of the art Hospital Information System which is comprehensive enterprise-wide-software that covers all aspects of management and operations of small, medium & large hospitals. </p>  
+					<p>It enables healthcare providers to improve the operational effectiveness, reduce costs, reduce medical errors & enhance delivery of quality of care.</p>
+          </div>
+		  <div class="col-md-4 bg-gray p-5">
+		   <h4 class="h-bold">Key Features:</h4>
+				<ul class="li-style">
+					<li>Integrated workflow</li>
+					<li>Improved Patient care</li>
+					<li>Graphical Data Representation</li>
+					<li>Hospital Centric</li>
+					<li>Daily E-Mail Reports</li>
+					<li>24*7 Technical Support</li>
+				</ul>
+				<hr>
+				 <div class="">
+		   <h4 class="h-bold">Benefits</h4>
+				<ul class="li-style">
+					<li>Transparency & Punctuality</li>
+					<li>Centralized access to Information</li>
+					<li>Secured Patient database</li>
+					<li>Reduced Operating Costs</li>
+					<li>Improved patient response time</li>
+				
+				</ul>
+          </div>
+          </div>
+        </div>  
+		<div class="row py-4">
+          
+		 
+		 
         </div>
-        </div>
-        <!--Grid row-->   <!--Grid row-->
-        <div class="row pb-3">
-        <div class="col-2 col-md-1">
-            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
-        </div>
-        <div class="col-10">
-            <h5 class="font-bold text-left mb-3 dark-grey-text">Step-2</h5>
-            <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            .</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row pb-3">
-        <div class="col-2 col-md-1">
-            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
-        </div>
-        <div class="col-10">
-            <h5 class="font-bold text-left mb-3 dark-grey-text">Step-3</h5>
-            <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            .</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row pb-3">
-        <div class="col-2 col-md-1">
-            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
-        </div>
-        <div class="col-10">
-            <h5 class="font-bold text-left mb-3 dark-grey-text">Step-4</h5>
-            <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            .</p>
-        </div>
-        </div>
-        <!--Grid row-->
-		<!--Grid row-->
-        <div class="row pb-3">
-        <div class="col-2 col-md-1">
-            <i class="fa fa-mail-forward fa-lg indigo-text"></i>
-        </div>
-        <div class="col-10">
-            <h5 class="font-bold text-left mb-3 dark-grey-text">Step-5</h5>
-            <p class="grey-text text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            .</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-    </div>
-    <!--Grid column-->
-
-    </div>
-    <!--Grid row-->
-
-</section>
-<!--Section: Features v.3-->
-            
-</div>
- 
-
- <div class="container-main card" id="features" >
- <section class="" >
-    <!--Section heading-->
-    <h1 class="py-5 font-bold text-center">Our Features</h1>
-    <!--Section description-->
-    <p class="px-5 mb-5 pb-3 lead grey-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam.</p>
-
-    <!--Grid row-->
-    <div class="row">
-
-    <!--Grid column-->
-    <div class="col-md-4">
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-flag-checkered indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-1</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-           <a href="#"><span class="read-m">Read more</span></a></p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-flask indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-2</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            <a href="#"><span class="read-m">Read more</span></a>.</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-glass indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-3</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            <a href="#"><span class="read-m">Read more</span></a>.</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-md-4 mb-2 center-on-small-only flex-center">
-        <img class="img-fluid" src="<?php echo base_url(); ?>assets/vendor/img/mainsite/features.png" alt="" class="z-depth-0">
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
-    <div class="col-md-4">
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-heart indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-4</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            <a href="#"><span class="read-m">Read more</span></a>.</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-flash indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-5</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            <a href="#"><span class="read-m">Read more</span></a>.</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-        <!--Grid row-->
-        <div class="row mb-2">
-        <div class="col-2">
-            <i class="fa fa-2x fa-magic indigo-text"></i>
-        </div>
-        <div class="col-10 text-left">
-            <h5 class="font-bold">Feature-6</h5>
-            <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda
-            <a href="#"><span class="read-m">Read more</span></a>.</p>
-        </div>
-        </div>
-        <!--Grid row-->
-
-    </div>
-    <!--Grid column-->
-
-    </div>
-    <!--Grid row-->
-
-</section>
-</div>
-<div class="container-main card" id="faq" >
- <section class="" >
-    <!--Section heading-->
-    <h1 class="py-5 font-bold text-center">FAQ's</h1>
-    <!--Section description-->
-    <p class="px-5 mb-5 pb-3 lead grey-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam.</p>
-
-	<div class="row">
-	<div class="col-lg-4 center-on-small-only card" style="margin-left:40px;">
-        <img src="<?php echo base_url(); ?>assets/vendor/img/mainsite/faq.png" alt="" class="img-fluid z-depth-0">
-    </div>
-    <!--Grid column-->
-
-    <!--Grid column-->
+      </div>
+    </section>
 	
-    <div class="col-lg-7 card" style="margin-left:20px;">			
-<!--Accordion wrapper-->
-<div class="accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+    <!-- Section: testimonial -->
+    <section id="" class="home-section paddingbot-60 parallax  testimonial-bg" data-stellar-background-ratio="0.5">
 
-    <!-- Accordion card -->
-    <div class="card">
-
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingOne">
-            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h5 class="mb-0">
-                    FAQ Heading  #1 <i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-
-        <!-- Card body -->
-        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
-        </div>
-    </div>
-    <!-- Accordion card -->
-
-    <!-- Accordion card -->
-    <div class="card">
-
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingTwo">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <h5 class="mb-0">
-                    FAQ Heading  #2 <i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-
-        <!-- Card body -->
-        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="card-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
-        </div>
-    </div>
-    <!-- Accordion card -->
-    
-    <!-- Accordion card -->
-    <div class="card">
-
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingThree">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <h5 class="mb-0">
-                    FAQ Heading  #3 <i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-
-        <!-- Card body -->
-        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="card-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
-        </div>
-    </div>
-	 <div class="card">
-
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingFour">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <h5 class="mb-0">
-                    FAQ Heading  #4 <i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-
-        <!-- Card body -->
-        <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-            <div class="card-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
-        </div>
-    </div>
-	<div class="card">
-
-        <!-- Card header -->
-        <div class="card-header" role="tab" id="headingFive">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <h5 class="mb-0">
-                    FAQ Heading  #5 <i class="fa fa-angle-down rotate-icon"></i>
-                </h5>
-            </a>
-        </div>
-
-        <!-- Card body -->
-        <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-            <div class="card-body">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </div>
-        </div>
-    </div>
-    <!-- Accordion card -->
-</div>
-<!--/.Accordion wrapper-->
-</div>
-</div>
-                
-				
-
-</section>
-</div>
-<div class="container-main card" id="contact" >
- <section class="" >
-    <!--Section heading-->
-    <h1 class="py-5 font-bold text-center">Contact US</h1>
-    <!--Section description-->
-    <p class="px-5 mb-5 pb-3 lead grey-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam.</p>
-
-
-		<div class="row text-left">
-
-            <!--First column-->
-            <div class="col-md-6 card" style="overfolw:hidden">
-			
-                <h5 class="title-footer mb-4 mt-3 font-bold">Loaction</h5>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.3149890282297!2d78.38789067916152!3d17.495099878319962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f4f553e453%3A0x912891756062ff71!2sSri+Vani+Nilayam%2C+Sardar+Patel+Nagar%2C+Bhagat+Singh+Nagar%2C+Kukatpally+Housing+Board+Colony%2C+Kukatpally%2C+Hyderabad%2C+Telangana+500085!5e0!3m2!1sen!2sin!4v1518178461008" width="auto" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <div class="carousel-reviews broun-block">
+        <div class="container py-5">
+          <div class="row">
+			<div class="col-md-6 upgrade-h1">
+				<div class="h1 text-white text-center">
+					Upgrade your<br> Hospital with our HIMS tool.
+				</div>
+				<div class="h3 text-white text-center">
+					10+HIMS Management Programs tailored & built as per your Hospital requirements.
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class=" pricing-box">
+            <div class="wow bounceInUp" data-wow-delay="0.1s">
+              <div class="pricing-content general">
                
-            </div>
-            <!--/.First column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!--/.Second column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!--Third column-->
-            <div class="col-md-4 mx-auto">
-                <h5 class="title-footer mb-4 mt-3 font-bold">Address</h5>
-				 <form><div class="md-form">
-							<i class="fa fa-user prefix grey-text"></i>
-							<input type="text" id="form3" class="form-control">
-							<label for="form3">Your name</label>
-						</div>
-
-						<div class="md-form">
-							<i class="fa fa-envelope prefix grey-text"></i>
-							<input type="text" id="form2" class="form-control">
-							<label for="form2">Your email</label>
-						</div>
-
-						<div class="md-form">
-							<i class="fa fa-tag prefix grey-text"></i>
-							<input type="text" id="form32" class="form-control">
-							<label for="form34">Subject</label>
-						</div>
-
-						<div class="md-form">
-							<i class="fa fa-pencil prefix grey-text"></i>
-							<textarea type="text" id="form8" class="md-textarea" style="height: 100px"></textarea>
-							<label for="form8">Your message</label>
-						</div>
-
-						<div class="text-center">
-							<button class="btn btn-unique">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
-						</div>
-
-					</form>
-            </div>
-            <!--/.Third column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-           
-        </div>
-	
-                
-				
-
-</section>
-</div>
- <div class="clearfix">&nbsp;</div>
-</div>
-<!--/footer strat -->
-<footer class="page-footer center-on-small-only stylish-color-dark sm-hide"  style="margin-top:0px">
-
-    <!--Footer Links-->
-    <div class="container">
-        <div class="row text-left">
-
-            <!--First column-->
-            <div class="col-md-4">
-			
-                <h5 class="title-footer mb-4 mt-3 font-bold">Address</h5>
-				<p>Plot No. 177, Sri Vani Nilayam, 1st floor,Beside Sri Chaitanya High School, Sardar Patel Nagar, Nizampet Road,  Hyderabad, Telangana, 500072</p>
+                <ul class="upgrade-li">
+                  <li>10+Core Programs <i class="fa fa-check icon-success"></i></li>
+                  <li>5+Add-On Programs <i class="fa fa-check icon-success"></i></li>
+                  <li>Integrated Work-Flow <i class="fa fa-check icon-success"></i></li>
+				  <li>Secured Database <i class="fa fa-check icon-success"></i></li>
+                  <li>Reduced Operating Costs <i class="fa fa-check icon-success"></i></li>
+                  <li>Improved Profitability <i class="fa fa-check icon-success"></i></li>
+     
                
-            </div>
-            <!--/.First column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!--/.Second column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!--Third column-->
-            <div class="col-md-4 mx-auto">
-                <h5 class="title-footer mb-4 mt-3 font-bold">Contact</h5>
-				 <label>Mobile No : 9439xxxxxx</label>
-				
-				 <label>Email ID &nbsp;&nbsp;&nbsp; : supportxxx@dummy.com</label>
-				 <br>
-				 <br>
-				 
-            </div>
-            <!--/.Third column-->
-
-            <hr class="clearfix w-100 d-md-none">
-
-            <!--Fourth column-->
-            <div class="col-md-2 mx-auto">
-                <h5 class="title-footer mb-4 mt-3 font-bold ">Qucik Links</h5>
-                <ul>
-					<li><a href="" >Home</a></li>
-					<li><a href="#aboutus">About Us</a></li>
-					<li><a href="#features">features</a></li>
-                    <li><a href="#faq">FAQ's</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                   
                 </ul>
+
+              
+              </div>
             </div>
-            <!--/.Fourth column-->
+          </div>
+			</div>
+          </div>
+        </div>
+      </div>
+    </section>
+   <section id="we-provide" class=" pt-2 pb-5">
+
+      <div class="container">
+	    <div class="row py-4">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold">Our Amazing <span class="text-primary">Programs...</span></h2>
+             
+              </div>
+            </div>
+            <div class="divider-short"></div>
+          </div>
+        </div>
+		<br>
+        <div class="row amazing-sec">
+          <div class="col-sm-3 col-md-3 pricing-content-ammz">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+				<div class="text-center">
+                <i class="fa fa-check fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Front <br> Desk program</h4>
+				</div>
+               <ul class="li-style">
+					<li>Reception</li>
+					<li>Online queries answering</li>
+					<li>Scheduling patients for appointments</li>
+				</ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 pricing-content-ammz ">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+				<div class=" text-center">
+                <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Patient Reg & Appointsment program</h4>
+				</div>
+                  <ul class="li-style">
+					<li>Patient demographic details</li>
+					<li>Allocation of Unique Patient Registration Number</li>
+					<li>Refer to specific consultant departments based on broad symptoms </li>
+					<li>New patient / Old patient statistics </li>
+				</ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 pricing-content-ammz">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+              <div class=" text-center">
+                <i class="fa fa-user fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Out patient Management program</h4>
+               </div>
+                  <ul class="li-style">
+					<li>OPD Appointments</li>
+					<li>OPD Registrations </li>
+					<li>OPD Charges</li>
+					<li>Medical Observation</li>
+					<li>Consultant wise OPD</li>
+					<li>Patient Information Confidentiality</li>
+					<li>Procedures and clinical services Requests</li>
+					<li>Diagnosis & Drug Prescriptions</li>
+				</ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 pricing-content-ammz">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+              <div class=" text-center">
+			  <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
+                <h4 class="h-bold">Doctor Appointsment & Scheduling program</h4>
+                </div>
+                  <ul class="li-style">
+					<li>View available time slots & allocate appointments accordingly</li>
+					<li>Block / schedule repeat appointments </li>
+					<li>Track appointment arrivals, cancellations etc.</li>
+					<li>View appointment calendar by day, week or month</li>
+				</ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="callaction" class="home-section paddingtop-40">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="callaction bg-gray">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="cta-text">
+                      <h3 class="text-primary">Get Hospil.com software tool for your NOW.</h3>
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                    <div class="cta-btn">
+                      <a href="#contactus" class="btn btn-skin btn-lg">Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ <section id="" class="home-section paddingbot-60 parallax  testimonial-bg" data-stellar-background-ratio="0.5">
+
+      <div class="carousel-reviews broun-block">
+        <div class="container py-5">
+          <div class="row">
+			<div class="col-md-12 upgrade-h1">
+				<div class="h1 text-white text-center">
+					The solution is modular and gives healthcare organizations the convivence of a flexible
+rollout strategy. Hospitals can prioritize the deployment of those programs considered
+critical from the organizations patient care delivery goals.
+				</div>
+				
+			</div>
+			
+          </div>
+        </div>
+      </div>
+    </section>
+	<section id="boxes" class=" pt-2 pb-5">
+
+      <div class="container">
+	    
+        <div class="row amazing-sec">
+          <div class=" col-md-8 ">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+				<div class="text-center py-4">
+                
+                <h4 class="h-bold">Our Core Programs</h4>
+				<div class="divider-short"></div>
+				</div>
+               <ul class="li-style col-md-6">
+					<li>Front Desk Program</li>
+					<li>Patient Registration & Appointment Program</li>
+					<li>Out Patient Management Program</li>
+					<li>Doctor Appointment & Scheduling Program</li>
+					<li>In Patient Management Program</li>
+					<li>Operation Theatre Program</li>
+					<li>Laboratory Program</li>
+				</ul>
+				<ul class="li-style col-md-6">
+					<li>Radiology Program</li>
+					<li>TPA / Organizations Program</li>
+					<li>Pharmacy Program</li>
+					<li>Patient EMR- Cloud Program</li>
+					<li>Financial Accounting Program</li>
+					<li>Blood Bank Management Program</li>
+					<li>Patient Billing Program</li>
+				</ul>
+              </div>
+            </div>
+          </div>
+		  <div class=" col-md-4 ">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <div class="box ">
+				<div class="py-4">
+                
+                <h4 class="h-bold">Our Add-On Programs</h4>
+				<div class="divider-short"></div>
+				</div>
+               <ul class="li-style">
+					<li>Mobile Applications Program</li>
+					<li>Inventory Management Program</li>
+					<li>SMS & E-Mail Program</li>
+					<li>Marketing Program</li>
+					<li>Nursing Station Program</li>
+					<li>Ambulance Program</li>
+					<li>Barcode Interface</li>
+					<li>Interface with tally accounts</li>
+				</ul>
+			
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
+    </section>
+<section id="features" class="home-section paddingbot-60 parallax testimonial-bg" data-stellar-background-ratio="0.5">
+
+      <div class="carousel-reviews broun-block">
+        <div class="container">
+		   <div class="row py-4">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold text-white">Our  <span class="text-primary">Features</span></h2>
+             
+              </div>
+            </div>
+            <div class="divider-short"></div>
+          </div>
+        </div>
+          <div class="row">
+            <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">In patient Management </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Online bed status monitoring</li>
+							<li>Admission/Discharge/Transfer statistics</li>
+							<li>Provisional & final bill generation</li>
+							<li>User defined templates for discharge ward generations</li>
+							<li>Raising investigations & report viewing</li>
+							<li>Requisition of drugs & consumables</li>
+						</ul>
+                    </div>
+                  </div>
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Operation Theatre </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>O.T. Reservation for a scheduled surgery.</li>
+							<li>Team of Doctors/Assistants involved in the operation.</li>
+							<li>Consent Forms.</li>
+							<li>Single or Multiple Doctor/Assistants revenue sharing</li>
+							<li>Consultant Instructions</li>
+							<li>Birth / Death Certificates.</li>
+							<li>Bill Charges Posting (Surgery and Package Surgeries).</li>
+						</ul>
+                    </div>
+                  </div>  
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Laboratory </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Receive investigation requests, Patient registration and receipts printing</li>
+							<li>Investigation sample collection</li>
+							<li>Integration with patient billing portal</li>
+							<li>Generate investigation reports</li>
+							<li>Warning & alerts for abnormal values</li>
+							<li>Consultant wise test report</li>
+							<li>Reports output to PDF</li>
+						</ul>
+                    </div>
+                  </div>
+                  </div>
+				    <div class="item ">
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Pharmacy </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Goods Receipt Notes/ Purchase Returns</li>
+							<li>Drugs/Medical Supplies to patients & Wards</li>
+							<li>Batch & Expiry Management</li>
+							<li>Fast Moving/ NonMoving Drugs</li>
+							<li>Stock Reorder Reports</li>
+							<li>VAT Accounting</li>
+							<li>Drug Stocks (Company/Composition/ category wise)</li>
+							<li>Sales Analysis</li>
+						</ul>
+                    </div>
+                  </div>
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">TPA / Organizations </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Health Insurance Sponsor Details.</li>
+							<li>Sponsor Verification</li>
+							<li>Sponsor Invoicing.</li>
+							<li>Financial Posting to Financial Accounting Portal.</li>
+							<li>Organization wise 	Charges.</li>
+							
+						</ul>
+                    </div>
+                  </div> 
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Radiology </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Registration</li>
+							<li>Configuration of services offered.</li>
+							<li>Receive investigation requests</li>
+							<li>Investigation sample collection</li>
+							<li>Integration with patient billing portal</li>
+							<li>Generate investigation reports.</li>
+							<li>Consultant, Dept. wise test report.</li>
+							<li>Doctor referra</li>
+							
+						</ul>
+                    </div>
+                  </div>
+                 
+                 
+                </div> 
+				<div class="item ">
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Patient EMR-Cloud  </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Patient Encounter details storing in cloud </li>
+							<li>Previous illness, surgeries, allergies etc.</li>
+							<li>Single window monitoring to save time.</li>
+						
+						</ul>
+                    </div>
+                  </div>
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Financial Accounting </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Generate ledger, account payable & account receivable</li>
+							<li>Chart of accounts</li>
+							<li>Credit & debit notes</li>
+							<li>Balance sheet, profit & loss account & trail balance</li>
+							<li>Audit trail from final books to ledgers</li>
+							
+						</ul>
+                    </div>
+                  </div> 
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">ERP & Payroll Management </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Employee Personal Details</li>
+							<li>Shift Defining, Duty Roaster Tracking.</li>
+							<li>Attendance Management.</li>
+							<li>Leaves/Holiday Accounting.</li>
+							<li>Allowances & Deductions</li>
+							<li>Employee Promotion, Transfer & Resignation.</li>
+							<li>Payroll Processing</li>
+						</ul>
+                    </div>
+                  </div>
+                 
+                 
+                </div>
+				<div class="item ">
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Blood Bank  </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Group wise Donor Information. </li>
+							<li>Donor Card Generation.</li>
+							<li>Group wise Receipts.</li>
+							<li>Record Blood Transfusions</li>
+							<li>Test Count Registers.</li>
+							<li>Camp Organization & Details</li>
+							<li>Daily Quality Check Updating.</li>
+							<li>Expiry Tracking, Test Analysis</li>
+							<li>Donors List.</li>
+						
+						</ul>
+                    </div>
+                  </div>
+				  <div class="col-md-4 ">
+                    <div class="block-text rel zmin">
+						<div class="py-4">
+							<h4 class="h-bold text-center">Patient Billing </h4>
+							<div class="divider-short"></div>
+						</div>
+					   <ul class="li-style">
+							<li>Integrated with OPD billing, appointment, admission,discharge, transfer modules,diagnostic centres & pharmacy</li>
+							<li>Record patient billing details,Cash flow</li>
+							<li>Statistical Representation</li>
+							<li>Generate patient billing statistics (dept. Wise, case wise, area wise, gender wise)</li>
+							<li>Collection reports (user wise, department wise, time wise,consultant wise).</li>
+							
+						</ul>
+                    </div>
+                  </div> 
+				  
+                 
+                 
+                </div>
+
+
+              </div>
+
+              <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+              <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="service" class="home-section nopadding py-5">
+
+      <div class="container">
+		 <div class="row py-4">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold ">Our
+			<span class="text-primary"> Add-On Programs…..</span></h2>
+             
+              </div>
+            </div>
+            <div class="divider-short"></div>
+			<p class="text-center">We will make available different technological innovation to our customers to
+enable them not only to make pace with current world realities but at the same
+time to get the best use of it
+</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="wow fadeInUp" data-wow-delay="0.2s">
+              <img src="<?php echo base_url(); ?>assets/vendor/home/img/showing.png" class="img-responsive" alt="" />
+            </div>
+          </div>
+          <div class=" col-md-6">
+
+            <div class="wow fadeInRight" data-wow-delay="0.1s">
+              <div class="service-box">
+                <div class="service-icon">
+                  <span class="fa fa-stethoscope fa-3x"></span>
+                </div>
+                <div class="service-desc">
+                  <h5 class="h-light">Mobile Applications Program</h5>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="wow fadeInRight" data-wow-delay="0.2s">
+              <div class="service-box">
+                <div class="service-icon">
+                  <span class="fa fa-wheelchair fa-3x"></span>
+                </div>
+                <div class="service-desc">
+                  <h5 class="h-light">Inventory Management Program</h5>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="wow fadeInRight" data-wow-delay="0.3s">
+              <div class="service-box">
+                <div class="service-icon">
+                  <span class="fa fa-plus-square fa-3x"></span>
+                </div>
+                <div class="service-desc">
+                  <h5 class="h-light">SMS & E-Mail Program</h5>
+                 
+                </div>
+              </div>
+            </div>
+			<div class="wow fadeInRight" data-wow-delay="0.1s">
+              <div class="service-box">
+                <div class="service-icon">
+                  <span class="fa fa-h-square fa-3x"></span>
+                </div>
+                <div class="service-desc">
+                  <h5 class="h-light">Marketing Program</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="wow fadeInRight" data-wow-delay="0.2s">
+              <div class="service-box">
+                <div class="service-icon">
+                  <span class="fa fa-filter fa-3x"></span>
+                </div>
+                <div class="service-desc">
+                  <h5 class="h-light">Ambulance Program</h5>
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        
+
+        </div>
+      </div>
+    </section>
+    <!-- /Section: services -->
+<section id="" class="home-section paddingbot-60 parallax  testimonial-bg" data-stellar-background-ratio="0.5">
+
+      <div class="carousel-reviews broun-block">
+        <div class="container py-5">
+          <div class="row">
+			<div class="col-md-12 upgrade-h1">
+				<div class="h1 text-white text-center">
+					Hospil Software is easy to understand
+yet high powered, Hospital Information Management System!
+It gives us the management tools we need to offer superior service and to stay ahead
+of our competition in a user friendly package. We love it!
+				</div>
+				
+			</div>
+			
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactus" class="home-section nopadding py-5">
+		<div class="container">
+		   <div class="row py-4">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="section-heading text-center">
+                <h2 class="h-bold ">Contact  <span class="text-primary">Us</span></h2>
+             
+              </div>
+            </div>
+            <div class="divider-short"></div>
+          </div>
+        </div>
+		<br>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form action="<?php echo base_url('home/contactpost'); ?>" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Mobile</label>
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile" required="required" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" name="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.26257057111!2d78.38626931416668!3d17.494974988014192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f48aa2d613%3A0xe33ae6c3ea74c04e!2sPrachaTech+Software+Solutions!5e0!3m2!1sen!2sin!4v1551933703857" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
     </div>
-    <!--/.Footer Links-->
+</div>
+    </section>
 
-    <hr>
+    <footer>
 
- 
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-sm-6 col-md-4">
+          
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget text-white">
+                <h5 class="text-white">Quick links</h5>
+				<div class="divider-short" style="margin:0"></div>
+                <ul class="footer-li-quc">
+                  <li class="text-white"><a href="#">Home</a></li>
+                  <li class="text-white"><a href="#aboutus">About Us</a></li>
+                  <li class="text-white"><a href="#we-provide">We provide!</a></li>
+                  <li class="text-white"><a href="#features">Our Features</a></li>
+                  <li class="text-white"><a href="#contactus">Contact Us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5 class="text-white">Contact Information</h5>
+                <p>Prachatech Software Solutions                </p>
+                <ul >
+              
+                  <li>
+                    <span class="fa-stack fa-lg">
+									
+									<i class="fa fa-phone fa-stack-1x fa-inverse blue-color"></i>
+								</span> 040-48541273
+                  </li> 
+				  <li>
+                    <span class="fa-stack fa-lg">
+								
+									<i class=" fa-stack-1x fa-inverse blue-color"></i>
+								</span>  9494422779
+                  </li>
+                  <li>
+                    <span class="fa-stack fa-lg">
+								
+									<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+								</span> info@hospil.com
+                  </li>
 
-    <!--Social buttons-->
-    <div class="social-section text-center footer-copyright">
-        <ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5 class="text-white">Our location</h5>
+                <p>Plot No. 177, Sri Vani Nilayam, 1st floor,
+Beside Sri Chaitanya High School, Sardar Patel Nagar, Opp Nizampet X-Road, Hyderabad, 
+Telangana - 500072.</p>
 
-            <li><a class="btn-floating btn-sm btn-fb"><i class="fa fa-facebook"> </i></a></li>
-            <li><a class="btn-floating btn-sm btn-tw"><i class="fa fa-twitter"> </i></a></li>
-            <li><a class="btn-floating btn-sm btn-gplus"><i class="fa fa-google-plus"> </i></a></li>
-            <li><a class="btn-floating btn-sm btn-li"><i class="fa fa-linkedin"> </i></a></li>
-            <li><a class="btn-floating btn-sm btn-dribbble"><i class="fa fa-dribbble"> </i></a></li>
+              </div>
+            </div>
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5 class="text-white">Follow us</h5>
+                <ul class="company-social">
+                  <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li class="social-vimeo"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-footer">
+        <div class="container">
+          <div class="row">
+            <div class=" col-md-12 ">
+              <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="text-center">
+                  <p>&copy; Copyright By Pracha Technologies Pvt Ltd. All Rights Reserved. Privacy Policy | Terms & Conditions | Refunds / Cancellations</p>
+                </div>
+              </div>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </footer>
 
-        </ul>
-    </div>
- 
+  </div>
+  <script>
 
-</footer>
-<!--/footer end -->
-            
-    <!-- start js include path -->
-   <script type="text/javascript" src="<?php echo base_url(); ?>>assets/vendor/plugins/vendor/js/bootstrap.min.js"></script>
-	
-    
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/plugins/vendor/js/popper.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/plugins/vendor/js/compiled.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/plugins/vendor/js/mdb.min.js"></script>
-	<script>
-$(document).ready(function(){
-  // Add scrollspy to <body>
-  $('body').scrollspy({target: ".navbar", offset: 50});   
-
-  // Add smooth scrolling on all links inside the navbar
-  $("#navbarSupportedContent a").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    }  // End if
-  });
+$("nav li a").each(function() {
+    //console.log($(this).attr('href'));
+    if ((window.location.pathname.indexOf($(this).attr('href'))) > -1) {
+        $(this).parent().addClass('active');
+    }
 });
-</script>
-	<script>
-$('.scrolltotop').on('click', function() {
-          $('html, body').animate({ scrollTop: 0 }, 800);
-          return false;
-      });
 
-      $(document).scroll(function() {
-          var y = $(this).scrollTop();
-          if (y > 300) {
-              $('.scrolltotop').fadeIn();
-          } else {
-              $('.scrolltotop').fadeOut();
-          }
-      });
-</script>
+
+  </script>
+  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+  <!-- Core JavaScript Files -->
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/wow.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/jquery.scrollTo.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/jquery.appear.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/stellar.js"></script>
+
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/nivo-lightbox.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendor/home/js/custom.js"></script>
+
 </body>
 
 </html>
-
+<?php if($this->session->flashdata('success')): ?>
+<div class="alert_msg1 animated slideInUp bg-succ">
+   <?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i>
+</div>
+<?php endif; ?>
+<?php if($this->session->flashdata('error')): ?>
+<div class="alert_msg1 animated slideInUp bg-warn">
+   <?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-exclamation-triangle text-success ico_bac" aria-hidden="true"></i>
+</div>
+<?php endif; ?>

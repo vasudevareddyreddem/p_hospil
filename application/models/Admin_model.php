@@ -901,6 +901,13 @@ public  function get_discharge_patient_count($year,$hos_id){
 	$this->db->where('admitted_patient_list.completed',1);
 	return $this->db->get()->row_array(); 
 }
+// conatct us  save 
+
+public  function sent_message($data){
+		$this->db->insert('contactus', $data);
+		return $insert_id = $this->db->insert_id();
+	
+}
 	
 	
 	
